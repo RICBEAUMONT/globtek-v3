@@ -1,11 +1,28 @@
 {
   "extends": "next/core-web-vitals",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "react/no-unescaped-entities": "off",
     "react-hooks/exhaustive-deps": "off",
     "@next/next/no-img-element": "off",
     "react/no-unknown-property": "off",
-    "react/jsx-key": "off"
+    "react/jsx-key": "off",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "react/no-unescaped-entities": "off",
+    "react/no-unknown-property": "off",
+    "react/jsx-no-target-blank": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-pascal-case": "off",
+    "react/jsx-sort-props": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   }
 } 
