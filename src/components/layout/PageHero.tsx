@@ -46,6 +46,7 @@ export default function PageHero({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const allImages = useMemo(() => {
     const imageArray = [];
@@ -57,18 +58,29 @@ export default function PageHero({
   // Handle image load success
   const handleImageLoad = useCallback((src: string) => {
     setLoadedImages(prev => [...prev, src]);
+    setImageErrors(prev => {
+      const newErrors = new Set(prev);
+      newErrors.delete(src);
+      return newErrors;
+    });
+  }, []);
+
+  // Handle image load error
+  const handleImageError = useCallback((src: string) => {
+    console.error(`Failed to load image: ${src}`);
+    setImageErrors(prev => new Set([...prev, src]));
   }, []);
 
   // Safely transition to next image
   const transitionToImage = useCallback((index: number) => {
-    if (!loadedImages.includes(allImages[index])) return;
+    if (!loadedImages.includes(allImages[index]) || imageErrors.has(allImages[index])) return;
     
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentImageIndex(index);
       setIsTransitioning(false);
     }, 700);
-  }, [allImages, loadedImages]);
+  }, [allImages, loadedImages, imageErrors]);
 
   // Handle image rotation
   useEffect(() => {
@@ -147,9 +159,7 @@ export default function PageHero({
             )}
             priority={index === 0}
             onLoad={() => handleImageLoad(img)}
-            onError={(e) => {
-              console.error(`Failed to load image: ${img}`);
-            }}
+            onError={() => handleImageError(img)}
           />
         </div>
       ))}

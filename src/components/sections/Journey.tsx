@@ -2,6 +2,7 @@
 
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 interface JourneyEvent {
   year: string;
@@ -29,6 +30,30 @@ interface JourneyProps {
  * @component
  */
 export default function Journey({ events, className = '' }: JourneyProps) {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '-50px 0px -50px 0px'
+    });
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => {
+      elements.forEach((element) => {
+        observer.unobserve(element);
+      });
+    };
+  }, []);
+
   return (
     <section className={`py-24 bg-gradient-to-b from-gray-50 to-white scroll-mt-20 ${className}`}>
       <div className="mx-auto w-full max-w-[1140px] px-4 sm:px-6">
@@ -113,27 +138,6 @@ export default function Journey({ events, className = '' }: JourneyProps) {
         .delay-8 { transition-delay: 0.8s; }
         .delay-12 { transition-delay: 1.2s; }
       `}</style>
-
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
-                }
-              });
-            }, {
-              threshold: 0.15,
-              rootMargin: '-50px 0px -50px 0px'
-            });
-
-            document.querySelectorAll('.scroll-reveal').forEach((element) => {
-              observer.observe(element);
-            });
-          });
-        `
-      }} />
     </section>
   );
 } 
