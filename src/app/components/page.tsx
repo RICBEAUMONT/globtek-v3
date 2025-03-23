@@ -1,7 +1,7 @@
 import SimpleCTA from '@/components/shared/SimpleCTA';
 import CoreValues from '@/components/shared/CoreValues';
 import Container from '@/components/layout/Container';
-import { Award, Target, Lightbulb, ChevronDown, ChevronRight } from 'lucide-react';
+import { Award, Target, Lightbulb, ChevronDown as _ChevronDown, ChevronRight } from 'lucide-react';
 import Services from '@/components/shared/Services';
 import Navbar from '@/components/layout/Navbar';
 import GlobtekWay from '@/components/sections/GlobtekWay';
@@ -52,7 +52,7 @@ const exampleServices = [
   }
 ];
 
-const exampleNavigation = [
+const _exampleNavigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   {

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 
 export default function AdminDashboard() {
-  const { data: session } = useSession();
+  const { data: _session } = useSession();
 
   return (
     <div className="space-y-6">

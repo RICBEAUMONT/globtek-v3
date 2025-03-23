@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [error, setError] = useState('');
+  const [_error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,9 +66,9 @@ export default function LoginPage() {
               Sign in to your account
             </h2>
 
-            {error && (
+            {_error && (
               <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-sm text-red-600">{error}</p>
+                <p className="text-sm text-red-600">{_error}</p>
               </div>
             )}
 

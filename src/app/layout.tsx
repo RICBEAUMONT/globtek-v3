@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: "engineering, professional services, technology solutions, innovation, design",
 };
 
-const navigation = [
+const _navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   {

@@ -194,7 +194,7 @@ export default function ContactPage() {
                   When to Find Us
                 </h2>
                 <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl">
-                  Our office maintains consistent hours to ensure we're available when you need us. Schedule a visit during our business hours to discuss your engineering needs.
+                  Our office maintains consistent hours to ensure we&apos;re available when you need us. Schedule a visit during our business hours to discuss your engineering needs.
                 </p>
               </div>
 

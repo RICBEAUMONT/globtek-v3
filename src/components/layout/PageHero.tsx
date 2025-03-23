@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import Container from './Container';
 import { cn } from '@/lib/utils';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 
 interface PageHeroProps {
   title: string;
@@ -43,15 +43,20 @@ export default function PageHero({
   align = 'left',
   children,
 }: PageHeroProps) {
-  // If single image is provided, create an array with it
-  const allImages = image ? [image] : images;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
+  const allImages = useMemo(() => {
+    const imageArray = [];
+    if (image) imageArray.push(image);
+    if (images && images.length > 0) imageArray.push(...images);
+    return imageArray;
+  }, [image, images]);
+
   // Handle image load success
-  const handleImageLoad = useCallback((loadedImage: string) => {
-    setLoadedImages(prev => [...prev, loadedImage]);
+  const handleImageLoad = useCallback((src: string) => {
+    setLoadedImages(prev => [...prev, src]);
   }, []);
 
   // Safely transition to next image
@@ -92,6 +97,26 @@ export default function PageHero({
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const handlePrevImage = useCallback(() => {
+    if (currentImageIndex > 0) {
+      transitionToImage(currentImageIndex - 1);
+    }
+  }, [currentImageIndex, transitionToImage]);
+
+  const handleNextImage = useCallback(() => {
+    if (currentImageIndex < allImages.length - 1) {
+      transitionToImage(currentImageIndex + 1);
+    }
+  }, [currentImageIndex, transitionToImage, allImages.length]);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      handlePrevImage();
+    } else if (e.key === 'ArrowRight') {
+      handleNextImage();
+    }
+  }, [handlePrevImage, handleNextImage]);
 
   return (
     <div className={cn(

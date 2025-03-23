@@ -235,8 +235,8 @@ export default function AboutPage() {
               </div>
 
               {/* Description */}
-              <p className="text-[18px] text-gray-300 max-w-xl leading-relaxed">
-                From our South African roots to global impact, we're pioneering innovative engineering solutions that transform industries and shape tomorrow's infrastructure.
+              <p className="text-[13px] text-gray-300/90 leading-[1.6]">
+                We&apos;re not just another engineering firm. We&apos;re a team of passionate professionals who believe in the power of innovation and excellence.
               </p>
 
               {/* Stats Row */}
@@ -358,7 +358,7 @@ export default function AboutPage() {
               
               <div>
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Building Tomorrow's
+                  Building Tomorrow&apos;s
                   <span className="block mt-2 text-[var(--color-accent)]">Engineering Solutions</span>
                 </h2>
                 <div className="w-20 h-1 bg-[var(--color-accent)] opacity-20"></div>
@@ -576,13 +576,13 @@ export default function AboutPage() {
               <div className="space-y-8">
                 <blockquote className="text-lg text-gray-300 space-y-6">
                   <p className="relative leading-relaxed">
-                    As Africa's first internationally accredited Naval Architect, I've witnessed firsthand the transformative power of engineering innovation in the maritime sector. At Globtek, we're not just designing vessels and marine infrastructure; we're charting new waters for sustainable maritime development across the continent.
+                    As Africa&apos;s first internationally accredited Naval Architect, I&apos;ve witnessed firsthand the transformative power of engineering innovation in the maritime sector. At Globtek, we&apos;re not just designing vessels and marine infrastructure; we&apos;re charting new waters for sustainable maritime development across the continent.
                   </p>
                   <p className="leading-relaxed">
-                    Our approach combines cutting-edge naval architecture with deep understanding of African maritime challenges. We're committed to developing solutions that enhance marine infrastructure, support coastal communities, and drive sustainable economic growth through advanced engineering.
+                    Our approach combines cutting-edge naval architecture with deep understanding of African maritime challenges. We&apos;re committed to developing solutions that enhance marine infrastructure, support coastal communities, and drive sustainable economic growth through advanced engineering.
                   </p>
                   <p className="leading-relaxed">
-                    Looking ahead, our vision is to establish Africa as a center of excellence in marine and coastal engineering. Through innovation, expertise, and dedication, we're building a legacy of maritime engineering excellence that will benefit generations to come.
+                    Looking ahead, our vision is to establish Africa as a center of excellence in marine and coastal engineering. Through innovation, expertise, and dedication, we&apos;re building a legacy of maritime engineering excellence that will benefit generations to come.
                   </p>
                 </blockquote>
 
@@ -656,7 +656,7 @@ export default function AboutPage() {
 
               <div className="space-y-6">
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  At Globtek, our core values are more than just words – they're the foundation of everything we do. They guide our decisions, shape our culture, and drive our commitment to excellence in engineering.
+                  At Globtek, our core values are more than just words – they&apos;re the foundation of everything we do. They guide our decisions, shape our culture, and drive our commitment to excellence in engineering.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   These principles ensure we maintain the highest standards of professionalism while fostering innovation and sustainable development across Africa and beyond.
