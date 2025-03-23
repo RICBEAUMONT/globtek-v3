@@ -12,6 +12,12 @@ const nextConfig = {
   experimental: {
     esmExternals: false,
   },
+  webpack: (config) => {
+    config.ignoreWarnings = [
+      { module: /node_modules\/@next\/next/ },
+    ];
+    return config;
+  },
 }
 
 module.exports = nextConfig 
