@@ -1,8 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --color-primary: #e43d30;
+  --color-primary-dark: #c4271b;
+  --color-primary-light: #3d3738;  /* lighter shade of primary */
+  
+  /* Accent Colors */
+  --color-accent: #e43d30;
+  --color-accent-dark: #c4271b;
+  --color-accent-light: #e8645a;  /* lighter shade of accent */
+  --color-accent-rgb: 228, 61, 48;
+  
+  /* Background Colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F9FAFB;
+  --color-bg-dark: #231f20;
+  
+  /* New Background Colors */
+  --color-bg-gradient-from: #231f20;
+  --color-bg-gradient-to: #1a1a1a;
+  --color-bg-light: #f9fafb;          /* gray-50 */
+  --color-bg-dark-transparent: rgba(35, 31, 32, 0.95);
+  --color-bg-white-transparent: rgba(255, 255, 255, 0.05);  /* white/5 */
+  --color-bg-darker-transparent: rgba(3, 7, 18, 0.5);  /* gray-800/50 */
+  
+  /* Text Colors */
+  --color-text-primary: #231f20;
+  --color-text-secondary: #4a4a4a;
+  --color-text-light: #ffffff;
+  --color-text-dark: #1a1a1a;
 }
 
 @theme inline {
@@ -23,4 +50,56 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgb(var(--color-text-primary) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-text-primary) / 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Scroll Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.stagger-children.animate-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children animations with delays */
+.stagger-children.animate-in > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children.animate-in > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-children.animate-in > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-children.animate-in > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-children.animate-in > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-children.animate-in > *:nth-child(6) { transition-delay: 0.6s; }
+.stagger-children.animate-in > *:nth-child(7) { transition-delay: 0.7s; }
+.stagger-children.animate-in > *:nth-child(8) { transition-delay: 0.8s; }
+
+/* Stagger children animations */
+.stagger-children .scroll-reveal {
+  transition-delay: calc(var(--child-index, 0) * 0.1s);
+}
+
+/* Enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
