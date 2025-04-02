@@ -30,6 +30,10 @@ interface ServiceProjectsProps {
    * Whether to show the "View All Projects" button
    */
   showViewAllButton?: boolean;
+  /**
+   * Optional project ID to exclude from the results
+   */
+  excludeProjectId?: string;
 }
 
 /**
@@ -45,12 +49,14 @@ export default function ServiceProjects({
   description = "Explore our latest engineering achievements and successful project deliveries",
   className = '',
   maxProjects = 3,
-  showViewAllButton = true
+  showViewAllButton = true,
+  excludeProjectId
 }: ServiceProjectsProps) {
-  // Filter projects by category
+  // Filter projects by category and exclude the specified project if any
   const filteredProjects = allProjects
     .filter(project => 
-      project.category.toLowerCase().includes(category.toLowerCase())
+      project.category.toLowerCase().includes(category.toLowerCase()) &&
+      (!excludeProjectId || project.id !== excludeProjectId)
     )
     .slice(0, maxProjects);
 
@@ -58,11 +64,12 @@ export default function ServiceProjects({
   let displayProjects = [...filteredProjects];
   
   if (displayProjects.length < maxProjects) {
-    // Get featured projects that aren't already in the filtered list
+    // Get featured projects that aren't already in the filtered list and aren't the excluded project
     const additionalProjects = allProjects
       .filter(project => 
         project.featured && 
-        !displayProjects.some(p => p.id === project.id)
+        !displayProjects.some(p => p.id === project.id) &&
+        (!excludeProjectId || project.id !== excludeProjectId)
       )
       .slice(0, maxProjects - displayProjects.length);
     

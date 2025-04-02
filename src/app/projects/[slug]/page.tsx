@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { allProjects } from '@/data/projects';
 import { useState } from 'react';
+import ServiceProjects from '@/components/sections/ServiceProjects';
 
 export default function ProjectDetailPage() {
   const params = useParams();
@@ -200,42 +201,12 @@ export default function ProjectDetailPage() {
         {/* Related Projects */}
         {relatedProjects.length > 0 && (
           <section className="mt-24">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-2xl font-bold text-[#231f20] mb-6">Related Projects</h2>
-              <p className="text-[#4a4a4a]">
-                Explore more of our {project.category.toLowerCase()} projects
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {relatedProjects.map((relatedProject) => (
-                <Link
-                  key={relatedProject.id}
-                  href={`/projects/${relatedProject.slug}`}
-                  className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="relative h-48 sm:h-64">
-                    <Image
-                      src={relatedProject.image}
-                      alt={relatedProject.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300" />
-                  </div>
-                  <div className="relative p-6">
-                    <div className="text-xs font-medium text-[#e43d30] mb-2">{relatedProject.category}</div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">{relatedProject.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2 mb-4">{relatedProject.description}</p>
-                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                      <span>{relatedProject.completionDate}</span>
-                      <span className="mx-2">•</span>
-                      <span>{relatedProject.client}</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <ServiceProjects
+              category={project.category}
+              maxProjects={3}
+              showViewAllButton={true}
+              excludeProjectId={project.id}
+            />
           </section>
         )}
       </Container>
