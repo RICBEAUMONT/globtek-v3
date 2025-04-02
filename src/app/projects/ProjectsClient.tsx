@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { useState } from 'react';
 import { Search, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { allProjects, Project } from '@/data/projects';
+import { allProjects } from '@/data/projects';
 
 const categories = [
   'All Projects',

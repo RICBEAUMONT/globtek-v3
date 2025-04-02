@@ -123,7 +123,6 @@ const navigation: NavigationItem[] = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [focusedItem, setFocusedItem] = useState<string | null>(null);
   const pathname = usePathname();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
@@ -150,7 +149,6 @@ const Navbar = () => {
       if (event.key === 'Escape') {
         setIsOpen(false);
         setActiveDropdown(null);
-        setFocusedItem(null);
       }
     };
 

@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Container from '../layout/Container';
 
 interface SimpleCTAProps {
   title: string;

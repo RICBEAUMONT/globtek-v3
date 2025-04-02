@@ -1,8 +1,7 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface JourneyEvent {
   year: string;

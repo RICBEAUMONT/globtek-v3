@@ -7,76 +7,12 @@ import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { allProjects } from '@/data/projects';
-
-interface ServiceHighlight {
-  title: string;
-  description: string;
-}
-
-const highlights: ServiceHighlight[] = [
-  {
-    title: "Tall Buildings",
-    description: "Advanced structural design and analysis for high-rise buildings and commercial complexes."
-  },
-  {
-    title: "Bridges",
-    description: "Innovative bridge design and engineering solutions ensuring safety and longevity."
-  },
-  {
-    title: "Liquid-Retaining Structures",
-    description: "Specialized design for tanks, reservoirs, and other liquid containment facilities."
-  },
-  {
-    title: "BIM Integration",
-    description: "Cutting-edge Building Information Modeling for enhanced project visualization and coordination."
-  }
-];
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  completionDate: string;
-  client: string;
-  slug: string;
-}
-
-// Filter civil/structural-related projects with priority for specific civil/structural projects
-const featuredProjects = allProjects
-  .filter(project => 
-    project.category.toLowerCase().includes('civil') ||
-    project.category.toLowerCase().includes('structural') ||
-    project.category.toLowerCase().includes('building')
-  )
-  .sort((a, b) => {
-    // Prioritize projects with exact category matches
-    const aExactMatch = a.category === 'Civil & Structural' || 
-                       a.category === 'Civil Engineering' || 
-                       a.category === 'Structural Engineering' ||
-                       a.category === 'Structural Analysis';
-    const bExactMatch = b.category === 'Civil & Structural' || 
-                       b.category === 'Civil Engineering' || 
-                       b.category === 'Structural Engineering' ||
-                       b.category === 'Structural Analysis';
-    
-    if (aExactMatch && !bExactMatch) return -1;
-    if (!aExactMatch && bExactMatch) return 1;
-    
-    // If both are exact matches or both aren't, sort by completion date
-    return new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime();
-  })
-  .slice(0, 3);
-
-// If no civil projects found, use latest projects
-const displayProjects = featuredProjects.length > 0 ? featuredProjects : allProjects.slice(0, 3);
-const sectionTitle = featuredProjects.length > 0 
-  ? "Our Civil Structure Success Stories"
-  : "Our Featured Projects";
+import { useEffect, useState } from 'react';
 
 export default function CivilStructuralPage() {
   useScrollReveal();
+
+  const [isVisible, setIsVisible] = useState(false);
 
   const timestamp = Date.now();
   const heroImages = [
@@ -236,64 +172,15 @@ export default function CivilStructuralPage() {
               Featured Projects
             </div>
             <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
-              {sectionTitle}
+              Our Civil Structure Success Stories
             </h2>
             <p className="text-lg text-[#4a4a4a] leading-relaxed">
-              {featuredProjects.length > 0
-                ? "Discover how we've transformed infrastructure through innovative structural solutions"
-                : "Explore our latest engineering achievements and successful project deliveries"}
+              Discover how we've transformed infrastructure through innovative structural solutions
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayProjects.map((project) => (
+            {allProjects.slice(0, 3).map((project) => (
               <Link
                 key={project.id}
-                href={`/projects/${project.slug}`}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative h-64">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-4">
-                    {project.category}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#231f20] mb-3 group-hover:text-[#e43d30] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-[#4a4a4a] leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-24">
-          <SimpleCTA
-            title="Ready to"
-            titleAccent="Start Your Project?"
-            description="Let's discuss how our structural engineering expertise can bring your vision to life."
-            primaryButton={{
-              text: "Contact Us",
-              href: "/contact"
-            }}
-            secondaryButton={{
-              text: "View All Services",
-              href: "/services"
-            }}
-          />
-        </div>
-      </Container>
-    </main>
-  );
-} 
+                href={`/projects/${project.slug}`

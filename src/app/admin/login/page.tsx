@@ -3,9 +3,11 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 export default function LoginPage() {
   const router = useRouter();
+  const { data: _session, status } = useSession();
   const [_error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 

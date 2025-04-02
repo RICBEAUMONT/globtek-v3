@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from './Container';
-import { Twitter, Linkedin, Mail, Phone, MapPin, Clock, LucideIcon } from 'lucide-react';
+import { Twitter, Linkedin, Mail, Phone, MapPin, Clock, LucideIcon, Facebook, Instagram } from 'lucide-react';
 
 /**
  * Types for the footer navigation structure

@@ -66,10 +66,9 @@ export default function PageHero({
   }, []);
 
   // Handle image load error
-  const handleImageError = useCallback((src: string) => {
-    console.error(`Failed to load image: ${src}`);
-    setImageErrors(prev => new Set([...prev, src]));
-  }, []);
+  const handleImageError = (_e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
+  };
 
   // Safely transition to next image
   const transitionToImage = useCallback((index: number) => {
@@ -159,7 +158,7 @@ export default function PageHero({
             )}
             priority={index === 0}
             onLoad={() => handleImageLoad(img)}
-            onError={() => handleImageError(img)}
+            onError={handleImageError}
           />
         </div>
       ))}

@@ -16,8 +16,6 @@
     "react/jsx-key": "off",
     "react/display-name": "off",
     "react/no-children-prop": "off",
-    "react/no-unescaped-entities": "off",
-    "react/no-unknown-property": "off",
     "react/jsx-no-target-blank": "off",
     "react/jsx-no-useless-fragment": "off",
     "react/jsx-pascal-case": "off",
