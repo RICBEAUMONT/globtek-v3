@@ -6,7 +6,7 @@ import SimpleCTA from '@/components/services/SimpleCTA';
 import PageHero from '@/components/services/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { allProjects } from '@/data/projects';
+import ServiceProjects from '@/components/sections/ServiceProjects';
 
 interface ServiceHighlight {
   title: string;
@@ -31,32 +31,6 @@ const highlights: ServiceHighlight[] = [
     description: "Ensuring all coastal projects meet environmental regulations and sustainability standards."
   }
 ];
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  completionDate: string;
-  client: string;
-  slug: string;
-}
-
-// Filter coastal-related projects or get latest projects
-const featuredProjects = allProjects
-  .filter(project => 
-    project.category.toLowerCase().includes('coastal') ||
-    project.category.toLowerCase().includes('shoreline') ||
-    project.category.toLowerCase().includes('beach')
-  )
-  .slice(0, 3);
-
-// If no coastal projects found, use latest projects
-const displayProjects = featuredProjects.length > 0 ? featuredProjects : allProjects.slice(0, 3);
-const sectionTitle = featuredProjects.length > 0 
-  ? "Our Coastal Engineering Success Stories"
-  : "Our Featured Projects";
 
 export default function CoastalEngineeringPage() {
   useScrollReveal();
@@ -99,14 +73,13 @@ export default function CoastalEngineeringPage() {
             </h2>
             <div className="space-y-6">
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
-                Our skilled engineers excel in designing and implementing coastal protection and enhancement solutions. 
-                From shoreline protection to beach nourishment, our expertise and capabilities enable us to address even the most 
-                challenging coastal projects confidently.
+                Our team of coastal engineers specializes in protecting and enhancing shorelines through innovative solutions. 
+                From erosion control to beach nourishment, we deliver sustainable coastal management strategies that balance 
+                environmental preservation with infrastructure needs.
               </p>
               <p className="text-[#4a4a4a] leading-relaxed">
-                Our extensive offerings encompass thorough feasibility studies, detailed coastal analysis, rigorous 
-                environmental assessments, and adherence to regulatory compliance. We prioritize sustainability, efficiency, and 
-                environmental protection to provide economical solutions that meet the highest industry benchmarks.
+                With extensive experience in breakwater design, shoreline protection, and environmental compliance, 
+                we ensure all projects meet the highest standards while preserving natural coastal ecosystems.
               </p>
             </div>
             
@@ -157,7 +130,7 @@ export default function CoastalEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Shoreline Protection</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Coastal defense and erosion control</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Coastal defense structures</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -168,7 +141,7 @@ export default function CoastalEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Beach Nourishment</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Beach restoration and maintenance</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Beach restoration solutions</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -179,7 +152,7 @@ export default function CoastalEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Breakwater Design</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Harbor protection and wave control</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Harbor protection systems</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -189,18 +162,7 @@ export default function CoastalEngineeringPage() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Environmental Assessment</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Environmental impact analysis</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
-                  <div className="w-8 h-8 rounded-lg bg-[#e43d30]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#e43d30]/20 group-hover:scale-110 transition-all duration-300">
-                    <svg className="w-4 h-4 text-[#e43d30]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Regulatory Compliance</h4>
+                    <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Environmental Compliance</h4>
                     <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Environmental standards adherence</p>
                   </div>
                 </div>
@@ -210,55 +172,11 @@ export default function CoastalEngineeringPage() {
         </div>
 
         {/* Featured Projects Section */}
-        <div className="mt-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Featured Projects
-            </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
-              {sectionTitle}
-            </h2>
-            <p className="text-lg text-[#4a4a4a] leading-relaxed">
-              {featuredProjects.length > 0
-                ? "Discover how we've helped transform coastal environments across various projects"
-                : "Explore our latest engineering achievements and successful project deliveries"}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${project.slug}`}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative h-64">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-4">
-                    {project.category}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#231f20] mb-3 group-hover:text-[#e43d30] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-[#4a4a4a] leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <ServiceProjects 
+          category="Coastal Engineering"
+          maxProjects={3}
+          showViewAllButton={true}
+        />
 
         {/* CTA Section */}
         <div className="py-16">

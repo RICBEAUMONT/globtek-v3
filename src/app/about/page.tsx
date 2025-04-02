@@ -452,7 +452,7 @@ export default function AboutPage() {
             {expertise.map((area) => (
               <div
                 key={area.area}
-                className="group translate-y-8 opacity-0"
+                className="group"
               >
                 <div className="relative bg-gray-900 p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
                   {/* Icon */}

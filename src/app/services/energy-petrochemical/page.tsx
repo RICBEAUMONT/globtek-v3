@@ -6,7 +6,7 @@ import SimpleCTA from '@/components/shared/SimpleCTA';
 import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { allProjects } from '@/data/projects';
+import ServiceProjects from '@/components/sections/ServiceProjects';
 
 interface ServiceHighlight {
   title: string;
@@ -31,29 +31,6 @@ const highlights: ServiceHighlight[] = [
     description: "End-to-end management of energy and petrochemical projects, including regulatory compliance."
   }
 ];
-
-// Filter energy-related projects and sort by completion date
-const featuredProjects = allProjects
-  .filter(project => 
-    project.category.toLowerCase().includes('energy') ||
-    project.category.toLowerCase().includes('petrochemical') ||
-    project.category.toLowerCase().includes('renewable')
-  )
-  .sort((a, b) => {
-    return new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime();
-  })
-  .slice(0, 3);
-
-// If no energy projects found, use latest projects sorted by date
-const displayProjects = featuredProjects.length > 0 
-  ? featuredProjects 
-  : allProjects
-      .sort((a, b) => new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime())
-      .slice(0, 3);
-
-const sectionTitle = featuredProjects.length > 0 
-  ? "Our Energy & Petrochemical Success Stories"
-  : "Our Featured Projects";
 
 export default function EnergyPetrochemicalPage() {
   const { ref } = useScrollReveal();
@@ -162,52 +139,11 @@ export default function EnergyPetrochemicalPage() {
         </div>
 
         {/* Featured Projects Section */}
-        <div className="mt-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Featured Projects
-            </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
-              {sectionTitle}
-            </h2>
-            <p className="text-lg text-[#4a4a4a] leading-relaxed">
-              Explore our portfolio of successful energy and petrochemical projects, showcasing our expertise in both traditional and renewable energy solutions.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${project.slug}`}
-                className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative h-48 sm:h-64">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300" />
-                </div>
-                <div className="relative p-6">
-                  <div className="text-xs font-medium text-[#e43d30] mb-2">{project.category}</div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2 mb-4">{project.description}</p>
-                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <span>{project.completionDate}</span>
-                    <span className="mx-2">•</span>
-                    <span>{project.client}</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <ServiceProjects 
+          category="Energy Petrochemical"
+          maxProjects={3}
+          showViewAllButton={true}
+        />
       </Container>
 
       {/* Call to Action */}

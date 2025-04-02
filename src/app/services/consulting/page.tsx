@@ -6,6 +6,7 @@ import SimpleCTA from '@/components/shared/SimpleCTA';
 import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import ServiceProjects from '@/components/sections/ServiceProjects';
 
 interface ServiceHighlight {
   title: string;
@@ -30,56 +31,6 @@ const highlights: ServiceHighlight[] = [
     description: "Insights on industry trends and market positioning strategies."
   }
 ];
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  completionDate: string;
-  client: string;
-  slug: string;
-}
-
-// Import projects from the main projects page
-const allProjects: Project[] = [
-  {
-    id: '1',
-    title: 'Load Line Length Verification & Modifications – Open Ocean 870',
-    description: 'Expert naval architectural services for Two Oceans Marine Manufacturing, assisting with critical modifications and compliance verification for the Open Ocean 870 luxury catamaran.',
-    category: 'Consulting',
-    image: '/images/projects/open-ocean-870.jpg',
-    completionDate: '2024',
-    client: 'Two Oceans Marine Manufacturing',
-    slug: 'open-ocean-870-verification'
-  },
-  {
-    id: '2',
-    title: 'CTV Deck Tie-Down Design for Legacy Marine',
-    description: 'Specialized naval architecture services for structural analysis and safe working load (SWL) verification of a deck tie-down pipe on a Crew Transfer Vessel (CTV).',
-    category: 'Consulting',
-    image: '/images/projects/legacy-marine-ctv.jpg',
-    completionDate: '2024',
-    client: 'Legacy Marine',
-    slug: 'ctv-deck-tie-down-design'
-  }
-];
-
-// Filter consulting related projects or get latest projects
-const featuredProjects = allProjects
-  .filter(project => 
-    project.category.toLowerCase().includes('consulting') ||
-    project.category.toLowerCase().includes('advisory') ||
-    project.category.toLowerCase().includes('strategy')
-  )
-  .slice(0, 3);
-
-// If no consulting projects found, use latest projects
-const displayProjects = featuredProjects.length > 0 ? featuredProjects : allProjects.slice(0, 3);
-const sectionTitle = featuredProjects.length > 0 
-  ? "Our Consulting Success Stories"
-  : "Our Featured Projects";
 
 export default function ConsultingPage() {
   useScrollReveal();
@@ -119,18 +70,18 @@ export default function ConsultingPage() {
               Our Expertise
             </div>
             <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
-              Strategic Maritime Consulting Solutions
+              Innovative Consulting Solutions
             </h2>
             <div className="space-y-6">
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
-                Our team of experienced consultants brings in-depth knowledge of maritime regulations 
-                and industry best practices to provide expert guidance and strategic solutions.
+                Our experienced consultants deliver strategic maritime advisory services using 
+                industry expertise and market insights. We help you navigate complex regulations 
+                and optimize operations for sustainable growth.
               </p>
               <p className="text-[#4a4a4a] leading-relaxed">
-                With a strong foundation in maritime operations and regulatory compliance, the Globtek team 
-                is well-equipped to help clients navigate complex requirements, minimize ecological footprints, 
-                and improve operational efficiency. Our expertise in strategic consulting sets us apart as a 
-                trusted advisor in the maritime sector.
+                From regulatory compliance to market analysis, our comprehensive consulting 
+                services provide you with the strategic guidance needed to maintain a 
+                competitive edge in the maritime industry.
               </p>
             </div>
             
@@ -181,7 +132,7 @@ export default function ConsultingPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Regulatory Compliance</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert guidance on maritime regulations</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Maritime regulations</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -192,7 +143,7 @@ export default function ConsultingPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Environmental Impact</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Sustainable operations strategies</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Sustainable operations</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -234,55 +185,11 @@ export default function ConsultingPage() {
         </div>
 
         {/* Featured Projects Section */}
-        <div className="mt-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Featured Projects
-            </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
-              {sectionTitle}
-            </h2>
-            <p className="text-lg text-[#4a4a4a] leading-relaxed">
-              {featuredProjects.length > 0
-                ? "Discover how we've helped transform maritime operations across various projects"
-                : "Explore our latest consulting achievements and successful project deliveries"}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${project.slug}`}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative h-64">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-4">
-                    {project.category}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#231f20] mb-3 group-hover:text-[#e43d30] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-[#4a4a4a] leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <ServiceProjects 
+          category="Consulting"
+          maxProjects={3}
+          showViewAllButton={true}
+        />
 
         {/* CTA Section */}
         <div className="mt-24">

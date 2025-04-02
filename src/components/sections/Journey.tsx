@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface JourneyEvent {
@@ -29,35 +28,11 @@ interface JourneyProps {
  * @component
  */
 export default function Journey({ events, className = '' }: JourneyProps) {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '-50px 0px -50px 0px'
-    });
-
-    const elements = document.querySelectorAll('.scroll-reveal');
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    return () => {
-      elements.forEach((element) => {
-        observer.unobserve(element);
-      });
-    };
-  }, []);
-
   return (
     <section className={`py-24 bg-gradient-to-b from-gray-50 to-white scroll-mt-20 ${className}`}>
       <div className="mx-auto w-full max-w-[1140px] px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 translate-y-8 opacity-0 scroll-reveal">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           {/* Section Label */}
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-px w-12 bg-[var(--color-accent)]"></div>
@@ -120,23 +95,6 @@ export default function Journey({ events, className = '' }: JourneyProps) {
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        .scroll-reveal {
-          transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
-                      transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-reveal.is-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .delay-0 { transition-delay: 0s; }
-        .delay-4 { transition-delay: 0.4s; }
-        .delay-8 { transition-delay: 0.8s; }
-        .delay-12 { transition-delay: 1.2s; }
-      `}</style>
     </section>
   );
 } 
