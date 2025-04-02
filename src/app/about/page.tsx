@@ -161,24 +161,24 @@ const statistics = [
 
 const heroImages = [
   {
-    url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop",
-    alt: "Modern engineering facility with advanced technology"
+    url: "/images/projects/open-ocean-870/hero.jpg",
+    alt: "Open Ocean 870 luxury catamaran"
   },
   {
-    url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=2070&auto=format&fit=crop",
-    alt: "Engineers working on advanced technology solutions"
+    url: "/images/projects/open-ocean-870/gallery-1.jpg",
+    alt: "Open Ocean 870 design details"
   },
   {
-    url: "https://images.unsplash.com/photo-1581092334247-ddef2a378429?q=80&w=2070&auto=format&fit=crop",
-    alt: "Precision engineering and quality control"
+    url: "/images/projects/open-ocean-870/gallery-2.jpg",
+    alt: "Open Ocean 870 engineering excellence"
   },
   {
-    url: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=2070&auto=format&fit=crop",
-    alt: "Industrial automation and control systems"
+    url: "/images/projects/open-ocean-870/gallery-3.jpg",
+    alt: "Open Ocean 870 naval architecture"
   },
   {
-    url: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop",
-    alt: "Engineering innovation and research"
+    url: "/images/projects/open-ocean-870/gallery-4.jpg",
+    alt: "Open Ocean 870 marine innovation"
   }
 ];
 
@@ -602,7 +602,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-3 gap-6 pt-8 mt-8 border-t border-white/10">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[var(--color-accent)] mb-1">1st</div>
-                  <div className="text-sm text-gray-400">Black Naval Architect in Africa</div>
+                  <div className="text-sm text-gray-400">Black Naval Architect in the South African maritime commercial market</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[var(--color-accent)] mb-1">200+</div>

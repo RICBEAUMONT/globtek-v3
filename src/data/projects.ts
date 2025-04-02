@@ -123,7 +123,7 @@ export const allProjects: Project[] = [
       ],
       specifications: {
         'Vessel Type': 'Luxury Catamaran',
-        'Length': '870',
+        'Length': '24 meters (m)',
         'Client': 'Two Oceans Marine Manufacturing',
         'Completion Date': '2024'
       },
