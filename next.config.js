@@ -21,6 +21,10 @@ const nextConfig = {
     ];
     return config;
   },
+  // Ensure port 3000 is always used
+  serverOptions: {
+    port: 3000,
+  },
 }
 
 module.exports = nextConfig 

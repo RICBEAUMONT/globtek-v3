@@ -236,3 +236,60 @@ The page is divided into three main sections:
 - Maintains consistent spacing and typography
 - Uses gradient overlays for visual depth
 - Implements responsive padding and margins
+
+# Globtek v3
+
+## GitHub Integration Setup
+
+The Updates page fetches commit history from GitHub to display recent changes. To make this work, you need to:
+
+1. **Create a GitHub Personal Access Token**:
+   - Go to GitHub.com → Settings → Developer settings → Personal access tokens → Tokens (classic)
+   - Click "Generate new token (classic)"
+   - Give it a name like "Globtek Updates"
+   - Select the `repo` scope to allow access to repository data
+   - Click "Generate token"
+   - Copy the token (you won't be able to see it again)
+
+2. **Add the Token to Your Environment**:
+   - Open the `.env.local` file in the root of your project
+   - Replace `your_github_token_here` with the token you copied
+   - Save the file
+
+3. **Verify Repository Access**:
+   - Make sure the repository `ricardobeaumont/globtek-v3` exists
+   - Ensure the token has access to this repository
+   - If using a different repository, update the `owner` and `repo` variables in `src/lib/github.ts`
+
+4. **Restart Your Development Server**:
+   - Stop your current server
+   - Run `npm run dev` to restart with the new environment variables
+
+## Troubleshooting
+
+If you see a 404 error when fetching commits:
+
+1. **Check Repository Name**: Verify that the repository name in `src/lib/github.ts` is correct
+2. **Verify Token Permissions**: Make sure your token has the `repo` scope
+3. **Check Repository Privacy**: If the repository is private, ensure your token has access to it
+4. **Look at Console Logs**: The application logs detailed error messages to help diagnose issues
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+## Production
+
+```bash
+# Build for production
+npm run build
+
+# Start the production server
+npm start
+```
