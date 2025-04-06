@@ -80,17 +80,17 @@ export default function TeamPage() {
       setDeletingId(member.id);
       setError(null);
 
-      // Delete the user from Supabase Auth
-      const { error: authError } = await supabase.auth.admin.deleteUser(member.id);
-      if (authError) throw authError;
+      const response = await fetch(`/api/admin/users/${member.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      // Delete the profile from the profiles table
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .delete()
-        .eq('id', member.id);
-
-      if (profileError) throw profileError;
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to delete team member');
+      }
 
       // Refresh the team members list
       await fetchTeamMembers();
@@ -241,26 +241,21 @@ export default function TeamPage() {
                             {new Date(member.created_at).toLocaleDateString()}
                           </td>
                           <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                            <Link href={`/admin/team/${member.id}`} className="text-[#e43d30] hover:text-[#c63529] mr-4">
-                              Edit
-                            </Link>
-                            <button
-                              onClick={() => handleDelete(member)}
-                              disabled={deletingId === member.id}
-                              className="text-red-600 hover:text-red-900 disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                              {deletingId === member.id ? (
-                                <span className="flex items-center">
-                                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                  </svg>
-                                  Deleting...
-                                </span>
-                              ) : (
-                                'Delete'
-                              )}
-                            </button>
+                            <div className="flex justify-end space-x-2">
+                              <Link
+                                href={`/admin/team/${member.id}`}
+                                className="text-[#e43d30] hover:text-[#c63529]"
+                              >
+                                View Profile
+                              </Link>
+                              <button
+                                onClick={() => handleDelete(member)}
+                                disabled={deletingId === member.id}
+                                className="text-red-600 hover:text-red-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                              >
+                                {deletingId === member.id ? 'Deleting...' : 'Delete'}
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       ))
