@@ -23,9 +23,9 @@ const navigation: NavigationItem[] = [
     name: 'Marine',
     children: [
       { 
-        name: 'Naval Design', 
-        href: '/services/naval-design',
-        description: 'Comprehensive naval architecture and marine design solutions for vessels of all types.',
+        name: 'Naval Architecture', 
+        href: '/services/naval-architect',
+        description: 'Innovative vessel design and marine engineering solutions.',
         imageUrl: '/images/services/naval-design/hero.jpg'
       },
       { 

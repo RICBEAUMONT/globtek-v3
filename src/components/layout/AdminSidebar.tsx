@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 export default function AdminSidebar() {
   const pathname = usePathname();
@@ -23,8 +24,15 @@ export default function AdminSidebar() {
       <div className="flex-1 flex flex-col min-h-0 bg-gray-800">
         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <div className="flex items-center flex-shrink-0 px-4">
-            <Link href="/admin" className="text-xl font-bold text-white">
-              Globtek Admin
+            <Link href="/admin" className="flex items-center">
+              <Image
+                src="/globtek-logo.svg"
+                alt="Globtek Logo"
+                width={120}
+                height={32}
+                priority
+                className="brightness-0 invert"
+              />
             </Link>
           </div>
           <nav className="mt-5 flex-1 px-2 space-y-1">

@@ -293,3 +293,26 @@ npm run build
 # Start the production server
 npm start
 ```
+
+## Reusable Component: Core Services Section
+
+This section displays a badge, heading, subheading, and a grid of expandable service cards.
+
+- The badge, heading, and subheading can be customized for different pages.
+- The service cards are controlled by a single expanded state, ensuring only one is open at a time.
+- The layout is responsive and visually consistent with the site's design system.
+
+### How to Reuse
+- Extract this section into a separate component (e.g., `components/sections/CoreServicesSection.tsx`).
+- Pass props for badge text, heading, subheading, and card content.
+- Use on any page that needs a similar expandable services/capabilities block.
+
+### Example Usage
+```jsx
+<CoreServicesSection
+  badgeText="Core Services"
+  heading={<>From Concept to Completion<br />Our Core Capabilities</>}
+  subheading="A focused suite of services for every stage of marine engineering"
+  cards={/* array of card data */}
+/>
+```

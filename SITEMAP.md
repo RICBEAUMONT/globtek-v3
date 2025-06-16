@@ -74,7 +74,7 @@
   - The Globtek Way
 
 ### Marine (Mega Menu)
-- **Naval Design** (`/services/naval-design`)
+- **Naval Architecture** (`/services/naval-architect`)
 - **Marine Engineering** (`/services/marine-engineering`)
 - **Coastal Engineering** (`/services/coastal-engineering`)
 - **Project Management** (`/services/project-management`)
@@ -124,7 +124,7 @@
 /
 ├── /about
 ├── /services/
-│   ├── /naval-design
+│   ├── /naval-architect
 │   ├── /marine-engineering
 │   ├── /coastal-engineering
 │   ├── /project-management
@@ -162,7 +162,7 @@ const navigation = [
   {
     name: 'Naval',
     children: [
-      { name: 'Naval Design', href: '/services/naval-design' },
+      { name: 'Naval Architecture', href: '/services/naval-architect' },
       { name: 'Marine Engineering', href: '/services/marine-engineering' },
       { name: 'Coastal Engineering', href: '/services/coastal-engineering' },
       { name: 'Project Management', href: '/services/project-management' },

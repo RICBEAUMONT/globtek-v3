@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Ship, Award, Globe, Anchor } from 'lucide-react';
 import Container from '@/components/layout/Container';
 import Link from 'next/link';
 import SimpleCTA from '@/components/shared/SimpleCTA';
@@ -11,20 +11,32 @@ import { allProjects } from '@/data/projects';
 
 const statistics = [
   {
-    number: '50',
-    label: 'STATES LICENSED',
+    number: '1st',
+    label: '1ST BLACK NAVAL ARCHITECT IN SA',
+    description: 'Leading innovation at Globtek, pioneering new standards in naval architecture and inspiring future generations',
+    icon: <Ship className="h-8 w-8" />,
+    highlight: 'Pioneering Achievement',
   },
   {
-    number: '20k+',
-    label: 'PROJECTS COMPLETED',
+    number: '15+',
+    label: 'UNPARRALELLED MARINE EXPERIENCE',
+    description: 'Leading the industry with extensive expertise in naval architecture and marine engineering',
+    icon: <Award className="h-8 w-8" />,
+    highlight: 'Industry Leader',
   },
   {
-    number: '150+',
-    label: 'TECHNICAL EXPERTS',
+    number: '50+',
+    label: 'VESSELS DESIGNED & BUILT',
+    description: 'Delivering excellence through innovative vessel designs, setting new benchmarks in maritime engineering and operations',
+    icon: <Globe className="h-8 w-8" />,
+    highlight: 'Global Impact',
   },
   {
-    number: '10',
-    label: 'KEY SERVICES',
+    number: '100%',
+    label: 'CLASS APPROVED',
+    description: 'Maintaining perfect compliance with international maritime classification standards',
+    icon: <Anchor className="h-8 w-8" />,
+    highlight: 'Quality Assured',
   },
 ];
 
@@ -92,32 +104,39 @@ export default function Home() {
       {/* Expert Engineers Section */}
       <div className="relative -mt-24 z-10">
         <div className="max-w-[1140px] mx-auto">
-          <div className="bg-white pt-[40px] pb-8 px-4">
+          <div className="bg-white pt-6 pb-6 px-4 rounded-md">
             <Container>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {/* Left Column - Text */}
-                <div className="flex flex-col justify-start">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#231f20]">
-                    EXPERT ENGINEERS<span className="text-[#e43d30]">+</span>
-                    <br />
-                    <span className="font-normal">SURVEYORS</span>
-                  </h2>
-                  <p className="text-[#4a4a4a] text-lg leading-relaxed max-w-xl">
-                    Our engineering and surveying solutions blend cutting-edge innovation with a practical approach that is responsive to your needs.
-                  </p>
-                </div>
-                
-                {/* Right Column - Stats Grid */}
-                <div className="grid grid-cols-2 gap-8 md:gap-12">
-                  {statistics.map((stat, index) => (
-                    <AnimatedStat
-                      key={index}
-                      number={stat.number}
-                      label={stat.label}
-                      delay={0}
-                    />
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+                {statistics.map((stat, index) => (
+                  <div 
+                    key={index}
+                    className="group relative bg-white p-4 rounded-lg border border-gray-200 hover:border-[#e43d30] transition-all duration-300 hover:shadow-lg"
+                  >
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#e43d30]/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative z-10">
+                      <div className="text-[#e43d30] mb-2">
+                        {stat.icon}
+                      </div>
+                      <h3 className="text-base font-semibold text-gray-900 mb-1">
+                        {stat.label}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {stat.description}
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span className="inline-block px-2 py-0.5 text-xs font-medium text-[#e43d30] bg-[#e43d30]/10 rounded-full">
+                          {stat.highlight}
+                        </span>
+                        <Link 
+                          href="/about" 
+                          className="text-sm text-[#e43d30] hover:text-[#e43d30]/80 transition-colors"
+                        >
+                          Read More →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </Container>
           </div>

@@ -251,7 +251,7 @@ export default function PageHero({
 
           {/* Description */}
           {description && (
-            <p className="text-xl text-gray-200 max-w-2xl leading-relaxed">
+            <p className="text-lg text-gray-200 max-w-2xl leading-relaxed">
               {description}
             </p>
           )}

@@ -53,7 +53,7 @@ const footerNavigation: FooterNavigation = {
       name: 'Globtek Marine',
       href: '/services/marine',
       items: [
-        { name: 'Naval Design', href: '/services/naval-design' },
+        { name: 'Naval Architecture', href: '/services/naval-architect' },
         { name: 'Marine Engineering', href: '/services/marine-engineering' },
         { name: 'Shipbuilding', href: '/services/shipbuilding' }
       ]

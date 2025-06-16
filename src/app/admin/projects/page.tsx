@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 import Link from 'next/link';
 
 interface Project {
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
     async function fetchProjects() {
       try {
         setLoading(true);
-        const { data, error } = await supabase
+        const { data, error } = await supabaseAdmin
           .from('projects')
           .select('*')
           .order('created_at', { ascending: false });

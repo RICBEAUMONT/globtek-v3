@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils';
 const services = [
   // Marine Services
   {
-    title: 'Naval Design',
-    description: 'Comprehensive naval architecture and marine design solutions for vessels of all types.',
+    title: 'Naval Architecture',
+    description: 'Innovative vessel design and marine engineering solutions.',
     image: '/images/services/naval-design/hero.jpg',
-    href: '/services/naval-design',
+    href: '/services/naval-architect',
     color: '#e43d30'
   },
   {

@@ -19,9 +19,9 @@ const _navigation = [
     name: 'Services',
     children: [
       { 
-        name: 'Naval Design', 
-        href: '/services/naval-design',
-        description: 'Specialized naval architecture and marine engineering solutions.',
+        name: 'Naval Architecture', 
+        href: '/services/naval-architect',
+        description: 'Innovative vessel design and marine engineering solutions.',
         imageUrl: '/images/services/naval-design/menu.jpg'
       },
       // ... existing services ...
