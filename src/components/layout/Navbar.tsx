@@ -35,9 +35,15 @@ const navigation: NavigationItem[] = [
         imageUrl: '/images/services/marine-engineering/hero.jpg'
       },
       { 
-        name: 'Coastal Engineering', 
-        href: '/services/coastal-engineering',
-        description: 'Expert solutions for coastal infrastructure and environmental protection.',
+        name: 'Offshore Engineering', 
+        href: '/services/offshore-engineering',
+        description: 'Specialized offshore engineering solutions for oil rigs, wind farms, and marine structures.',
+        imageUrl: '/images/services/marine/offshore-engineering-1.jpg'
+      },
+      { 
+        name: 'Coastal & Port Infrastructure', 
+        href: '/services/coastal-port-infrastructure',
+        description: 'Comprehensive coastal and port infrastructure engineering solutions.',
         imageUrl: '/images/services/coastal-engineering/hero.jpg'
       },
       { 
@@ -110,6 +116,15 @@ const navigation: NavigationItem[] = [
         href: '/services/environmental-planning',
         description: 'Sustainable Development Solutions',
         imageUrl: '/images/environmental-planning/hero.jpg',
+        icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      },
+      { 
+        name: 'Rail Design - Technical Capabilities',
+        href: '/services/rail-design',
+        description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
+        imageUrl: '/images/services/rail-design/hero.jpg',
         icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
