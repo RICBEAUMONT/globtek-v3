@@ -80,13 +80,11 @@ export default function NavalArchitectPage() {
       <Container className="py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="relative">
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6 whitespace-nowrap">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                Our Mission-Driven Engineering Philosophy
-              </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6 whitespace-nowrap">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Our Mission-Driven Engineering Philosophy
             </div>
             <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
               Innovative Naval Architecture Solutions
@@ -138,19 +136,14 @@ export default function NavalArchitectPage() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-[#231f20] to-[#1a1718] rounded-2xl shadow-xl"></div>
             <div className="relative p-6 md:p-8 rounded-2xl border border-[#e43d30]/10 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#e43d30]/10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
+              <div className="mb-6">
                 <h3 className="text-xl font-bold text-white tracking-tight">Design to Classification, Build to Performance</h3>
               </div>
               <div className="space-y-4">
                 <p className="text-gray-300 text-base leading-relaxed">
                   Globtek supports naval and commercial shipbuilding from first sketch to final trial. Whether you're developing an offshore support vessel, a planing hull interceptor, or a moored platform in deepwater seas—our solutions are underpinned by:
                 </p>
-                <ul className="space-y-2 text-gray-200 text-base mt-2">
+                <ul className="space-y-2 text-gray-200 text-sm mt-2">
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
                       <svg className="w-4 h-4 text-[#e43d30]" fill="currentColor" viewBox="0 0 20 20">
@@ -217,10 +210,10 @@ export default function NavalArchitectPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#231f20] mb-4 text-center">
             From Concept to Completion<br />Our Core Capabilities
           </h2>
-          <p className="text-center text-[#4a4a4a] font-medium mb-8 text-base">A focused suite of services for every stage of marine engineering</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <p className="text-center text-[#4a4a4a] font-medium mb-12 text-base">A focused suite of services for every stage of marine engineering</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
             {/* Service Step 1 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 1 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 1 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 1 ? null : 1)}
               tabIndex={0}
               role="button"
@@ -235,19 +228,33 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">From hullform selection to multi-domain trade-offs, we establish the design foundation.</p>
               {expanded === 1 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li><b>Resistance, propulsion</b> & powering predictions</li>
-                    <li><b>Weight & balance</b> modelling (including probabilistic weight growth)</li>
-                    <li><b>Seakeeping & manoeuvring</b> behaviour in regular and irregular seas</li>
-                    <li><b>Vibration and noise</b> analysis in early-stage layout</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Resistance, propulsion</strong> & powering predictions</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Weight & balance</strong> modelling (including probabilistic weight growth)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Seakeeping & manoeuvring</strong> behaviour in regular and irregular seas</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Vibration and noise</strong> analysis in early-stage layout</span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Tools: RANS-CFD, boundary layer modelling, empirical prediction, OpenFOAM-based solvers</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Tools: RANS-CFD, boundary layer modelling, empirical prediction, OpenFOAM-based solvers</p>
+                  </div>
                 </div>
               )}
             </div>
             {/* Service Step 2 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 2 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 2 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 2 ? null : 2)}
               tabIndex={0}
               role="button"
@@ -262,19 +269,34 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">We simulate vessel responses to stochastic seas using frequency- and time-domain techniques.</p>
               {expanded === 2 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Strip theory and potential flow methods (2D/3D)</li>
-                    <li>Heave, pitch, roll motion predictions and RAO generation</li>
-                    <li>Wave spectrum formulation using Pierson-Moskowitz, JONSWAP, and real-time hindcast data</li>
-                    <li>Coupled hydroelastic response predictions (including flexural-bending interaction)</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Strip theory and potential flow methods</strong> (2D/3D)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Heave, pitch, roll motion predictions</strong> and RAO generation</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Wave spectrum formulation</strong> using Pierson-Moskowitz, JONSWAP, and real-time hindcast data</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Coupled hydroelastic response predictions</strong> (including flexural-bending interaction)</span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Added Mass & Damping: Computed using potential flow solvers, validated via experimental tank tests<br/>Design Criteria Evaluated: Slamming, deck wetness, parametric rolling, vertical accelerations</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Added Mass & Damping: Computed using potential flow solvers, validated via experimental tank tests</p>
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase mt-1">Design Criteria Evaluated: Slamming, deck wetness, parametric rolling, vertical accelerations</p>
+                  </div>
                 </div>
               )}
             </div>
             {/* Service Step 3 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 3 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 3 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 3 ? null : 3)}
               tabIndex={0}
               role="button"
@@ -289,19 +311,33 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">We engineer structural systems for life-cycle performance and durability.</p>
               {expanded === 3 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Application of S-N curves, Miner's Rule, and spectral fatigue techniques</li>
-                    <li>Full mission-profile stress history development using FEA & wave load spectra</li>
-                    <li>LEFM and fracture mechanics applied to structural crack progression</li>
-                    <li>Integration with voyage simulation for fatigue damage prediction</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Application of S-N curves, Miner's Rule, and spectral fatigue techniques</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Full mission-profile stress history development</strong> using FEA & wave load spectra</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">LEFM and fracture mechanics</strong> applied to structural crack progression</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Integration with voyage simulation</strong> for fatigue damage prediction</span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Validated by experimental campaigns: Tank tests with scaled flexible models for load calibration</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Validated by experimental campaigns: Tank tests with scaled flexible models for load calibration</p>
+                  </div>
                 </div>
               )}
             </div>
             {/* Service Step 4 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 4 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 4 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 4 ? null : 4)}
               tabIndex={0}
               role="button"
@@ -316,19 +352,33 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">We perform end-to-end hydrodynamic simulations using RANS and LES approaches.</p>
               {expanded === 4 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Geometry refinement and mesh convergence studies</li>
-                    <li>Turbulence model comparison (k-ε, SST, RSM, LES)</li>
-                    <li>Viscous drag breakdown, separation control, and appendage optimization</li>
-                    <li>Flow-structure interaction for foils, hydroplanes, and planing hulls</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Geometry refinement and mesh convergence studies</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Turbulence model comparison</strong> (k-ε, SST, RSM, LES)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Viscous drag breakdown, separation control, and appendage optimization</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Flow-structure interaction</strong> for foils, hydroplanes, and planing hulls</span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Applications: Lift-drag modelling, flow around hull irregularities, sail performance tuning, hydrofoil cavitation predictions</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Applications: Lift-drag modelling, flow around hull irregularities, sail performance tuning, hydrofoil cavitation predictions</p>
+                  </div>
                 </div>
               )}
             </div>
             {/* Service Step 5 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 5 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 5 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 5 ? null : 5)}
               tabIndex={0}
               role="button"
@@ -343,19 +393,33 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">Designing for offshore demands precision and resilience.</p>
               {expanded === 5 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Vortex-induced vibration (VIV) and Morison-based load estimation</li>
-                    <li>Seabed geotechnics: foundations, drag-embedded anchors, and cable trenching</li>
-                    <li>Station-keeping systems: mooring stiffness, line dynamics, and failure redundancy</li>
-                    <li>Hovercraft, catamaran and semi-displacement platform design</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Vortex-induced vibration (VIV)</strong> and Morison-based load estimation</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Seabed geotechnics</strong>: foundations, drag-embedded anchors, and cable trenching</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Station-keeping systems</strong>: mooring stiffness, line dynamics, and failure redundancy</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Hovercraft, catamaran and semi-displacement platform design</strong></span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Integrated FEA + Hydrodynamic Models ensure structural robustness across mission lifetimes.</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Integrated FEA + Hydrodynamic Models ensure structural robustness across mission lifetimes.</p>
+                  </div>
                 </div>
               )}
             </div>
             {/* Service Step 6 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 6 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 6 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 6 ? null : 6)}
               tabIndex={0}
               role="button"
@@ -370,20 +434,37 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">Safety is embedded into our design process, not applied retroactively.</p>
               {expanded === 6 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Fault Tree Analysis (FTA) and Event Tree Analysis (ETA)</li>
-                    <li>Failure Mode, Effects & Criticality Analysis (FMECA)</li>
-                    <li>Minimum Cut Sets & Fussell-Vesely algorithm</li>
-                    <li>Poisson and Markov modelling for failure timing</li>
-                    <li>Fuzzy Set Theory for uncertain or vague data domains</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Fault Tree Analysis (FTA)</strong> and Event Tree Analysis (ETA)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Failure Mode, Effects & Criticality Analysis (FMECA)</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Minimum Cut Sets & Fussell-Vesely algorithm</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Poisson and Markov modelling</strong> for failure timing</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Fuzzy Set Theory</strong> for uncertain or vague data domains</span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Our systems engineering approach integrates design risk with regulatory compliance, environmental protection, and lifecycle cost-benefit analysis.</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Our systems engineering approach integrates design risk with regulatory compliance, environmental protection, and lifecycle cost-benefit analysis.</p>
+                  </div>
                 </div>
               )}
             </div>
             {/* Service Step 7 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 ${expanded === 7 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 7 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
               onClick={() => setExpanded(expanded === 7 ? null : 7)}
               tabIndex={0}
               role="button"
@@ -398,14 +479,28 @@ export default function NavalArchitectPage() {
               </div>
               <p className="text-gray-700 text-sm mt-2 mb-1">We develop accurate motion models and stability criteria for advanced control systems.</p>
               {expanded === 7 && (
-                <div className="mt-2 animate-fade-in">
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Nomoto models, T-K parameters, and Routh-Hurwitz stability checks</li>
-                    <li>Control surface response simulation (rudders, thrusters, fins)</li>
-                    <li>PID-based control loop development using time-domain and Laplace transforms</li>
-                    <li>Real-time path prediction and turning circle optimization</li>
+                <div className="mt-4 animate-fade-in">
+                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Nomoto models, T-K parameters, and Routh-Hurwitz stability checks</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Control surface response simulation</strong> (rudders, thrusters, fins)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">PID-based control loop development</strong> using time-domain and Laplace transforms</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-[#231f20]">Real-time path prediction and turning circle optimization</strong></span>
+                    </li>
                   </ul>
-                  <p className="text-xs text-gray-500 mt-2">Dynamic Stability: We combine first- and second-order motion equations to analyze vessel trajectory under calm and disturbed conditions.</p>
+                  <div className="mt-4 pt-3 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Dynamic Stability: We combine first- and second-order motion equations to analyze vessel trajectory under calm and disturbed conditions.</p>
+                  </div>
                 </div>
               )}
             </div>
@@ -413,7 +508,7 @@ export default function NavalArchitectPage() {
         </section>
 
         {/* CTA Section */}
-        <div className="mt-24">
+        <div className="mt-8">
           <SimpleCTA
             title="Ready to"
             titleAccent="Start Your Project?"
