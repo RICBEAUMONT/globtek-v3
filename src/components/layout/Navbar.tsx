@@ -20,7 +20,7 @@ const navigation: NavigationItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   {
-    name: 'Marine',
+    name: 'Core Capabilities',
     children: [
       { 
         name: 'Naval Architecture', 
@@ -35,28 +35,28 @@ const navigation: NavigationItem[] = [
         imageUrl: '/images/services/marine-engineering/hero.jpg'
       },
       { 
-        name: 'Offshore Engineering', 
+        name: 'Offshore Structures', 
         href: '/services/offshore-engineering',
         description: 'Specialized offshore engineering solutions for oil rigs, wind farms, and marine structures.',
         imageUrl: '/images/services/marine/offshore-engineering-1.jpg'
       },
       { 
-        name: 'Coastal & Port Infrastructure', 
+        name: 'Coastal Engineering', 
         href: '/services/coastal-port-infrastructure',
         description: 'Comprehensive coastal and port infrastructure engineering solutions.',
         imageUrl: '/images/services/coastal-engineering/hero.jpg'
-      },
-      { 
-        name: 'Project Management', 
-        href: '/services/project-management',
-        description: 'Comprehensive project management services for maritime initiatives.',
-        imageUrl: '/images/services/project-management/hero.jpg'
       },
       { 
         name: 'Survey and Inspection', 
         href: '/services/survey-inspection',
         description: 'Comprehensive marine surveys and technical inspections.',
         imageUrl: '/images/services/survey-inspection/hero.jpg'
+      },
+      { 
+        name: 'Project Management', 
+        href: '/services/project-management',
+        description: 'Comprehensive project management services for maritime initiatives.',
+        imageUrl: '/images/services/project-management/hero.jpg'
       },
       { 
         name: 'Consulting', 
