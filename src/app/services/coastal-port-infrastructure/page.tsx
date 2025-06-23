@@ -54,9 +54,9 @@ export default function CoastalPortInfrastructurePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const coastalImages = [
-    '/images/services/coastal-engineering/hero.jpg',
-    '/images/services/coastal-engineering/hero-2.jpg',
-    '/images/services/coastal-engineering/hero-3.jpg'
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-1.jpg',
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-2.jpg',
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-3.jpg',
   ];
 
   useEffect(() => {

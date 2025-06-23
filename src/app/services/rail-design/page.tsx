@@ -53,10 +53,19 @@ export default function RailDesignPage() {
   const [expanded, setExpanded] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const heroImages = [
+    '/images/rails/rails_hero_image-1.jpg',
+    '/images/rails/rails_hero_image-2.jpg',
+    '/images/rails/rails_hero_image-3.jpg',
+  ];
+
   const railImages = [
-    '/images/services/roads-transportations/hero.jpg',
-    '/images/services/roads-transportations/hero-2.jpg',
-    '/images/services/roads-transportations/hero-3.jpg'
+    '/images/rails/rails_image-1.jpg',
+    '/images/rails/rails_image-2.jpg',
+    '/images/rails/rails_image-3.jpg',
+    '/images/rails/rails_image-4.jpg',
+    '/images/rails/rails_image-5.jpg',
+    '/images/rails/rails_image-6.jpg',
   ];
 
   useEffect(() => {
@@ -74,7 +83,7 @@ export default function RailDesignPage() {
         title="Rail Design & Technical Capabilities"
         subtitle="Rail Engineering Solutions"
         description="At Globtek, we don't just design—we engineer certainty. Using advanced modelling, fatigue analysis, and real-world data, we deliver rail design solutions built for performance and sustainability."
-        images={railImages}
+        images={heroImages}
         slideInterval={6000}
         breadcrumbs={[
           { name: 'Services', href: '/services' },
@@ -135,7 +144,7 @@ export default function RailDesignPage() {
 
         {/* Featured Projects Section */}
         <ServiceProjects 
-          category="Rail Design"
+          category="Marine"
           maxProjects={3}
           showViewAllButton={true}
         />

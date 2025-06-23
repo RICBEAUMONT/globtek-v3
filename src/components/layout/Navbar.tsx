@@ -76,6 +76,12 @@ const navigation: NavigationItem[] = [
         imageUrl: '/images/services/roads-transportations/hero.jpg'
       },
       { 
+        name: 'Rail Design', 
+        href: '/services/rail-design',
+        description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
+        imageUrl: '/images/services/rail-design/hero.jpg'
+      },
+      { 
         name: 'Civil and Structural Engineering', 
         href: '/services/civil-structural',
         description: 'Comprehensive civil and structural engineering services.',
@@ -116,15 +122,6 @@ const navigation: NavigationItem[] = [
         href: '/services/environmental-planning',
         description: 'Sustainable Development Solutions',
         imageUrl: '/images/environmental-planning/hero.jpg',
-        icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      },
-      { 
-        name: 'Rail Design - Technical Capabilities',
-        href: '/services/rail-design',
-        description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
-        imageUrl: '/images/services/rail-design/hero.jpg',
         icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
