@@ -190,12 +190,14 @@ export default function NavalArchitectPage() {
           </div>
         </div>
 
-        {/* Featured Projects Section */}
-        <ServiceProjects 
-          category="Naval Architecture"
-          maxProjects={3}
-          showViewAllButton={true}
-        />
+        {/* Featured Projects Section (hidden for now, restore by changing 'false' to 'true') */}
+        {false && (
+          <ServiceProjects 
+            category="Naval Architecture"
+            maxProjects={3}
+            showViewAllButton={true}
+          />
+        )}
 
         {/* Core Services Section - Simplified */}
         <section className="relative pt-36 pb-6 px-2 bg-white">

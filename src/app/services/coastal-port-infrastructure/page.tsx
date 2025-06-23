@@ -59,12 +59,19 @@ export default function CoastalPortInfrastructurePage() {
     '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-3.jpg',
   ];
 
+  const slideshowImages = [
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-1.jpg',
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-2.jpg',
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-3.jpg',
+    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-4.jpg',
+  ];
+
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setCurrentSlide(prev => (prev === coastalImages.length - 1 ? 0 : prev + 1));
+      setCurrentSlide(prev => (prev === slideshowImages.length - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(slideInterval);
-  }, [coastalImages.length]);
+  }, [slideshowImages.length]);
 
   const timestamp = Date.now();
 
@@ -105,7 +112,7 @@ export default function CoastalPortInfrastructurePage() {
             </div>
           </div>
           <div className="relative rounded-2xl shadow-xl overflow-hidden min-h-[500px] h-full">
-            {coastalImages.map((src, index) => (
+            {slideshowImages.map((src, index) => (
               <Image
                 key={src}
                 src={src}
@@ -119,7 +126,7 @@ export default function CoastalPortInfrastructurePage() {
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
             <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-              {coastalImages.map((_, index) => (
+              {slideshowImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
@@ -133,12 +140,14 @@ export default function CoastalPortInfrastructurePage() {
           </div>
         </div>
 
-        {/* Featured Projects Section */}
+        {/* Featured Projects Section (hidden for now, restore by changing 'false' to 'true') */}
+        {false && (
         <ServiceProjects 
           category="Coastal & Port Infrastructure"
           maxProjects={3}
           showViewAllButton={true}
         />
+        )}
 
         {/* Core Services Section - Simplified */}
         <section className="relative pt-36 pb-6 px-2 bg-white">
