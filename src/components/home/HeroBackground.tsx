@@ -1,48 +1,70 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 
-const images = [
-  '/images/home/hero/hero-1.jpg',
-  '/images/home/hero/hero-2.jpg',
-  '/images/home/hero/hero-3.jpg',
-  '/images/home/hero/hero-4.jpg'
+const videos = [
+  '/videos/homepage/3435043481-preview.mp4',
+  '/videos/homepage/1093541759-preview.mp4',
+  '/videos/homepage/3455463125-preview.mp4'
 ];
 
 export default function HeroBackground() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    // Initialize video refs array
+    videoRefs.current = videoRefs.current.slice(0, videos.length);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+        setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
         setIsTransitioning(false);
-      }, 1000); // Wait for fade out before changing image
-    }, 6000); // Change image every 6 seconds
+      }, 1000); // Wait for fade out before changing video
+    }, 8000); // Change video every 8 seconds
 
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    // Play current video and pause others
+    videoRefs.current.forEach((videoRef, index) => {
+      if (videoRef) {
+        if (index === currentVideoIndex) {
+          videoRef.currentTime = 0; // Reset to beginning
+          videoRef.play().catch(console.error);
+        } else {
+          videoRef.pause();
+        }
+      }
+    });
+  }, [currentVideoIndex]);
+
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {images.map((img, index) => (
+      {videos.map((video, index) => (
         <div
-          key={img}
+          key={video}
           className={`absolute inset-0 transition-all duration-[2000ms] ${
-            index === currentImageIndex
+            index === currentVideoIndex
               ? 'opacity-100 scale-110'
               : 'opacity-0 scale-100'
           }`}
         >
-          <Image
-            src={img}
-            alt={`Background ${index + 1}`}
-            fill
-            className="object-cover"
-            priority={index === 0}
+          <video
+            ref={(el) => {
+              videoRefs.current[index] = el;
+            }}
+            src={video}
+            className="object-cover w-full h-full"
+            muted
+            loop
+            playsInline
+            autoPlay={index === 0}
           />
         </div>
       ))}

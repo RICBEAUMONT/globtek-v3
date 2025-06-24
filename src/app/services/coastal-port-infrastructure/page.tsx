@@ -103,11 +103,11 @@ export default function CoastalPortInfrastructurePage() {
               Our Mission-Driven Engineering Philosophy
             </div>
             <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
-              Preserving Shorelines. Engineering Coastal Resilience.
+              Our Commitment to Resilient Shorelines and Functional Port Assets
             </h2>
             <div className="space-y-6">
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
-                At Globtek, our Coastal Engineering services are designed to safeguard and enhance maritime infrastructure in the face of dynamic environmental forces. We integrate the latest coastal modelling tools, structural diagnostics, and the WSCAM evaluation framework to deliver practical, sustainable solutions for port authorities, terminal operators, and coastal developers.
+                From condition assessments of aging quay walls to the design of adaptive foreshore protections, our coastal and port infrastructure engineering team ensures that coastal assets are safe, compliant, and capable of supporting growing maritime operations.
               </p>
             </div>
           </div>
@@ -165,199 +165,199 @@ export default function CoastalPortInfrastructurePage() {
           <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-12 text-center max-w-4xl mx-auto">A focused suite of services for every stage of coastal and port infrastructure engineering</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
             {/* Service Step 1 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 1 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 min-h-[126px] ${expanded === 1 ? '' : ''}`}
               onClick={() => setExpanded(expanded === 1 ? null : 1)}
               tabIndex={0}
               role="button"
               aria-expanded={expanded === 1}
             >
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3"/></svg>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/20">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3"/></svg>
                 </span>
-                <h3 className="text-base font-semibold text-[#e43d30] flex-1">Baseline & In-Depth Condition Assessments</h3>
-                <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 1 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                <h3 className="text-base font-semibold text-white flex-1">Baseline & In-Depth Condition Assessments</h3>
+                <svg className={`w-5 h-5 ml-1 text-white transition-transform duration-200 ${expanded === 1 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </div>
-              <p className="text-gray-700 text-sm mt-2 mb-1">Comprehensive inspections using WSCAM's 7-Level rating methodology for marine infrastructure.</p>
+              <p className="text-gray-300 text-sm mt-2 mb-1">Comprehensive inspections using WSCAM's 7-Level rating methodology for marine infrastructure.</p>
               {expanded === 1 && (
                 <div className="mt-4 animate-fade-in">
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">We conduct comprehensive inspections of:</p>
-                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-3">We conduct comprehensive inspections of:</p>
+                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Breakwaters, seawalls, groynes, and revetments</strong></span>
+                      <span><strong className="text-white">Breakwaters, seawalls, groynes, and revetments</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Quay walls and berthing structures</strong></span>
+                      <span><strong className="text-white">Quay walls and berthing structures</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Slipways and marine platforms</strong></span>
+                      <span><strong className="text-white">Slipways and marine platforms</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Fenders, bollards, ladders, and quay furniture</strong></span>
-                    </li>
-                  </ul>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-4 mb-3">Using WSCAM's 7-Level rating methodology, our assessments classify asset integrity based on visual inspection (Level 1), tactile testing, non-destructive methods (Level 2-3), and advanced structural diagnosis (Level 4-7). Each inspection integrates:</p>
-                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Defect mapping</strong> (spalling, corrosion, cracking)</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Joint and bearing condition evaluations</strong></span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Tidal exposure and sediment transport analysis</strong></span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Marine growth, debris accumulation, and scour observation</strong></span>
+                      <span><strong className="text-white">Fenders, bollards, ladders, and quay furniture</strong></span>
                     </li>
                   </ul>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-4"><strong className="text-[#231f20]">Deliverables include:</strong> Rating matrices, defect severity maps, maintenance prioritization, and remaining life estimations.</p>
+                  <p className="text-gray-300 text-sm leading-relaxed mt-4 mb-3">Using WSCAM's 7-Level rating methodology, our assessments classify asset integrity based on visual inspection (Level 1), tactile testing, non-destructive methods (Level 2-3), and advanced structural diagnosis (Level 4-7). Each inspection integrates:</p>
+                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-white">Defect mapping</strong> (spalling, corrosion, cracking)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-white">Joint and bearing condition evaluations</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-white">Tidal exposure and sediment transport analysis</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
+                      <span><strong className="text-white">Marine growth, debris accumulation, and scour observation</strong></span>
+                    </li>
+                  </ul>
+                  <p className="text-gray-300 text-sm leading-relaxed mt-4"><strong className="text-white">Deliverables include:</strong> Rating matrices, defect severity maps, maintenance prioritization, and remaining life estimations.</p>
                 </div>
               )}
             </div>
             {/* Service Step 2 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 2 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 min-h-[126px] ${expanded === 2 ? '' : ''}`}
               onClick={() => setExpanded(expanded === 2 ? null : 2)}
               tabIndex={0}
               role="button"
               aria-expanded={expanded === 2}
             >
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/20">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 </span>
-                <h3 className="text-base font-semibold text-[#e43d30] flex-1">Coastal Foreshore Protection Design</h3>
-                <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 2 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                <h3 className="text-base font-semibold text-white flex-1">Coastal Foreshore Protection Design</h3>
+                <svg className={`w-5 h-5 ml-1 text-white transition-transform duration-200 ${expanded === 2 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </div>
-              <p className="text-gray-700 text-sm mt-2 mb-1">Nature-based and structural protection systems using advanced coastal modelling tools.</p>
+              <p className="text-gray-300 text-sm mt-2 mb-1">Nature-based and structural protection systems using advanced coastal modelling tools.</p>
               {expanded === 2 && (
                 <div className="mt-4 animate-fade-in">
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">Our engineering team develops nature-based and structural protection systems, including:</p>
-                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-3">Our engineering team develops nature-based and structural protection systems, including:</p>
+                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Rock revetments and articulated concrete block mats</strong></span>
+                      <span><strong className="text-white">Rock revetments and articulated concrete block mats</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Vertical and stepped seawalls</strong></span>
+                      <span><strong className="text-white">Vertical and stepped seawalls</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Sand nourishment and dynamic dune systems</strong></span>
+                      <span><strong className="text-white">Sand nourishment and dynamic dune systems</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Geotextile tubes and submerged berms</strong></span>
+                      <span><strong className="text-white">Geotextile tubes and submerged berms</strong></span>
                     </li>
                   </ul>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-4 mb-3">We use coastal modelling tools to assess wave transformation, overtopping rates, longshore drift, and climate change impacts:</p>
-                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed mt-4 mb-3">We use coastal modelling tools to assess wave transformation, overtopping rates, longshore drift, and climate change impacts:</p>
+                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">2D/3D nearshore wave modelling</strong> (MIKE21, SWAN)</span>
+                      <span><strong className="text-white">2D/3D nearshore wave modelling</strong> (MIKE21, SWAN)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Shoreline retreat prediction</strong> using SBEACH and XBeach</span>
+                      <span><strong className="text-white">Shoreline retreat prediction</strong> using SBEACH and XBeach</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Wave run-up and overtopping</strong> using EurOtop methodologies</span>
+                      <span><strong className="text-white">Wave run-up and overtopping</strong> using EurOtop methodologies</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Probabilistic analysis</strong> of sea level rise and storm surge</span>
+                      <span><strong className="text-white">Probabilistic analysis</strong> of sea level rise and storm surge</span>
                     </li>
                   </ul>
                 </div>
               )}
             </div>
             {/* Service Step 3 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 3 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 min-h-[126px] ${expanded === 3 ? '' : ''}`}
               onClick={() => setExpanded(expanded === 3 ? null : 3)}
               tabIndex={0}
               role="button"
               aria-expanded={expanded === 3}
             >
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /><path d="M9 17l3 3 3-3"/><path d="M9 7l3-3 3 3"/></svg>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/20">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /><path d="M9 17l3 3 3-3"/><path d="M9 7l3-3 3 3"/></svg>
                 </span>
-                <h3 className="text-base font-semibold text-[#e43d30] flex-1">Structural Assessment of Berths and Quay Furniture</h3>
-                <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 3 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                <h3 className="text-base font-semibold text-white flex-1">Structural Assessment of Berths and Quay Furniture</h3>
+                <svg className={`w-5 h-5 ml-1 text-white transition-transform duration-200 ${expanded === 3 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </div>
-              <p className="text-gray-700 text-sm mt-2 mb-1">Evaluation of load capacity and condition of berthing infrastructure for operational demands.</p>
+              <p className="text-gray-300 text-sm mt-2 mb-1">Evaluation of load capacity and condition of berthing infrastructure for operational demands.</p>
               {expanded === 3 && (
                 <div className="mt-4 animate-fade-in">
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">Globtek evaluates the load capacity and condition of berthing infrastructure, ensuring it meets current and future operational demands.</p>
-                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-3">Globtek evaluates the load capacity and condition of berthing infrastructure, ensuring it meets current and future operational demands.</p>
+                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Assessment of fender energy absorption</strong>, anchor bolt integrity, and rubber wear</span>
+                      <span><strong className="text-white">Assessment of fender energy absorption</strong>, anchor bolt integrity, and rubber wear</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Bollard load transfer inspection</strong> and corrosion mapping</span>
+                      <span><strong className="text-white">Bollard load transfer inspection</strong> and corrosion mapping</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Fatigue checks on quay edge beams</strong> and deck slabs using FEA</span>
+                      <span><strong className="text-white">Fatigue checks on quay edge beams</strong> and deck slabs using FEA</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Verification of design adequacy</strong> for vessel class compatibility</span>
+                      <span><strong className="text-white">Verification of design adequacy</strong> for vessel class compatibility</span>
                     </li>
                   </ul>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-4">We combine field observations, structural simulation, and load testing data to recommend refurbishment, replacement, or upgrade strategies.</p>
+                  <p className="text-gray-300 text-sm leading-relaxed mt-4">We combine field observations, structural simulation, and load testing data to recommend refurbishment, replacement, or upgrade strategies.</p>
                 </div>
               )}
             </div>
             {/* Service Step 4 */}
-            <div className={`bg-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px] ${expanded === 4 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 min-h-[126px] ${expanded === 4 ? '' : ''}`}
               onClick={() => setExpanded(expanded === 4 ? null : 4)}
               tabIndex={0}
               role="button"
               aria-expanded={expanded === 4}
             >
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5.25-3.5 9.74-8 11-4.5-1.26-8-5.75-8-11V7l8-4z" /><path d="M12 12l3-3-3-3"/><path d="M12 12l-3-3 3-3"/></svg>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/20">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5.25-3.5 9.74-8 11-4.5-1.26-8-5.75-8-11V7l8-4z" /><path d="M12 12l3-3-3-3"/><path d="M12 12l-3-3 3-3"/></svg>
                 </span>
-                <h3 className="text-base font-semibold text-[#e43d30] flex-1">Integrated Coastal Risk Management</h3>
-                <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 4 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                <h3 className="text-base font-semibold text-white flex-1">Integrated Coastal Risk Management</h3>
+                <svg className={`w-5 h-5 ml-1 text-white transition-transform duration-200 ${expanded === 4 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </div>
-              <p className="text-gray-700 text-sm mt-2 mb-1">Risk-based design and inspection ethos using quantitative tools and scenario planning.</p>
+              <p className="text-gray-300 text-sm mt-2 mb-1">Risk-based design and inspection ethos using quantitative tools and scenario planning.</p>
               {expanded === 4 && (
                 <div className="mt-4 animate-fade-in">
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">Risk is at the core of our design and inspection ethos. We apply:</p>
-                  <ul className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-3">Risk is at the core of our design and inspection ethos. We apply:</p>
+                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Hazard identification and ranking</strong> (storm surge, overtopping, wave loading)</span>
+                      <span><strong className="text-white">Hazard identification and ranking</strong> (storm surge, overtopping, wave loading)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Asset vulnerability analysis</strong> using WSCAM trends and failure databases</span>
+                      <span><strong className="text-white">Asset vulnerability analysis</strong> using WSCAM trends and failure databases</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Scenario-based planning</strong> for extreme weather and long-term coastal change</span>
+                      <span><strong className="text-white">Scenario-based planning</strong> for extreme weather and long-term coastal change</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-[#231f20]">Emergency response infrastructure assessment</strong> (evacuation pathways, flood barriers)</span>
+                      <span><strong className="text-white">Emergency response infrastructure assessment</strong> (evacuation pathways, flood barriers)</span>
                     </li>
                   </ul>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-4">Quantitative tools such as Fault Tree Analysis (FTA) and Failure Mode and Effects Analysis (FMEA) guide prioritization and ensure regulatory compliance.</p>
+                  <p className="text-gray-300 text-sm leading-relaxed mt-4">Quantitative tools such as Fault Tree Analysis (FTA) and Failure Mode and Effects Analysis (FMEA) guide prioritization and ensure regulatory compliance.</p>
                 </div>
               )}
             </div>

@@ -11,32 +11,58 @@ import { allProjects } from '@/data/projects';
 
 const statistics = [
   {
-    number: '1st',
-    label: '1ST BLACK NAVAL ARCHITECT IN SA',
-    description: 'Leading innovation at Globtek, pioneering new standards in naval architecture and inspiring future generations',
+    number: 'Naval',
+    label: 'NAVAL ARCHITECTURE',
+    description: 'Comprehensive vessel design and naval architecture services, from concept to construction, ensuring optimal performance and safety standards.',
     icon: <Ship className="h-8 w-8" />,
-    highlight: 'Pioneering Achievement',
+    highlight: 'Vessel Design',
+    link: '/services/naval-architect',
+    heroImage: '/images/services/naval-design/hero.jpg',
   },
   {
-    number: '15+',
-    label: 'UNPARRALELLED MARINE EXPERIENCE',
-    description: 'Leading the industry with extensive expertise in naval architecture and marine engineering',
+    number: 'Marine',
+    label: 'MARINE ENGINEERING',
+    description: 'Advanced marine engineering solutions for propulsion systems, electrical systems, and mechanical components across all vessel types.',
     icon: <Award className="h-8 w-8" />,
-    highlight: 'Industry Leader',
+    highlight: 'Systems Engineering',
+    link: '/services/marine-engineering',
+    heroImage: '/images/services/marine-engineering/hero.jpg',
   },
   {
-    number: '50+',
-    label: 'VESSELS DESIGNED & BUILT',
-    description: 'Delivering excellence through innovative vessel designs, setting new benchmarks in maritime engineering and operations',
+    number: 'Coastal',
+    label: 'COASTAL ENGINEERING',
+    description: 'Specialized coastal and port infrastructure engineering, including breakwaters, quay walls, and coastal protection systems.',
     icon: <Globe className="h-8 w-8" />,
-    highlight: 'Global Impact',
+    highlight: 'Infrastructure',
+    link: '/services/coastal-port-infrastructure',
+    heroImage: '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-1.jpg',
   },
   {
-    number: '100%',
-    label: 'CLASS APPROVED',
-    description: 'Maintaining perfect compliance with international maritime classification standards',
+    number: 'Expert',
+    label: 'CONSULTING SERVICES',
+    description: 'Strategic maritime consulting and technical advisory services for regulatory compliance, operational efficiency, and project management.',
     icon: <Anchor className="h-8 w-8" />,
-    highlight: 'Quality Assured',
+    highlight: 'Strategic Advisory',
+    link: '/services/consulting',
+    heroImage: '/images/consulting/hero.jpg',
+  },
+  {
+    number: 'Survey',
+    label: 'SURVEY & INSPECTION',
+    description: 'Comprehensive maritime surveys and inspections using advanced technology and industry expertise to ensure safety and compliance.',
+    icon: <Ship className="h-8 w-8" />,
+    highlight: 'Quality Assurance',
+    link: '/services/survey-inspection',
+    heroImage: '/images/services/survey-inspection/hero.jpg',
+  },
+  {
+    number: 'Project',
+    label: 'PROJECT MANAGEMENT',
+    description: 'Leading maritime projects with expertise in planning, coordination, and execution to ensure successful delivery of complex initiatives.',
+    icon: <Award className="h-8 w-8" />,
+    highlight: 'Project Leadership',
+    link: '/services/project-management',
+    heroImage: '/images/services/project-management/hero.jpg',
   },
 ];
 
@@ -104,38 +130,57 @@ export default function Home() {
       {/* Expert Engineers Section */}
       <div className="relative -mt-24 z-10">
         <div className="max-w-[1140px] mx-auto">
-          <div className="bg-white pt-6 pb-6 px-4 rounded-md">
+          <div className="bg-white pt-8 pb-8 px-4 rounded-md">
             <Container>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
                 {statistics.map((stat, index) => (
-                  <div 
-                    key={index}
-                    className="group relative bg-white p-4 rounded-lg border border-gray-200 hover:border-[#e43d30] transition-all duration-300 hover:shadow-lg"
-                  >
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#e43d30]/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative z-10">
-                      <div className="text-[#e43d30] mb-2">
-                        {stat.icon}
-                      </div>
-                      <h3 className="text-base font-semibold text-gray-900 mb-1">
-                        {stat.label}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {stat.description}
-                      </p>
-                      <div className="flex justify-between items-center">
-                        <span className="inline-block px-2 py-0.5 text-xs font-medium text-[#e43d30] bg-[#e43d30]/10 rounded-full">
-                          {stat.highlight}
-                        </span>
-                        <Link 
-                          href="/about" 
-                          className="text-sm text-[#e43d30] hover:text-[#e43d30]/80 transition-colors"
-                        >
-                          Read More →
-                        </Link>
+                  <Link href={stat.link} key={index}>
+                    <div 
+                      className="group relative bg-gradient-to-br from-[#1a1718] to-[#231f20] p-5 rounded-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden min-h-[210px] flex flex-col"
+                      style={{
+                        backgroundImage: `url(${stat.heroImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}
+                    >
+                      {/* Dark overlay */}
+                      <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-300" />
+                      
+                      {/* Gradient overlay for better text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1718]/80 via-[#231f20]/60 to-transparent" />
+                      
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-start gap-3 mb-3">
+                          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-[#e43d30]/20 to-[#e43d30]/10 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                            <div className="text-[#e43d30]">
+                              {stat.icon}
+                            </div>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#e43d30] transition-colors duration-300 leading-tight">
+                              {stat.label}
+                            </h3>
+                          </div>
+                        </div>
+                        
+                        <div className="flex-1 mb-4">
+                          <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
+                            {stat.description}
+                          </p>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mt-auto">
+                          <span className="inline-block px-2.5 py-1 text-xs font-semibold text-white bg-gradient-to-r from-[#e43d30] to-[#e43d30]/80 rounded-full">
+                            {stat.highlight}
+                          </span>
+                          <div className="text-sm text-[#e43d30] hover:text-white transition-colors duration-300 flex items-center gap-1 group-hover:gap-2">
+                            Learn More 
+                            <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </Container>

@@ -63,7 +63,7 @@ export default function ConsultingPage() {
       <Container className="py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="relative">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 pb-0 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -72,7 +72,7 @@ export default function ConsultingPage() {
             <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
               Innovative Consulting Solutions
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-4">
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
                 Our experienced consultants deliver strategic maritime advisory services using 
                 industry expertise and market insights. We help you navigate complex regulations 
@@ -184,12 +184,14 @@ export default function ConsultingPage() {
           </div>
         </div>
 
-        {/* Featured Projects Section */}
+        {/* Featured Projects Section (hidden for now, restore by changing 'false' to 'true') */}
+        {false && (
         <ServiceProjects 
           category="Consulting"
           maxProjects={3}
           showViewAllButton={true}
         />
+        )}
 
         {/* CTA Section */}
         <div className="mt-24">

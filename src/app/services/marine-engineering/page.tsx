@@ -183,12 +183,14 @@ export default function MarineEngineeringPage() {
           </div>
         </div>
 
-        {/* Featured Projects Section */}
+        {/* Featured Projects Section (hidden for now, restore by changing 'false' to 'true') */}
+        {false && (
         <ServiceProjects 
           category="Marine Engineering"
           maxProjects={3}
           showViewAllButton={true}
         />
+        )}
 
         {/* CTA Section */}
         <div className="mt-24">

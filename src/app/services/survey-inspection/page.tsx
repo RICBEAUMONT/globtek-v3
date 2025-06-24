@@ -183,12 +183,14 @@ export default function SurveyInspectionPage() {
           </div>
         </div>
 
-        {/* Featured Projects Section */}
+        {/* Featured Projects Section (hidden for now, restore by changing 'false' to 'true') */}
+        {false && (
         <ServiceProjects 
           category="Survey Inspection"
           maxProjects={3}
           showViewAllButton={true}
         />
+        )}
 
         {/* CTA Section */}
         <div className="mt-24">
