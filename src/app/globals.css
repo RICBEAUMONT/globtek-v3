@@ -117,3 +117,7 @@ html {
 .animate-scroll-left.paused {
   animation-play-state: paused;
 }
+
+.brand-bullets li::marker {
+  color: #e43d30;
+}

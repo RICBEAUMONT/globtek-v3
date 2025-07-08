@@ -37,7 +37,6 @@ export default function CivilStructuralPage() {
 
   const timestamp = Date.now();
   const heroImages = [
-    `/images/civil-structural/hero.jpg`,
     `/images/civil-structural/hero-2.jpg`,
     `/images/civil-structural/hero-3.jpg`
   ];
