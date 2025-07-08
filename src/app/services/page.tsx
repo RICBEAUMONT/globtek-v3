@@ -110,7 +110,7 @@ export default function ServicesPage() {
       <Container>
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center animate-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#231f20] mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1a222c] mb-6">
             Our Services
           </h1>
           <p className="text-lg text-[#4a4a4a] mb-16">
@@ -144,7 +144,7 @@ export default function ServicesPage() {
               {/* Content */}
               <div className="relative flex flex-col h-[180px]">
                 <div className="flex-1 p-6">
-                  <h3 className="text-xl font-semibold text-[#231f20] mb-2 group-hover:text-[#e43d30] transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-[#1a222c] mb-2 group-hover:text-[#e43d30] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-[#4a4a4a] text-sm leading-relaxed">

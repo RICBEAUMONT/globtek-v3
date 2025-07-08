@@ -15,10 +15,10 @@
   /* Background Colors */
   --color-bg-primary: #FFFFFF;
   --color-bg-secondary: #F9FAFB;
-  --color-bg-dark: #231f20;
+  --color-bg-dark: #1a222c;
   
   /* New Background Colors */
-  --color-bg-gradient-from: #231f20;
+  --color-bg-gradient-from: #1a222c;
   --color-bg-gradient-to: #1a1a1a;
   --color-bg-light: #f9fafb;          /* gray-50 */
   --color-bg-dark-transparent: rgba(35, 31, 32, 0.95);
@@ -26,7 +26,7 @@
   --color-bg-darker-transparent: rgba(3, 7, 18, 0.5);  /* gray-800/50 */
   
   /* Text Colors */
-  --color-text-primary: #231f20;
+  --color-text-primary: #1a222c;
   --color-text-secondary: #4a4a4a;
   --color-text-light: #ffffff;
   --color-text-dark: #1a1a1a;

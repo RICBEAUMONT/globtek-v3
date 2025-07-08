@@ -136,7 +136,7 @@ export default function Home() {
                 {statistics.map((stat, index) => (
                   <Link href={stat.link} key={index}>
                     <div 
-                      className="group relative bg-gradient-to-br from-[#1a1718] to-[#231f20] p-5 rounded-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden min-h-[210px] flex flex-col"
+                      className="group relative bg-gradient-to-br from-[#1a1718] to-[#1a222c] p-5 rounded-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden min-h-[210px] flex flex-col"
                       style={{
                         backgroundImage: `url(${stat.heroImage})`,
                         backgroundSize: 'cover',
@@ -147,7 +147,7 @@ export default function Home() {
                       <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-300" />
                       
                       {/* Gradient overlay for better text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1718]/80 via-[#231f20]/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1718]/80 via-[#1a222c]/60 to-transparent" />
                       
                       <div className="relative z-10 flex flex-col h-full">
                         <div className="flex items-start gap-3 mb-3">

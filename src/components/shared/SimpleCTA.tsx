@@ -58,7 +58,7 @@ export default function SimpleCTA({
           {/* Decorative line */}
           <div className="w-24 h-px bg-[#e43d30] opacity-20 mx-auto mb-12"></div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-[#231f20] mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1a222c] mb-6 tracking-tight">
             {title}
             {titleAccent && (
               <span className="text-[#e43d30] block mt-2"> {titleAccent}</span>
@@ -77,7 +77,7 @@ export default function SimpleCTA({
             </Link>
             <Link
               href={secondaryButton.href}
-              className="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-[#231f20] font-medium hover:text-[#e43d30] transition-all duration-300 hover:bg-gray-50 rounded-lg"
+              className="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-[#1a222c] font-medium hover:text-[#e43d30] transition-all duration-300 hover:bg-gray-50 rounded-lg"
             >
               {secondaryButton.text}
             </Link>

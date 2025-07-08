@@ -85,7 +85,7 @@ export default function NavalArchitectPage() {
               </svg>
               Our Mission-Driven Engineering Philosophy
             </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
+            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#1a222c] mb-6 leading-[1.1]">
               Our Mission-Driven Engineering Philosophy
             </h2>
             <div className="space-y-6">
@@ -136,7 +136,7 @@ export default function NavalArchitectPage() {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#231f20] to-[#1a1718] rounded-2xl shadow-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a222c] to-[#1a1718] rounded-2xl shadow-xl"></div>
             <div className="relative p-6 md:p-8 rounded-2xl border border-[#e43d30]/10 backdrop-blur-sm">
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-white tracking-tight">Design to Classification, Build to Performance</h3>
@@ -211,13 +211,13 @@ export default function NavalArchitectPage() {
               Core Services
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#231f20] mb-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1a222c] mb-4 text-center">
             From Concept to Completion<br />Our Core Capabilities
           </h2>
           <p className="text-center text-[#4a4a4a] font-medium mb-12 text-base">A focused suite of services for every stage of marine engineering</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
             {/* Service Step 1 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 1 ? null : 1)}
               tabIndex={0}
               role="button"
@@ -258,7 +258,7 @@ export default function NavalArchitectPage() {
               )}
             </div>
             {/* Service Step 2 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 2 ? null : 2)}
               tabIndex={0}
               role="button"
@@ -300,7 +300,7 @@ export default function NavalArchitectPage() {
               )}
             </div>
             {/* Service Step 3 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 3 ? null : 3)}
               tabIndex={0}
               role="button"
@@ -341,7 +341,7 @@ export default function NavalArchitectPage() {
               )}
             </div>
             {/* Service Step 4 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 4 ? null : 4)}
               tabIndex={0}
               role="button"
@@ -382,7 +382,7 @@ export default function NavalArchitectPage() {
               )}
             </div>
             {/* Service Step 5 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 5 ? null : 5)}
               tabIndex={0}
               role="button"
@@ -423,7 +423,7 @@ export default function NavalArchitectPage() {
               )}
             </div>
             {/* Service Step 6 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 6 ? null : 6)}
               tabIndex={0}
               role="button"
@@ -468,7 +468,7 @@ export default function NavalArchitectPage() {
               )}
             </div>
             {/* Service Step 7 */}
-            <div className={`bg-[#231f20] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 7 ? null : 7)}
               tabIndex={0}
               role="button"

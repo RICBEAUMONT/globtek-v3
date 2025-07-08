@@ -407,7 +407,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-[#231f20] relative overflow-hidden">
+      <section className="py-24 bg-[#1a222c] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#6b728008_1px,transparent_1px),linear-gradient(to_bottom,#6b728008_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
@@ -525,7 +525,7 @@ export default function AboutPage() {
                 key={area.area}
                 className="group"
               >
-                <div className="relative bg-[#231f20] p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                <div className="relative bg-[#1a222c] p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
                   {/* Icon */}
                   <div className="text-[var(--color-accent)] mb-6">
                     <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">

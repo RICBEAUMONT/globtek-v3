@@ -69,7 +69,7 @@ export default function MechanicalPage() {
               </svg>
               Our Expertise
             </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#231f20] mb-6 leading-[1.1]">
+            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#1a222c] mb-6 leading-[1.1]">
               Advanced Mechanical Engineering Solutions
             </h2>
             <div className="space-y-6">
@@ -88,7 +88,7 @@ export default function MechanicalPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <span className="font-medium text-[#231f20]">3D Scanning</span>
+                <span className="font-medium text-[#1a222c]">3D Scanning</span>
               </div>
               <div className="flex flex-col items-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300">
                 <div className="w-12 h-12 rounded-xl bg-[#e43d30]/10 flex items-center justify-center mb-3">
@@ -96,7 +96,7 @@ export default function MechanicalPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <span className="font-medium text-[#231f20]">BIM Technology</span>
+                <span className="font-medium text-[#1a222c]">BIM Technology</span>
               </div>
               <div className="flex flex-col items-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300">
                 <div className="w-12 h-12 rounded-xl bg-[#e43d30]/10 flex items-center justify-center mb-3">
@@ -104,12 +104,12 @@ export default function MechanicalPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <span className="font-medium text-[#231f20]">Expert Solutions</span>
+                <span className="font-medium text-[#1a222c]">Expert Solutions</span>
               </div>
             </div>
           </div>
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#231f20] to-[#1a1718] rounded-2xl shadow-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a222c] to-[#1a1718] rounded-2xl shadow-xl"></div>
             <div className="relative p-6 md:p-8 rounded-2xl border border-[#e43d30]/10 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-[#e43d30]/10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
