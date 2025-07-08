@@ -144,7 +144,7 @@ All colors are defined as CSS variables in `globals.css` for consistent usage ac
   Button Text
   <ArrowRight className="ml-2 h-5 w-5" />
 </Link>
-```
+``` 
 
 ## Service Card Style Pattern (2024-06)
 

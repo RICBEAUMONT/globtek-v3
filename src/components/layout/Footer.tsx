@@ -50,21 +50,30 @@ const footerNavigation: FooterNavigation = {
   ],
   services: [
     {
-      name: 'Globtek Marine',
-      href: '/services/marine',
+      name: 'Core Capabilities',
+      href: '/services',
       items: [
         { name: 'Naval Architecture', href: '/services/naval-architect' },
         { name: 'Marine Engineering', href: '/services/marine-engineering' },
-        { name: 'Shipbuilding', href: '/services/shipbuilding' }
+        { name: 'Offshore Structures', href: '/services/offshore-engineering' },
+        { name: 'Coastal Engineering', href: '/services/coastal-port-infrastructure' },
+        { name: 'Survey and Inspection', href: '/services/survey-inspection' },
+        { name: 'Project Management', href: '/services/project-management' },
+        { name: 'Consulting', href: '/services/consulting' }
       ]
     },
     {
       name: 'Multi-Disciplinary',
-      href: '/multi-disciplinary',
+      href: '/services',
       items: [
-        { name: 'Roads & Transportation', href: '/multi-disciplinary/roads' },
-        { name: 'Civil Engineering', href: '/multi-disciplinary/civil' },
-        { name: 'Structural Engineering', href: '/multi-disciplinary/structural' }
+        { name: 'Roads and Transportation', href: '/services/roads-transportation' },
+        { name: 'Rail Design', href: '/services/rail-design' },
+        { name: 'Civil and Structural Engineering', href: '/services/civil-structural' },
+        { name: 'Electrical Engineering', href: '/services/electrical' },
+        { name: 'Mechanical Engineering', href: '/services/mechanical' },
+        { name: 'Water Sanitation', href: '/services/water-sanitation' },
+        { name: 'Energy & Petrochemical', href: '/services/energy-petrochemical' },
+        { name: 'Environmental Planning', href: '/services/environmental-planning' }
       ]
     }
   ]
@@ -131,11 +140,13 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Quick Links */}
+
+
+            {/* Core Capabilities */}
             <div>
-              <h3 className="text-sm font-semibold text-white mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                {footerNavigation.company.map((item) => (
+              <h3 className="text-sm font-semibold text-white mb-4">Core Capabilities</h3>
+              <ul className="space-y-1">
+                {footerNavigation.services[0].items.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
@@ -148,33 +159,21 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Services */}
+            {/* Multi-Disciplinary */}
             <div>
-              <h3 className="text-sm font-semibold text-white mb-4">Our Services</h3>
-              <div className="space-y-6">
-                {footerNavigation.services.map((service) => (
-                  <div key={service.name} className="space-y-2">
+              <h3 className="text-sm font-semibold text-white mb-4">Multi-Disciplinary</h3>
+              <ul className="space-y-1">
+                {footerNavigation.services[1].items.map((item) => (
+                  <li key={item.name}>
                     <Link
-                      href={service.href}
-                      className="text-sm font-medium text-white hover:text-[var(--color-accent)] transition-colors duration-300"
+                      href={item.href}
+                      className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
                     >
-                      {service.name}
+                      {item.name}
                     </Link>
-                    <ul className="space-y-1">
-                      {service.items.map((item) => (
-                        <li key={item.name}>
-                          <Link
-                            href={item.href}
-                            className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* Contact Info */}
@@ -185,25 +184,25 @@ export default function Footer() {
                 <div className="group">
                   <h4 className="text-sm font-medium text-white mb-2">Our Office</h4>
                   <div className="text-gray-400">
-                    <p className="text-sm">123 Business Street</p>
-                    <p className="text-sm">City, State 12345</p>
-                    <p className="text-sm">Country</p>
+                    <p className="text-sm">62 Smiso Nkwanyana Road</p>
+                    <p className="text-sm">Morningside, Durban, 4001</p>
+                    <p className="text-sm">South Africa</p>
                   </div>
                 </div>
 
                 {/* Contact Details */}
                 <div className="space-y-3">
                   <a 
-                    href="tel:+1234567890" 
+                    href="tel:+27870575956" 
                     className="block text-sm text-gray-400 hover:text-white transition-colors duration-300"
                   >
-                    +1 (234) 567-890
+                    +27 87 057 5956
                   </a>
                   <a 
-                    href="mailto:info@globtek.com" 
+                    href="mailto:info@globtek.co.za" 
                     className="block text-sm text-gray-400 hover:text-white transition-colors duration-300"
                   >
-                    info@globtek.com
+                    info@globtek.co.za
                   </a>
                 </div>
 
@@ -211,9 +210,8 @@ export default function Footer() {
                 <div className="group">
                   <h4 className="text-sm font-medium text-white mb-2">Business Hours</h4>
                   <div className="text-gray-400">
-                    <p className="text-sm">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p className="text-sm">Saturday: 9:00 AM - 1:00 PM</p>
-                    <p className="text-sm">Sunday: Closed</p>
+                    <p className="text-sm">Monday - Friday: 8:00 - 16:30</p>
+                    <p className="text-sm">Saturday & Sunday: Closed</p>
                   </div>
                 </div>
               </div>

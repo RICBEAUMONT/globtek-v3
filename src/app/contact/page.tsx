@@ -21,31 +21,30 @@ const contactInfo: ContactInfo[] = [
   {
     icon: Phone,
     title: 'Phone',
-    details: ['+1 (234) 567-890'],
-    link: 'tel:+1234567890'
+    details: ['+27 87 057 5956'],
+    link: 'tel:+27870575956'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: ['info@globtek.com'],
-    link: 'mailto:info@globtek.com'
+    details: ['info@globtek.co.za'],
+    link: 'mailto:info@globtek.co.za'
   },
   {
     icon: MapPin,
     title: 'Office Location',
     details: [
-      '123 Business Street',
-      'City, State 12345',
-      'Country'
+      '62 Smiso Nkwanyana Road',
+      'Morningside, Durban, 4001',
+      'South Africa'
     ]
   },
   {
     icon: Clock,
     title: 'Business Hours',
     details: [
-      'Monday - Friday: 9:00 AM - 6:00 PM',
-      'Saturday: 9:00 AM - 1:00 PM',
-      'Sunday: Closed'
+      'Monday - Friday: 8:00 - 16:30',
+      'Saturday & Sunday: Closed'
     ]
   }
 ];
@@ -149,11 +148,8 @@ export default function ContactPage() {
                   Visit Our Office
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-                  Experience Our Engineering Hub
+                  Where to find us
                 </h2>
-                <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl">
-                  Visit our state-of-the-art facility where innovation meets expertise. Our modern office space is designed to foster collaboration and showcase our engineering capabilities.
-                </p>
               </div>
 
               {/* Map Container */}
@@ -193,9 +189,6 @@ export default function ContactPage() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                   When to Find Us
                 </h2>
-                <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl">
-                  Our office maintains consistent hours to ensure we&apos;re available when you need us. Schedule a visit during our business hours to discuss your engineering needs.
-                </p>
               </div>
 
               {/* Hours Card */}
@@ -215,14 +208,10 @@ export default function ContactPage() {
                       <div className="space-y-4">
                         <div className="flex justify-between items-center py-3 border-b border-white/10">
                           <span className="font-medium text-white">Monday - Friday</span>
-                          <span className="text-[var(--color-accent)]">9:00 AM - 6:00 PM</span>
-                        </div>
-                        <div className="flex justify-between items-center py-3 border-b border-white/10">
-                          <span className="font-medium text-white">Saturday</span>
-                          <span className="text-[var(--color-accent)]">9:00 AM - 1:00 PM</span>
+                          <span className="text-[var(--color-accent)]">8:00 - 16:30</span>
                         </div>
                         <div className="flex justify-between items-center py-3">
-                          <span className="font-medium text-white">Sunday</span>
+                          <span className="font-medium text-white">Saturday & Sunday</span>
                           <span className="text-gray-400">Closed</span>
                         </div>
                       </div>

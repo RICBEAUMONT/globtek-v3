@@ -153,26 +153,26 @@ export default function Home() {
                         <div className="flex items-start gap-3 mb-3">
                           <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-[#e43d30]/20 to-[#e43d30]/10 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                             <div className="text-[#e43d30]">
-                              {stat.icon}
-                            </div>
+                        {stat.icon}
+                      </div>
                           </div>
                           <div className="flex-1 min-w-0">
                             <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#e43d30] transition-colors duration-300 leading-tight">
-                              {stat.label}
-                            </h3>
+                        {stat.label}
+                      </h3>
                           </div>
                         </div>
                         
                         <div className="flex-1 mb-4">
                           <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
-                            {stat.description}
-                          </p>
+                        {stat.description}
+                      </p>
                         </div>
                         
                         <div className="flex justify-between items-center mt-auto">
                           <span className="inline-block px-2.5 py-1 text-xs font-semibold text-white bg-gradient-to-r from-[#e43d30] to-[#e43d30]/80 rounded-full">
-                            {stat.highlight}
-                          </span>
+                          {stat.highlight}
+                        </span>
                           <div className="text-sm text-[#e43d30] hover:text-white transition-colors duration-300 flex items-center gap-1 group-hover:gap-2">
                             Learn More 
                             <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
