@@ -203,9 +203,9 @@ export default function PageHero({
 
       {/* Content */}
       <Container className={cn(
-        "relative h-full flex flex-col py-12",
+        "relative h-full flex flex-col",
         align === 'center' ? 'items-center' : 'items-start',
-        "justify-center"
+        "justify-center pt-16 md:pt-20"
       )}>
         <div className={cn(
           "max-w-3xl",
@@ -243,7 +243,7 @@ export default function PageHero({
 
           {/* Title */}
           <h1 className={cn(
-            "text-3xl font-bold text-white mb-6",
+            "text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6",
             "tracking-tight leading-tight",
             "max-w-2xl"
           )}>
@@ -252,7 +252,7 @@ export default function PageHero({
 
           {/* Description */}
           {description && (
-            <p className="text-base text-gray-200 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-gray-200 max-w-2xl leading-relaxed">
               {description}
             </p>
           )}
