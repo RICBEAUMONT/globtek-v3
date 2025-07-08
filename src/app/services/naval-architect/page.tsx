@@ -64,7 +64,6 @@ export default function NavalArchitectPage() {
       <PageHero
         title="Naval Architecture & Marine Systems Engineering"
         subtitle="Maritime Engineering Solutions"
-        description="At Globtek, we don't just design—we engineer certainty. Using advanced modelling, fatigue analysis, and real-world data, we deliver naval architecture solutions built for performance and sustainability."
         images={heroImages}
         slideInterval={6000}
         breadcrumbs={[
@@ -90,6 +89,9 @@ export default function NavalArchitectPage() {
               Our Mission-Driven Engineering Philosophy
             </h2>
             <div className="space-y-6">
+              <p className="text-lg text-[#4a4a4a] leading-relaxed">
+                At Globtek, we don't just design—we engineer certainty. Using advanced modelling, fatigue analysis, and real-world data, we deliver naval architecture solutions built for performance and sustainability.
+              </p>
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
                 We engineer ships and marine platforms that are robust, safe, operable in extreme environments, and optimized for long-term performance. Every hull, system, and component we develop is supported by:
               </p>
