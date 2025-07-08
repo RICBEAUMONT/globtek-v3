@@ -64,7 +64,7 @@ export default function Journey({ events, className = '' }: JourneyProps) {
               >
                 {/* Event Card */}
                 <div className={`w-7/12 group`}>
-                  <div className="relative bg-gray-900 p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+                  <div className="relative bg-[#231f20] p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
                     {/* Content */}
                     <div className="relative">
                       <span className="inline-block text-[var(--color-accent)] font-bold text-3xl mb-3">{event.year}</span>
