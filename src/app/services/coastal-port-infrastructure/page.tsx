@@ -80,7 +80,7 @@ export default function CoastalPortInfrastructurePage() {
       <PageHero
         title="Coastal & Port Infrastructure Engineering"
         subtitle="Maritime Infrastructure Solutions"
-        description="At Globtek, we engineer resilient coastal and port infrastructure that withstands the forces of nature while enabling efficient maritime operations. Our expertise spans from concept to construction, delivering sustainable solutions for tomorrow's maritime challenges."
+        description="At Globtek, our Coastal Engineering services are designed to safeguard and enhance maritime infrastructure in the face of dynamic environmental forces. We integrate the latest coastal modelling tools, structural diagnostics, and the WSCAM evaluation framework to deliver practical, sustainable solutions for port authorities, terminal operators, and coastal developers."
         images={coastalImages}
         slideInterval={6000}
         breadcrumbs={[

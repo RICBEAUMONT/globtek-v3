@@ -243,15 +243,16 @@ export default function PageHero({
 
           {/* Title */}
           <h1 className={cn(
-            "text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6",
-            "tracking-tight leading-tight"
+            "text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6",
+            "tracking-tight leading-tight",
+            "max-w-2xl"
           )}>
             {title}
           </h1>
 
           {/* Description */}
           {description && (
-            <p className="text-lg text-gray-200 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-gray-200 max-w-2xl leading-relaxed">
               {description}
             </p>
           )}
