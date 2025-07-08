@@ -79,7 +79,7 @@ const navigation: NavigationItem[] = [
         name: 'Rail Design', 
         href: '/services/rail-design',
         description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
-        imageUrl: '/images/services/rail-design/hero.jpg'
+        imageUrl: '/images/rails/rails_image-2.jpg'
       },
       { 
         name: 'Civil and Structural Engineering', 
