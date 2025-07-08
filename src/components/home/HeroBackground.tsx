@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 
 const videos = [
-  '/videos/homepage/3435043481-preview.mp4',
-  '/videos/homepage/1093541759-preview.mp4',
-  '/videos/homepage/3455463125-preview.mp4'
+  '/videos/homepage/1106956765-preview.mp4',
+  '/videos/homepage/1106956765-preview copy.mp4'
 ];
 
 export default function HeroBackground() {

@@ -82,7 +82,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <div className="h-[550px] relative">
+      <div className="h-[650px] relative">
         <section className="relative h-full">
           {/* Background Image */}
           <HeroBackground />
