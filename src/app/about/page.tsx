@@ -27,7 +27,7 @@ const coreValues = [
   {
     title: 'Excellence in All We Do',
     description: 'Striving for the highest quality in every project and interaction',
-    icon: Award,
+    icon: Heart,
   },
 ];
 
@@ -155,7 +155,7 @@ const statistics = [
     label: 'Countries Served',
     description: 'Global reach with local expertise',
     icon: Globe,
-    color: 'from-orange-500/20 to-transparent'
+    color: 'bg-[#1a222c]'
   }
 ];
 
@@ -204,7 +204,7 @@ export default function AboutPage() {
         {/* Background Elements */}
         <div className="absolute inset-0">
           {/* Dark Background with enhanced gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-gradient-from)] to-[var(--color-bg-gradient-to)]">
+          <div className="absolute inset-0 bg-[#1a222c]">
             {/* Animated Grid Pattern with enhanced opacity */}
             <div className="absolute inset-0 opacity-15">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#6b728015_1px,transparent_1px),linear-gradient(to_bottom,#6b728015_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
@@ -451,35 +451,35 @@ export default function AboutPage() {
             </div>
 
             {/* Values Cards Column */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {coreValues.map((value, index) => (
                 <div
-                  key={value.title}
-                  className="group relative bg-[#2d2a2a] rounded-2xl p-6 hover:shadow-xl transition-all duration-500 border border-gray-800"
+                  key={`core-value-${index}`}
+                  className="group relative bg-white/[0.02] backdrop-blur-sm rounded-2xl p-6 hover:bg-white/[0.03] transition-all duration-300 h-full flex flex-col"
                 >
                   {/* Accent Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/[0.03] to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                   
                   {/* Content */}
-                  <div className="relative">
-                    <div className="mb-4 w-12 h-12 rounded-xl bg-[var(--color-accent)]/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-[var(--color-accent)]/10 transition-all duration-500">
+                  <div className="relative flex flex-col h-full z-10">
+                    <div className="mb-4 w-12 h-12 rounded-lg bg-[var(--color-accent)]/5 flex items-center justify-center group-hover:bg-[var(--color-accent)]/10 transition-all duration-300">
                       <value.icon className="h-6 w-6 text-[var(--color-accent)]" />
                     </div>
 
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[var(--color-accent)] transition-colors duration-300">
                       {value.title}
                     </h3>
 
-                    <p className="text-white/80 text-sm leading-relaxed group-hover:text-white transition-colors duration-300">
+                    <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300 flex-grow">
                       {value.description}
                     </p>
 
                     {/* Bottom Accent Line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-[var(--color-accent)]/40 via-[var(--color-accent)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
 
                   {/* Number Label */}
-                  <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-[var(--color-accent)]/5 flex items-center justify-center text-xs font-medium text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-500">
+                  <div className="absolute top-6 right-6 w-6 h-6 rounded-full bg-[var(--color-accent)]/5 flex items-center justify-center text-xs font-medium text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
                     {(index + 1).toString().padStart(2, '0')}
                   </div>
                 </div>
