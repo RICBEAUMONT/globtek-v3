@@ -7,6 +7,7 @@ import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import ServiceProjects from '@/components/sections/ServiceProjects';
+import { useState, useEffect } from 'react';
 
 interface ServiceHighlight {
   title: string;
@@ -34,12 +35,39 @@ const highlights: ServiceHighlight[] = [
 
 export default function MarineEngineeringPage() {
   useScrollReveal();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   const heroImages = [
     `/images/marine-engineering/hero-marine-1.jpg`,
     `/images/marine-engineering/hero-marine-2.jpg`,
     `/images/marine-engineering/hero-marine-3.jpg`
   ];
+
+  const marineImages = [
+    '/images/marine-engineering/marine-1.jpg',
+    '/images/marine-engineering/marine-2.jpg',
+    '/images/marine-engineering/marine-3.jpg',
+    '/images/marine-engineering/marine-4.jpg',
+    '/images/marine-engineering/marine-5.jpg',
+    '/images/marine-engineering/marine-6.jpg',
+  ];
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentSlide(prev => (prev === marineImages.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, [marineImages.length]);
+
+  const handleImageClick = (src: string) => {
+    setEnlargedImage(src);
+  };
+
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
 
   return (
     <main className="min-h-screen">
@@ -193,8 +221,71 @@ export default function MarineEngineeringPage() {
           showViewAllButton={true}
         />
         )}
+      </Container>
 
-        {/* CTA Section */}
+      {/* Scrolling Image Slider Section */}
+      <section className="w-full py-8 overflow-hidden">
+        <div className="relative w-full">
+          <div 
+            className={`flex items-center gap-8 animate-scroll-left ${isHovered ? 'paused' : ''}`} 
+            style={{ width: 'max-content' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {marineImages.concat(marineImages).map((src, idx) => (
+              <div 
+                key={idx} 
+                className="relative h-64 w-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => handleImageClick(src)}
+              >
+                <Image
+                  src={src}
+                  alt={`Marine engineering slider image ${idx % marineImages.length + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 80vw, 420px"
+                  priority={idx < marineImages.length}
+                />
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enlarged Image Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={closeEnlargedImage}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
+            <Image
+              src={enlargedImage}
+              alt="Enlarged marine engineering image"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 90vw, 80vw"
+            />
+            <button
+              onClick={closeEnlargedImage}
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300"
+              aria-label="Close enlarged image"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* CTA Section */}
+      <Container>
         <div className="mt-24">
           <SimpleCTA
             title="Ready to"
