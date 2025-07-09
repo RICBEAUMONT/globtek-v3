@@ -36,9 +36,9 @@ export default function MarineEngineeringPage() {
   useScrollReveal();
 
   const heroImages = [
-    `/images/services/marine-engineering/hero.jpg`,
-    `/images/services/marine-engineering/hero-2.jpg`,
-    `/images/services/marine-engineering/hero-3.jpg`
+    `/images/marine-engineering/hero-marine-1.jpg`,
+    `/images/marine-engineering/hero-marine-2.jpg`,
+    `/images/marine-engineering/hero-marine-3.jpg`
   ];
 
   return (
@@ -46,7 +46,6 @@ export default function MarineEngineeringPage() {
       <PageHero
         title="Marine Engineering Excellence"
         subtitle="Offshore & Maritime Solutions"
-        description="From oil rigs to offshore wind farms, we deliver innovative engineering solutions that meet the highest industry standards for safety, efficiency, and sustainability."
         images={heroImages}
         slideInterval={6000}
         breadcrumbs={[
@@ -72,6 +71,9 @@ export default function MarineEngineeringPage() {
               Innovative Marine Engineering Solutions
             </h2>
             <div className="space-y-6">
+              <p className="text-lg text-[#4a4a4a] leading-relaxed">
+                From oil rigs to offshore wind farms, we deliver innovative engineering solutions that meet the highest industry standards for safety, efficiency, and sustainability.
+              </p>
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
                 Our skilled engineers and naval architects excel in designing and analyzing offshore structures and vessels. 
                 From oil rigs to offshore wind farms, our expertise and capabilities enable us to address even the most 
