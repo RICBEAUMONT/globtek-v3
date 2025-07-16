@@ -53,57 +53,41 @@ export default function ProjectsClient() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative pt-32 pb-20 bg-[#14171c] overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#6b728015_1px,transparent_1px),linear-gradient(to_bottom,#6b728015_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
-          <div className="absolute top-0 left-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-5 blur-[100px]"></div>
-          <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-5 blur-[100px]"></div>
+      {/* Hero Section */}
+      <div className="relative pt-40 pb-20 bg-[#14171c] overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
         </div>
-
+        
+        {/* Subtle accent glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#e43d30] to-transparent opacity-10 blur-[100px]"></div>
+        
         <Container>
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative z-10 max-w-4xl mx-auto text-center"
+            className="relative z-10 max-w-3xl"
           >
-            {/* Accent Line */}
-            <div className="flex items-center justify-center gap-3 mb-6">
+            {/* Accent line */}
+            <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-12 bg-[#e43d30]"></div>
               <span className="text-[#e43d30] font-medium uppercase tracking-wider text-sm">Our Portfolio</span>
-              <div className="h-px w-12 bg-[#e43d30]"></div>
             </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Engineering
-              <span className="block mt-2 text-[#e43d30]">Excellence</span>
-              <span className="block mt-2">Showcase</span>
+              <span className="block mt-2 text-[#e43d30]">Projects</span>
+              <span className="block mt-2">Portfolio</span>
             </h1>
             
-            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-              Discover our diverse range of engineering projects spanning naval architecture, marine engineering, port infrastructure, and more. Each project represents our commitment to innovation, quality, and delivering exceptional results.
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+              Discover our diverse range of engineering projects spanning naval architecture, marine engineering, port infrastructure, and more. From vessel design and infrastructure development to fire safety systems and port surveys, we deliver innovative solutions that set industry standards across South Africa and beyond.
             </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-12 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#e43d30] mb-2">{allProjects.length}+</div>
-                <div className="text-sm text-gray-400">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#e43d30] mb-2">{categories.length - 1}</div>
-                <div className="text-sm text-gray-400">Specializations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#e43d30] mb-2">10+</div>
-                <div className="text-sm text-gray-400">Years Experience</div>
-              </div>
-            </div>
           </motion.div>
         </Container>
-      </section>
+      </div>
 
       <Container>
         {/* Enhanced Search and Filter Section */}
