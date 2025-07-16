@@ -77,9 +77,8 @@ export default function ProjectsClient() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
-              Engineering
-              <span className="block mt-2 text-[#e43d30]">Projects</span>
-              <span className="block mt-2">Portfolio</span>
+              Engineering Projects
+              <span className="block mt-2 text-[#e43d30]">Portfolio</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
@@ -238,88 +237,70 @@ export default function ProjectsClient() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className={cn(
-                        "group block transition-all duration-300",
-                        viewMode === 'grid' 
-                          ? "relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1"
-                          : "flex gap-6 bg-white rounded-2xl shadow-lg hover:shadow-xl p-6 hover:-translate-y-1"
-                      )}
-                    >
-                      {/* Project Image */}
-                      <div className={cn(
-                        "relative overflow-hidden",
-                        viewMode === 'grid' 
-                          ? "aspect-[4/3]"
-                          : "w-48 h-32 rounded-xl flex-shrink-0"
-                      )}>
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                        
-                        {/* Category Badge */}
-                        <div className="absolute top-4 left-4">
-                          <span className="text-xs text-white bg-[#e43d30] px-3 py-1 rounded-full font-medium">
-                            {project.category}
-                          </span>
-                        </div>
-                      </div>
+                                         <Link
+                       href={`/projects/${project.slug}`}
+                       className={cn(
+                         "group block transition-all duration-300 h-full",
+                         viewMode === 'grid' 
+                           ? "bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col"
+                           : "flex gap-6 bg-white rounded-2xl shadow-lg hover:shadow-xl p-6 hover:-translate-y-1"
+                       )}
+                     >
+                       {/* Project Image */}
+                       <div className={cn(
+                         "relative overflow-hidden",
+                         viewMode === 'grid' 
+                           ? "aspect-[4/3]"
+                           : "w-48 h-32 rounded-xl flex-shrink-0"
+                       )}>
+                         <Image
+                           src={project.image}
+                           alt={project.title}
+                           fill
+                           className="object-cover transition-transform duration-500 group-hover:scale-110"
+                         />
+                         
+                         {/* Category Badge */}
+                         <div className="absolute top-4 left-4">
+                           <span className="text-xs text-white bg-[#e43d30] px-3 py-1 rounded-full font-medium shadow-sm">
+                             {project.category}
+                           </span>
+                         </div>
+                       </div>
 
-                      {/* Project Content */}
-                      <div className={cn(
-                        viewMode === 'grid' 
-                          ? "absolute inset-0 p-6 flex flex-col justify-end"
-                          : "flex-1"
-                      )}>
-                        <div className={cn(
-                          "space-y-3",
-                          viewMode === 'grid' ? "text-white" : "text-gray-900"
-                        )}>
-                          {/* Project Meta */}
-                          <div className="flex items-center gap-4 text-sm opacity-80">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="h-4 w-4" />
-                              <span>{project.completionDate}</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Building2 className="h-4 w-4" />
-                              <span>{project.client}</span>
-                            </div>
-                          </div>
+                       {/* Project Content */}
+                       <div className={cn(
+                         viewMode === 'grid' 
+                           ? "p-6 flex-1 flex flex-col"
+                           : "flex-1"
+                       )}>
+                         <div className={cn(
+                           "space-y-3 flex-1 flex flex-col",
+                           "text-gray-900"
+                         )}>
+                           {/* Project Title */}
+                           <h3 className="text-xl font-bold text-[#14171c] group-hover:text-[#e43d30] transition-colors duration-300">
+                             {project.title}
+                           </h3>
 
-                          {/* Project Title */}
-                          <h3 className={cn(
-                            "font-bold transition-colors duration-300",
-                            viewMode === 'grid' 
-                              ? "text-xl group-hover:text-[#e43d30]" 
-                              : "text-xl group-hover:text-[#e43d30]"
-                          )}>
-                            {project.title}
-                          </h3>
+                           {/* Project Description */}
+                           <p className={cn(
+                             "text-sm leading-relaxed text-gray-600 flex-1",
+                             viewMode === 'grid' 
+                               ? "line-clamp-3" 
+                               : ""
+                           )}>
+                             {project.description}
+                           </p>
 
-                          {/* Project Description */}
-                          <p className={cn(
-                            "text-sm leading-relaxed",
-                            viewMode === 'grid' 
-                              ? "opacity-90 line-clamp-2" 
-                              : "text-gray-600"
-                          )}>
-                            {project.description}
-                          </p>
-
-                          {/* View Details Link */}
-                          <div className="flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span>View Details</span>
-                            <ArrowRight className="h-4 w-4" />
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
+                           {/* View Details Link */}
+                           <div className="flex items-center gap-2 text-sm font-medium text-[#e43d30] opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-auto">
+                             <span>View Details</span>
+                             <ArrowRight className="h-4 w-4" />
+                           </div>
+                         </div>
+                       </div>
+                     </Link>
                   </motion.div>
                 ))}
               </motion.div>
