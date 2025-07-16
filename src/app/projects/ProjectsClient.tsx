@@ -4,9 +4,9 @@ import Container from '@/components/layout/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
-import { Search, ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Search, ChevronDown, Filter, Grid, List, Calendar, Building2, MapPin, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { allProjects } from '@/data/projects';
 
 const categories = [
@@ -25,6 +25,8 @@ export default function ProjectsClient() {
   const [selectedCategory, setSelectedCategory] = useState('All Projects');
   const [searchQuery, setSearchQuery] = useState('');
   const [displayedProjects, setDisplayedProjects] = useState(6);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [isLoading, setIsLoading] = useState(false);
 
   const filteredProjects = allProjects.filter(project => {
     const matchesCategory = selectedCategory === 'All Projects' || project.category === selectedCategory;
@@ -34,68 +36,175 @@ export default function ProjectsClient() {
     return matchesCategory && matchesSearch;
   });
 
+  // Simulate loading state for better UX
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 300);
+    return () => clearTimeout(timer);
+  }, [selectedCategory, searchQuery]);
+
+  const handleLoadMore = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setDisplayedProjects(prev => prev + 6);
+      setIsLoading(false);
+    }, 500);
+  };
+
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative pt-40 pb-16 bg-[var(--color-bg-primary)]">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Enhanced Hero Section */}
+      <section className="relative pt-32 pb-20 bg-[#14171c] overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#6b728015_1px,transparent_1px),linear-gradient(to_bottom,#6b728015_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+          <div className="absolute top-0 left-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-5 blur-[100px]"></div>
+          <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-5 blur-[100px]"></div>
+        </div>
+
         <Container>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 max-w-4xl mx-auto text-center"
+          >
+            {/* Accent Line */}
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-12 bg-[#e43d30]"></div>
+              <span className="text-[#e43d30] font-medium uppercase tracking-wider text-sm">Our Portfolio</span>
+              <div className="h-px w-12 bg-[#e43d30]"></div>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
+              Engineering
+              <span className="block mt-2 text-[#e43d30]">Excellence</span>
+              <span className="block mt-2">Showcase</span>
+            </h1>
+            
+            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              Discover our diverse range of engineering projects spanning naval architecture, marine engineering, port infrastructure, and more. Each project represents our commitment to innovation, quality, and delivering exceptional results.
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 mt-12 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#e43d30] mb-2">{allProjects.length}+</div>
+                <div className="text-sm text-gray-400">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#e43d30] mb-2">{categories.length - 1}</div>
+                <div className="text-sm text-gray-400">Specializations</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#e43d30] mb-2">10+</div>
+                <div className="text-sm text-gray-400">Years Experience</div>
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </section>
+
+      <Container>
+        {/* Enhanced Search and Filter Section */}
+        <section className="py-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text-primary)]">
-              Our Engineering Projects Portfolio
-            </h1>
-            <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
-              Discover our diverse range of engineering projects spanning naval architecture, marine engineering, port infrastructure, and more. From vessel design and infrastructure development to fire safety systems and port surveys, we deliver innovative solutions that set industry standards across South Africa and beyond.
-            </p>
-          </motion.div>
-        </Container>
-      </div>
+            {/* Section Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-2xl font-bold text-[#14171c] mb-2">
+                  Find Your Project
+                </h2>
+                <p className="text-gray-600">
+                  Filter through our diverse portfolio of engineering projects
+                </p>
+              </div>
+              
+              {/* View Mode Toggle */}
+              <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={cn(
+                    "p-2 rounded-md transition-all duration-200",
+                    viewMode === 'grid' 
+                      ? "bg-white text-[#e43d30] shadow-sm" 
+                      : "text-gray-600 hover:text-gray-900"
+                  )}
+                >
+                  <Grid className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => setViewMode('list')}
+                  className={cn(
+                    "p-2 rounded-md transition-all duration-200",
+                    viewMode === 'list' 
+                      ? "bg-white text-[#e43d30] shadow-sm" 
+                      : "text-gray-600 hover:text-gray-900"
+                  )}
+                >
+                  <List className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
 
-      <Container>
-        {/* Search and Filter Section */}
-        <div className="pb-40">
-          {/* Section Header */}
-          <div className="max-w-2xl mb-12">
-            <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-4">
-              Browse Our Projects
-            </h2>
-            <p className="text-[var(--color-text-secondary)]">
-              Filter through our diverse portfolio of marine engineering projects. Use the search bar to find specific projects or categories.
-            </p>
-          </div>
-
-          {/* Search and Filter Container */}
-          <div className="bg-white rounded-2xl shadow-sm p-6 mb-12">
-            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
+            {/* Search and Filter Controls */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Search Bar */}
-              <div className="relative w-full md:w-96">
-                <div className="absolute inset-0 bg-gray-50 rounded-lg"></div>
+              <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search by project name, description, or client..."
+                  placeholder="Search projects..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="relative w-full pl-12 pr-4 py-3.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent bg-transparent"
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#e43d30] focus:border-transparent bg-gray-50 hover:bg-white transition-colors"
                 />
               </div>
 
-              {/* Categories Filter */}
+              {/* Category Filter */}
+              <div className="relative">
+                <Filter className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#e43d30] focus:border-transparent bg-gray-50 hover:bg-white transition-colors appearance-none"
+                >
+                  {categories.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+              </div>
+
+              {/* Quick Stats */}
+              <div className="flex items-center justify-center bg-gray-50 rounded-xl px-6 py-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#14171c]">{filteredProjects.length}</div>
+                  <div className="text-sm text-gray-600">Projects Found</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Category Pills */}
+            <div className="mt-6 pt-6 border-t border-gray-100">
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
-                      "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
-                      "hover:bg-[var(--color-accent)] hover:text-white",
+                      "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
+                      "hover:bg-[#e43d30] hover:text-white hover:shadow-md",
                       selectedCategory === category 
-                        ? "bg-[var(--color-accent)] text-white shadow-sm" 
-                        : "bg-gray-50 text-gray-700 hover:shadow-sm"
+                        ? "bg-[#e43d30] text-white shadow-md" 
+                        : "bg-gray-100 text-gray-700 hover:shadow-sm"
                     )}
                   >
                     {category}
@@ -103,88 +212,192 @@ export default function ProjectsClient() {
                 ))}
               </div>
             </div>
+          </motion.div>
 
-            {/* Results Count */}
-            <div className="mt-6 pt-6 border-t border-gray-100">
-              <div className="text-sm text-[var(--color-text-secondary)] flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
-                Showing {filteredProjects.slice(0, displayedProjects).length} of {filteredProjects.length} projects
-              </div>
-            </div>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.slice(0, displayedProjects).map((project, index) => (
+          {/* Projects Display */}
+          <AnimatePresence mode="wait">
+            {isLoading ? (
               <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                key="loading"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group relative overflow-hidden rounded-2xl bg-gray-100 block shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                  </div>
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-white/90 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-                          {project.category}
-                        </span>
-                        <span className="text-sm text-white/90">
-                          {project.completionDate}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-white/80 line-clamp-2">
-                        {project.description}
-                      </p>
-                      <div className="pt-2">
-                        <span className="text-sm text-white/90 inline-flex items-center">
-                          Client: {project.client}
-                        </span>
-                      </div>
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="animate-pulse">
+                    <div className="bg-gray-200 rounded-2xl h-64 mb-4"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-3 bg-gray-200 rounded w-1/2"></div>
                     </div>
                   </div>
-                </Link>
+                ))}
               </motion.div>
-            ))}
-          </div>
+            ) : (
+              <motion.div
+                key="projects"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className={cn(
+                  "transition-all duration-500",
+                  viewMode === 'grid' 
+                    ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    : "space-y-6"
+                )}
+              >
+                {filteredProjects.slice(0, displayedProjects).map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className={cn(
+                        "group block transition-all duration-300",
+                        viewMode === 'grid' 
+                          ? "relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1"
+                          : "flex gap-6 bg-white rounded-2xl shadow-lg hover:shadow-xl p-6 hover:-translate-y-1"
+                      )}
+                    >
+                      {/* Project Image */}
+                      <div className={cn(
+                        "relative overflow-hidden",
+                        viewMode === 'grid' 
+                          ? "aspect-[4/3]"
+                          : "w-48 h-32 rounded-xl flex-shrink-0"
+                      )}>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                        
+                        {/* Category Badge */}
+                        <div className="absolute top-4 left-4">
+                          <span className="text-xs text-white bg-[#e43d30] px-3 py-1 rounded-full font-medium">
+                            {project.category}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Project Content */}
+                      <div className={cn(
+                        viewMode === 'grid' 
+                          ? "absolute inset-0 p-6 flex flex-col justify-end"
+                          : "flex-1"
+                      )}>
+                        <div className={cn(
+                          "space-y-3",
+                          viewMode === 'grid' ? "text-white" : "text-gray-900"
+                        )}>
+                          {/* Project Meta */}
+                          <div className="flex items-center gap-4 text-sm opacity-80">
+                            <div className="flex items-center gap-1">
+                              <Calendar className="h-4 w-4" />
+                              <span>{project.completionDate}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Building2 className="h-4 w-4" />
+                              <span>{project.client}</span>
+                            </div>
+                          </div>
+
+                          {/* Project Title */}
+                          <h3 className={cn(
+                            "font-bold transition-colors duration-300",
+                            viewMode === 'grid' 
+                              ? "text-xl group-hover:text-[#e43d30]" 
+                              : "text-xl group-hover:text-[#e43d30]"
+                          )}>
+                            {project.title}
+                          </h3>
+
+                          {/* Project Description */}
+                          <p className={cn(
+                            "text-sm leading-relaxed",
+                            viewMode === 'grid' 
+                              ? "opacity-90 line-clamp-2" 
+                              : "text-gray-600"
+                          )}>
+                            {project.description}
+                          </p>
+
+                          {/* View Details Link */}
+                          <div className="flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>View Details</span>
+                            <ArrowRight className="h-4 w-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Load More Button */}
           {displayedProjects < filteredProjects.length && (
-            <div className="text-center mt-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center mt-16"
+            >
               <button
-                onClick={() => setDisplayedProjects(prev => prev + 6)}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] transition-all duration-300 shadow-sm hover:shadow-md"
+                onClick={handleLoadMore}
+                disabled={isLoading}
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#e43d30] text-white hover:bg-[#e43d30]/90 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Load More Projects
-                <ChevronDown className="h-5 w-5" />
+                {isLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    Loading...
+                  </>
+                ) : (
+                  <>
+                    Load More Projects
+                    <ChevronDown className="h-5 w-5" />
+                  </>
+                )}
               </button>
-            </div>
+            </motion.div>
           )}
 
           {/* No Results Message */}
           {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-[var(--color-text-secondary)]">
-                No projects found matching your search criteria. Try adjusting your filters or search terms.
-              </p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-16"
+            >
+              <div className="max-w-md mx-auto">
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Search className="h-8 w-8 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No projects found</h3>
+                <p className="text-gray-600 mb-6">
+                  Try adjusting your search criteria or browse all projects
+                </p>
+                <button
+                  onClick={() => {
+                    setSelectedCategory('All Projects');
+                    setSearchQuery('');
+                  }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#e43d30] text-white hover:bg-[#e43d30]/90 transition-colors"
+                >
+                  View All Projects
+                </button>
+              </div>
+            </motion.div>
           )}
-        </div>
+        </section>
       </Container>
     </main>
   );
