@@ -93,7 +93,7 @@ export default function OffshoreEngineeringPage() {
               </svg>
               Our Offshore Engineering Expertise
             </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#1a222c] mb-6 leading-[1.1]">
+            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#14171c] mb-6 leading-[1.1]">
               Engineering Resilience. Navigating Deepwater Complexity.
             </h2>
             <div className="space-y-6">
@@ -104,7 +104,7 @@ export default function OffshoreEngineeringPage() {
           </div>
           <div className="relative rounded-2xl shadow-xl overflow-hidden min-h-[500px] h-full">
             {/* Text card with dark background */}
-            <div className="w-full h-full bg-[#1a222c] flex items-center justify-center pt-4 pb-12 px-12 relative">
+            <div className="w-full h-full bg-[#14171c] flex items-center justify-center pt-4 pb-12 px-12 relative">
               {/* Subtle accent elements */}
               <div className="absolute top-8 right-8 w-2 h-2 bg-[#e43d30] rounded-full opacity-60"></div>
               <div className="absolute bottom-8 left-8 w-1 h-1 bg-[#e43d30] rounded-full opacity-40"></div>
@@ -224,14 +224,14 @@ export default function OffshoreEngineeringPage() {
               Core Services
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a222c] mb-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#14171c] mb-4 text-center">
             From Concept to Completion<br />Our Core Capabilities
           </h2>
           <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-12 text-center max-w-4xl mx-auto">A focused suite of services for every stage of offshore engineering</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
             {/* Service Step 1 */}
-            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#14171c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 1 ? null : 1)}
               tabIndex={0}
               role="button"
@@ -286,7 +286,7 @@ export default function OffshoreEngineeringPage() {
             </div>
 
             {/* Service Step 2 */}
-            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#14171c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 2 ? null : 2)}
               tabIndex={0}
               role="button"
@@ -331,7 +331,7 @@ export default function OffshoreEngineeringPage() {
             </div>
 
             {/* Service Step 3 */}
-            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#14171c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 3 ? null : 3)}
               tabIndex={0}
               role="button"
@@ -375,7 +375,7 @@ export default function OffshoreEngineeringPage() {
             </div>
 
             {/* Service Step 4 */}
-            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#14171c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 4 ? null : 4)}
               tabIndex={0}
               role="button"
@@ -415,7 +415,7 @@ export default function OffshoreEngineeringPage() {
             </div>
 
             {/* Service Step 5 */}
-            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#14171c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 5 ? null : 5)}
               tabIndex={0}
               role="button"
@@ -455,7 +455,7 @@ export default function OffshoreEngineeringPage() {
             </div>
 
             {/* Service Step 6 */}
-            <div className={`bg-[#1a222c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
+            <div className={`bg-[#14171c] rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/10 min-h-[126px]`}
               onClick={() => setExpanded(expanded === 6 ? null : 6)}
               tabIndex={0}
               role="button"
@@ -508,7 +508,7 @@ export default function OffshoreEngineeringPage() {
               </svg>
               Trusted by Industry Leaders
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1a222c] mb-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#14171c] mb-4 text-center">
               Why Choose <span className="text-[#e43d30]">Globtek</span>?
             </h2>
             <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-4xl mx-auto">
@@ -526,7 +526,7 @@ export default function OffshoreEngineeringPage() {
                     <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#1a222c] group-hover:text-[#e43d30] transition-colors duration-300">Deepwater Expertise</h3>
+                <h3 className="text-xl font-bold text-[#14171c] group-hover:text-[#e43d30] transition-colors duration-300">Deepwater Expertise</h3>
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Experienced in both nearshore transitional waters and deepwater developments, with comprehensive knowledge of offshore engineering challenges across all water depths.
@@ -546,7 +546,7 @@ export default function OffshoreEngineeringPage() {
                     <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#1a222c] group-hover:text-[#e43d30] transition-colors duration-300">Industry<br />Standards</h3>
+                <h3 className="text-xl font-bold text-[#14171c] group-hover:text-[#e43d30] transition-colors duration-300">Industry<br />Standards</h3>
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Familiarity with ISO 19900 series, DNV-ST standards, API RP 2A/2RD, and other international offshore engineering standards ensuring regulatory compliance.
@@ -581,7 +581,7 @@ export default function OffshoreEngineeringPage() {
                     <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#1a222c] group-hover:text-[#e43d30] transition-colors duration-300">Seamless Integration</h3>
+                <h3 className="text-xl font-bold text-[#14171c] group-hover:text-[#e43d30] transition-colors duration-300">Seamless Integration</h3>
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Ability to integrate with your design team from concept through to commissioning, providing continuous support throughout the project lifecycle.
@@ -605,13 +605,13 @@ export default function OffshoreEngineeringPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-[#1a222c] mb-2">Advanced Simulation Software</h3>
+                <h3 className="text-2xl font-bold text-[#14171c] mb-2">Advanced Simulation Software</h3>
                 <p className="text-gray-600">Cutting-edge tools for accurate offshore engineering analysis</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-4">
-                <h4 className="font-semibold text-[#1a222c] text-lg flex items-center">
+                <h4 className="font-semibold text-[#14171c] text-lg flex items-center">
                   <svg className="w-5 h-5 text-[#e43d30] mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
@@ -629,7 +629,7 @@ export default function OffshoreEngineeringPage() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h4 className="font-semibold text-[#1a222c] text-lg flex items-center">
+                <h4 className="font-semibold text-[#14171c] text-lg flex items-center">
                   <svg className="w-5 h-5 text-[#e43d30] mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>

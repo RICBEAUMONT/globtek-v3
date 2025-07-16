@@ -76,7 +76,7 @@ export default function AboutUs() {
                 key={value.title}
                 className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="text-blue-600 mb-4">
+                <div className="text-[#14171c] mb-4">
                   <value.icon className="h-8 w-8" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">

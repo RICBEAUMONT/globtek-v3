@@ -136,7 +136,7 @@ export default function Home() {
                 {statistics.map((stat, index) => (
                   <Link href={stat.link} key={index}>
                     <div 
-                      className="group relative bg-gradient-to-br from-[#1a1718] to-[#1a222c] p-5 rounded-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden min-h-[210px] flex flex-col"
+                      className="group relative bg-gradient-to-br from-[#14171c] to-[#14171c] p-5 rounded-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden min-h-[210px] flex flex-col"
                       style={{
                         backgroundImage: `url(${stat.heroImage})`,
                         backgroundSize: 'cover',
@@ -147,7 +147,7 @@ export default function Home() {
                       <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-all duration-300" />
                       
                       {/* Gradient overlay for better text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1718]/80 via-[#1a222c]/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#14171c]/80 via-[#14171c]/60 to-transparent" />
                       
                       <div className="relative z-10 flex flex-col h-full">
                         <div className="flex items-start gap-3 mb-3">
@@ -189,7 +189,7 @@ export default function Home() {
       </div>
 
       {/* Message from COO Section (moved from About page) */}
-      <section className="py-24 bg-[#1a222c] relative overflow-hidden">
+      <section className="py-24 bg-[#14171c] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           {/* Enhanced Grid Pattern */}
@@ -316,7 +316,7 @@ export default function Home() {
               <div className="h-px w-12 bg-[#e43d30]"></div>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#1a222c] mb-6 tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#14171c] mb-6 tracking-tight">
               Our Naval Architecture Design Process & Development Services
             </h2>
             <p className="text-xl text-[#4a4a4a] leading-relaxed">
@@ -338,7 +338,7 @@ export default function Home() {
               "Ship system analysis",
               "Preparation of cost/time/schedule estimates"
             ].map((component, index) => (
-              <div key={index} className="bg-gradient-to-br from-[#1a222c] to-[#1a1718] p-6 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="bg-gradient-to-br from-[#14171c] to-[#14171c] p-6 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-lg bg-[#e43d30]/20 flex items-center justify-center flex-shrink-0">
                     <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
@@ -350,7 +350,7 @@ export default function Home() {
           </div>
 
           {/* Design Services Overview */}
-          <div className="bg-[#1a222c] w-full p-8 md:p-12 mb-16 relative overflow-hidden rounded-2xl">
+          <div className="bg-[#14171c] w-full p-8 md:p-12 mb-16 relative overflow-hidden rounded-2xl">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
@@ -493,12 +493,12 @@ export default function Home() {
             {/* Concept & Feasibility Design */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-3xl font-bold text-[#1a222c] mb-6">Concept & Feasibility Design</h3>
+                <h3 className="text-3xl font-bold text-[#14171c] mb-6">Concept & Feasibility Design</h3>
                 <p className="text-[#4a4a4a] leading-relaxed mb-6">
                   The Globtek concept design process involves the development of design alternatives based on client requirements. Our team of naval architects and marine engineers adapts a set of top-level requirements into concept-level definitions to evaluate technical feasibility, cost and performance.
                 </p>
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-[#1a222c]">These efforts involve the complete early phase definition of the ship, including:</h4>
+                  <h4 className="text-lg font-semibold text-[#14171c]">These efforts involve the complete early phase definition of the ship, including:</h4>
                   <ul className="space-y-2">
                     {[
                       "Principal characteristics",
@@ -515,7 +515,7 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <div className="bg-[#1a222c] w-full p-8 rounded-2xl relative overflow-hidden">
+              <div className="bg-[#14171c] w-full p-8 rounded-2xl relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5">
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
@@ -549,7 +549,7 @@ export default function Home() {
             </div>
 
             {/* Preliminary Design */}
-            <div className="bg-[#1a222c] w-full p-8 md:p-12 rounded-2xl relative overflow-hidden">
+            <div className="bg-[#14171c] w-full p-8 md:p-12 rounded-2xl relative overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
@@ -607,7 +607,7 @@ export default function Home() {
 
             {/* Contract Design */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-[#1a222c] w-full p-8 rounded-2xl relative overflow-hidden">
+              <div className="bg-[#14171c] w-full p-8 rounded-2xl relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5">
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
@@ -627,19 +627,19 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-[#1a222c] mb-6">Detailed Architectural Design and Construction</h3>
+                <h3 className="text-3xl font-bold text-[#14171c] mb-6">Detailed Architectural Design and Construction</h3>
                 <p className="text-[#4a4a4a] leading-relaxed mb-6">
                   G&C's Detail Design & Construction solutions are highly tailorable to the needs of the program, shipbuilder, and end-customer. Our efforts seek to maximize producibility and affordability while mitigating risk for procurement, planning, construction, test, delivery, and acceptance.
                 </p>
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-[#1a222c]">Generally, a Detail Design program comprises two key phases:</h4>
+                  <h4 className="text-lg font-semibold text-[#14171c]">Generally, a Detail Design program comprises two key phases:</h4>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <h5 className="font-semibold text-[#1a222c] mb-2">Functional Design</h5>
+                      <h5 className="font-semibold text-[#14171c] mb-2">Functional Design</h5>
                       <p className="text-sm text-[#4a4a4a]">Maturation of vessel design to comprehensive and consistent set of design products</p>
                     </div>
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <h5 className="font-semibold text-[#1a222c] mb-2">Production Design</h5>
+                      <h5 className="font-semibold text-[#14171c] mb-2">Production Design</h5>
                       <p className="text-sm text-[#4a4a4a]">3D product model development based on functional drawings and build strategy</p>
                     </div>
                   </div>
@@ -649,7 +649,7 @@ export default function Home() {
 
                         {/* Production Liaison */}
             <div className="bg-white rounded-2xl p-8 md:p-12">
-              <h3 className="text-3xl font-bold text-[#1a222c] mb-8 text-center">Production Liaison (Shipyard) Support</h3>
+              <h3 className="text-3xl font-bold text-[#14171c] mb-8 text-center">Production Liaison (Shipyard) Support</h3>
               <p className="text-[#4a4a4a] text-center mb-8">
                 During construction, we provide platform development with on-site and off-site support.
               </p>
@@ -664,7 +664,7 @@ export default function Home() {
                    "Stability test/experiments",
                    "Test & trials support"
                  ].map((service, index) => (
-                   <div key={index} className="inline-flex items-center justify-center bg-[#1a222c] border border-[#1a222c]/20 rounded-full px-6 py-3 hover:bg-[#1a222c]/80 transition-all duration-300 shadow-sm">
+                   <div key={index} className="inline-flex items-center justify-center bg-[#14171c] border border-[#14171c]/20 rounded-full px-6 py-3 hover:bg-[#14171c]/80 transition-all duration-300 shadow-sm">
                      <div className="text-sm text-white font-medium">{service}</div>
                    </div>
                  ))}

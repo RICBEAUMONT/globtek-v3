@@ -19,7 +19,7 @@ export default function ProjectDetailPage() {
     return (
       <Container className="py-16 md:py-24">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#1a222c] mb-4">Project Not Found</h1>
+          <h1 className="text-4xl font-bold text-[#14171c] mb-4">Project Not Found</h1>
           <p className="text-[#4a4a4a] mb-8">The project you're looking for doesn't exist or has been moved.</p>
           <Link
             href="/projects"
@@ -83,28 +83,28 @@ export default function ProjectDetailPage() {
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
             <section>
-              <h2 className="text-2xl font-bold text-[#1a222c] mb-6">Project Overview</h2>
+              <h2 className="text-2xl font-bold text-[#14171c] mb-6">Project Overview</h2>
               <p className="text-[#4a4a4a] leading-relaxed whitespace-pre-line">
                 {project.details.overview}
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#1a222c] mb-6">The Challenge</h2>
+              <h2 className="text-2xl font-bold text-[#14171c] mb-6">The Challenge</h2>
               <p className="text-[#4a4a4a] leading-relaxed whitespace-pre-line">
                 {project.details.challenge}
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#1a222c] mb-6">Our Solution</h2>
+              <h2 className="text-2xl font-bold text-[#14171c] mb-6">Our Solution</h2>
               <p className="text-[#4a4a4a] leading-relaxed whitespace-pre-line">
                 {project.details.solution}
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#1a222c] mb-6">Results</h2>
+              <h2 className="text-2xl font-bold text-[#14171c] mb-6">Results</h2>
               <p className="text-[#4a4a4a] leading-relaxed whitespace-pre-line">
                 {project.details.results}
               </p>
@@ -112,7 +112,7 @@ export default function ProjectDetailPage() {
 
             {project.details.keyFeatures && (
               <section>
-                <h2 className="text-2xl font-bold text-[#1a222c] mb-6">Key Features</h2>
+                <h2 className="text-2xl font-bold text-[#14171c] mb-6">Key Features</h2>
                 <ul className="grid md:grid-cols-2 gap-4">
                   {project.details.keyFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3 p-4 rounded-xl bg-gray-50">
@@ -130,7 +130,7 @@ export default function ProjectDetailPage() {
 
             {project.details.gallery && (
               <section>
-                <h2 className="text-2xl font-bold text-[#1a222c] mb-6">Project Gallery</h2>
+                <h2 className="text-2xl font-bold text-[#14171c] mb-6">Project Gallery</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {project.details.gallery.map((image, index) => (
                     <button
@@ -155,31 +155,31 @@ export default function ProjectDetailPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-8 space-y-6">
               <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-[#1a222c] mb-4">Project Details</h3>
+                <h3 className="text-xl font-bold text-[#14171c] mb-4">Project Details</h3>
                 <div className="space-y-4">
                   <div>
                     <div className="text-sm text-[#4a4a4a]">Client</div>
-                    <div className="font-medium text-[#1a222c]">{project.client}</div>
+                    <div className="font-medium text-[#14171c]">{project.client}</div>
                   </div>
                   <div>
                     <div className="text-sm text-[#4a4a4a]">Category</div>
-                    <div className="font-medium text-[#1a222c]">{project.category}</div>
+                    <div className="font-medium text-[#14171c]">{project.category}</div>
                   </div>
                   <div>
                     <div className="text-sm text-[#4a4a4a]">Completion Date</div>
-                    <div className="font-medium text-[#1a222c]">{project.completionDate}</div>
+                    <div className="font-medium text-[#14171c]">{project.completionDate}</div>
                   </div>
                 </div>
               </div>
 
               {project.details.specifications && (
                 <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h3 className="text-xl font-bold text-[#1a222c] mb-4">Specifications</h3>
+                  <h3 className="text-xl font-bold text-[#14171c] mb-4">Specifications</h3>
                   <div className="space-y-4">
                     {Object.entries(project.details.specifications).map(([key, value]) => (
                       <div key={key}>
                         <div className="text-sm text-[#4a4a4a]">{key}</div>
-                        <div className="font-medium text-[#1a222c]">{value}</div>
+                        <div className="font-medium text-[#14171c]">{value}</div>
                       </div>
                     ))}
                   </div>

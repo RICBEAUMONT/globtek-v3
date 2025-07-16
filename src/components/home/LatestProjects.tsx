@@ -64,7 +64,7 @@ export default function LatestProjects({
             <div className="h-px w-12 bg-[#e43d30]"></div>
           </div>
           
-          <h2 className="text-4xl font-bold text-[#1a222c] mb-4 tracking-tight leading-[1.1]">
+          <h2 className="text-4xl font-bold text-[#14171c] mb-4 tracking-tight leading-[1.1]">
             {title}
           </h2>
           <p className="text-base md:text-lg text-[#4a4a4a] mb-16 max-w-2xl mx-auto leading-relaxed font-light">

@@ -42,7 +42,7 @@ export default function Services() {
               key={service.title}
               className="relative p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="text-blue-600 mb-4">
+              <div className="text-[#14171c] mb-4">
                 <service.icon className="h-8 w-8" />
               </div>
               <h3 className="text-lg font-medium text-gray-900">

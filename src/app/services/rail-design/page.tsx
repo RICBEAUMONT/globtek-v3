@@ -116,7 +116,7 @@ export default function RailDesignPage() {
               </svg>
               Our Rail Engineering Expertise
             </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#1a222c] mb-6 leading-[1.1]">
+            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#14171c] mb-6 leading-[1.1]">
               Engineering Reliability. Driving Rail Innovation.
             </h2>
             <div className="space-y-6">
@@ -129,7 +129,7 @@ export default function RailDesignPage() {
           </div>
           <div className="relative rounded-2xl shadow-xl overflow-hidden min-h-[500px] h-full">
             {/* Text card with dark background */}
-            <div className="w-full h-full bg-[#1a222c] flex items-center justify-center pt-4 pb-12 px-12 relative">
+            <div className="w-full h-full bg-[#14171c] flex items-center justify-center pt-4 pb-12 px-12 relative">
               {/* Subtle accent elements */}
               <div className="absolute top-8 right-8 w-2 h-2 bg-[#e43d30] rounded-full opacity-60"></div>
               <div className="absolute bottom-8 left-8 w-1 h-1 bg-[#e43d30] rounded-full opacity-40"></div>
@@ -250,13 +250,13 @@ export default function RailDesignPage() {
             Core Services
           </div>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1a222c] mb-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#14171c] mb-4 text-center">
           From Concept to Completion<br />Our Core Capabilities
         </h2>
         <p className="text-center text-[#4a4a4a] font-medium mb-12 text-base">A focused suite of services for every stage of rail engineering</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
           {/* Service Step 1 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 1 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 1 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 1 ? null : 1)}
             tabIndex={0}
             role="button"
@@ -280,7 +280,7 @@ export default function RailDesignPage() {
             )}
           </div>
           {/* Service Step 2 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 2 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 2 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 2 ? null : 2)}
             tabIndex={0}
             role="button"
@@ -305,7 +305,7 @@ export default function RailDesignPage() {
             )}
           </div>
           {/* Service Step 3 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 3 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 3 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 3 ? null : 3)}
             tabIndex={0}
             role="button"
@@ -329,7 +329,7 @@ export default function RailDesignPage() {
             )}
           </div>
           {/* Service Step 4 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 4 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 4 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 4 ? null : 4)}
             tabIndex={0}
             role="button"
@@ -352,7 +352,7 @@ export default function RailDesignPage() {
             )}
           </div>
           {/* Service Step 5 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 5 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 5 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 5 ? null : 5)}
             tabIndex={0}
             role="button"
@@ -378,7 +378,7 @@ export default function RailDesignPage() {
             )}
           </div>
           {/* Service Step 6 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 6 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 6 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 6 ? null : 6)}
             tabIndex={0}
             role="button"
@@ -402,7 +402,7 @@ export default function RailDesignPage() {
             )}
           </div>
           {/* Service Step 7 */}
-          <div className={`bg-[#1a222c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 7 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
+          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 7 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
             onClick={() => setExpanded(expanded === 7 ? null : 7)}
             tabIndex={0}
             role="button"

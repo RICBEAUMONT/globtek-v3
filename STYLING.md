@@ -3,9 +3,9 @@
 ## Color System
 
 ### Primary Colors
-- Primary: `#1a222c` (Dark gray/black)
+- Primary: `#14171c` (Dark gray/black)
 - Primary Light: `#2d2829`
-- Primary Dark: `#1a1718`
+- Primary Dark: `#14171c`
 
 ### Accent Colors
 - Accent: `#e43d30` (Red)
@@ -13,7 +13,7 @@
 - Accent Dark: `#b63126`
 
 ### Text Colors
-- Text Primary: `#1a222c`
+- Text Primary: `#14171c`
 - Text Secondary: `#4a4a4a`
 - Text Light: `#ffffff`
 
@@ -100,13 +100,13 @@ All colors are defined as CSS variables in `globals.css` for consistent usage ac
 
 ```css
 :root {
-  --color-primary: #1a222c;
+  --color-primary: #14171c;
   --color-primary-light: #2d2829;
-  --color-primary-dark: #1a1718;
+  --color-primary-dark: #14171c;
   --color-accent: #e43d30;
   --color-accent-light: #e85d52;
   --color-accent-dark: #b63126;
-  --color-text-primary: #1a222c;
+  --color-text-primary: #14171c;
   --color-text-secondary: #4a4a4a;
   --color-text-light: #ffffff;
   --color-bg-primary: #ffffff;
@@ -148,7 +148,7 @@ All colors are defined as CSS variables in `globals.css` for consistent usage ac
 
 ## Service Card Style Pattern (2024-06)
 
-- Background: Brand dark (`#1a222c`)
+- Background: Brand dark (`#14171c`)
 - Title: White (`text-white`)
 - Body text: Light (`text-gray-100`)
 - Accent elements: Red (`#e43d30`) for icons and highlights
