@@ -73,7 +73,7 @@ export default function LatestProjects({
         </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children scroll-reveal max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children scroll-reveal max-w-7xl" style={{ justifyItems: 'center', justifyContent: 'center' }}>
             {projects.map((project, index) => (
               <Link
                 key={project.title}
