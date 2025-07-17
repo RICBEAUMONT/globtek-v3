@@ -386,27 +386,7 @@ export default function CoastalPortInfrastructurePage() {
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-              {/* Expertise & Certification */}
-              <div className="group bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#e43d30] to-red-700 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-[#14171c] group-hover:text-[#e43d30] transition-colors duration-300">Certified Excellence</h3>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Our inspectors are certified in WSCAM methodology and international port standards including PIANC, BS6349, and Eurocodes.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full border border-[#e43d30]/20">WSCAM</span>
-                  <span className="px-3 py-1 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full border border-[#e43d30]/20">PIANC</span>
-                  <span className="px-3 py-1 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full border border-[#e43d30]/20">BS6349</span>
-                  <span className="px-3 py-1 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full border border-[#e43d30]/20">Eurocodes</span>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
 
               {/* Technology & Innovation */}
               <div className="group bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
