@@ -72,14 +72,15 @@ export default function LatestProjects({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children scroll-reveal">
-          {projects.map((project, index) => (
-            <Link
-              key={project.title}
-              href={project.href}
-              className="group relative bg-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#e43d30]/5 aspect-[1/1.2]"
-              style={{ '--child-index': index } as React.CSSProperties}
-            >
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children scroll-reveal max-w-7xl">
+            {projects.map((project, index) => (
+              <Link
+                key={project.title}
+                href={project.href}
+                className="group relative bg-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#e43d30]/5 aspect-[1/1.2]"
+                style={{ '--child-index': index } as React.CSSProperties}
+              >
               {/* Project Image */}
               <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                 <Image
@@ -123,6 +124,7 @@ export default function LatestProjects({
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#e43d30] to-[#e43d30]/80 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </Link>
           ))}
+          </div>
         </div>
       </Container>
     </section>
