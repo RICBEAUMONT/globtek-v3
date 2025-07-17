@@ -36,11 +36,38 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement form submission logic
-      console.log('Form data:', data);
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated API call
-      setSubmitSuccess(true);
-      reset();
+      // Format the email content
+      const subject = `New Contact Form Submission - ${data.projectType}`;
+      const body = `
+New contact form submission from Globtek website:
+
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone || 'Not provided'}
+Company: ${data.company || 'Not provided'}
+Project Type: ${data.projectType}
+Budget: ${data.budget || 'Not specified'}
+Timeframe: ${data.timeframe || 'Not specified'}
+
+Message:
+${data.message}
+
+---
+This message was sent from the Globtek website contact form.
+      `.trim();
+
+      // Create mailto link
+      const mailtoLink = `mailto:info@globtek.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      // Show success message after a short delay
+      setTimeout(() => {
+        setSubmitSuccess(true);
+        reset();
+      }, 1000);
+      
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
