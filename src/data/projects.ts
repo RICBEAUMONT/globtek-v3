@@ -25,44 +25,6 @@ export interface Project {
 
 export const allProjects: Project[] = [
   {
-    id: 'burgersdorp-wastewater',
-    title: 'Burgersdorp Wastewater Treatment Works Refurbishment',
-    description: 'Refurbishment of the Burgersdorp Wastewater Treatment Works, including comprehensive electrical and mechanical system upgrades.',
-    category: 'Water Treatment',
-    image: '/images/projects/burgersdorp-wastewater/hero.jpg',
-    completionDate: 'July 2021',
-    client: 'Joe Gqabi District Municipality',
-    slug: 'burgersdorp-wastewater',
-    featured: true,
-    details: {
-      overview: 'Joe Gqabi District Municipality required the services of a specialist Professional Service Provider, with professionals that are ECSA registered to provide a turnkey solution to the Burgersdorp Waste Water Treatment Works Revamping. Globtek was appointed to be responsible in Assessment, Design and Construction of the Electrical and Mechanical system for the Burgersdorp Waste Water Treatment Works (BWWTW).',
-      challenge: 'The project required comprehensive refurbishment of both electrical and mechanical systems in an operational wastewater treatment facility, ensuring minimal disruption to services while implementing modern upgrades.',
-      solution: 'Our team implemented a systematic approach to refurbish the facility, including electrical system upgrades, mechanical component replacements, and process optimization while maintaining operational efficiency.',
-      results: 'Successfully completed the refurbishment of the Burgersdorp Wastewater Treatment Works, delivering improved efficiency and reliability of the treatment facility.',
-      keyFeatures: [
-        'Design of all Mechanical & Electrical Equipment',
-        'Electrical Works: Cable Replacement, Control Panels, Sensors, and Wiring',
-        'Mechanical Works: Aerator Components, Valves, Clarifier Units',
-        'Process Optimization',
-        'Chlorine System Installation',
-        'Tank Desludging'
-      ],
-      specifications: {
-        'Study Period': 'October 2020 – July 2021',
-        'Consultant Team': 'Globtek Consulting',
-        'Client': 'Joe Gqabi District Municipality',
-        'Project Type': 'Wastewater Treatment Works Refurbishment',
-        'Scope': 'Electrical and Mechanical System Upgrade'
-      },
-      gallery: [
-        '/images/projects/burgersdorp-wastewater/gallery-1.jpg',
-        '/images/projects/burgersdorp-wastewater/gallery-2.jpg',
-        '/images/projects/burgersdorp-wastewater/gallery-3.jpg',
-        '/images/projects/burgersdorp-wastewater/gallery-4.jpg'
-      ]
-    }
-  },
-  {
     id: 'ksda-municipality',
     title: 'KSDA Municipality - Infrastructure Services',
     description: 'Planning, Design & Supervision of Infrastructure Services (Internal Roads, Internal Water Reticulation & 1716 VIP Toilets) At Chris Hani Informal Settlement',
