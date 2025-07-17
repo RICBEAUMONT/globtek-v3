@@ -209,7 +209,7 @@ export default function Home() {
             </div>
             
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
-              Message from Our COO
+              Message from Our Group COO
             </h2>
             <p className="text-xl text-gray-400">
               Leading with vision, innovation, and purpose
@@ -222,7 +222,7 @@ export default function Home() {
               <div className="relative h-[500px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-2xl group">
                 <img
                   src="/images/staff-images/MR-LUNGISA-DOUSE_2.png"
-                  alt="Lungisa Douse - Chief Operations Officer at Globtek"
+                  alt="Lungisa Douse - Chief Group Operations Officer at Globtek"
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105 w-full h-full"
                   style={{ position: 'absolute', inset: 0 }}
                 />
@@ -243,7 +243,7 @@ export default function Home() {
                     </div>
                     <div>
                       <div className="text-white font-semibold text-lg sm:text-xl mb-1">Lungisa Douse</div>
-                      <div className="text-[var(--color-accent)] font-medium text-sm">Chief Operations Officer</div>
+                      <div className="text-[var(--color-accent)] font-medium text-sm">Chief Group Operations Officer</div>
                       <div className="text-gray-400 text-xs mt-1">MSc Naval Architecture, MRINA</div>
                     </div>
                   </div>
@@ -285,7 +285,7 @@ export default function Home() {
               <div className="pt-8 mt-8 border-t border-white/10">
                 <div className="inline-flex items-center gap-3 bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 rounded-full px-6 py-3">
                   <div className="text-2xl font-bold text-[var(--color-accent)]">1st</div>
-                  <div className="text-sm text-white font-medium">Black Naval Architect in the South African maritime commercial market</div>
+                  <div className="text-sm text-white font-medium">Black Naval Architect in the South African Maritime Commercial Market</div>
                 </div>
               </div>
             </div>
