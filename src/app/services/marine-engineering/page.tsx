@@ -161,7 +161,7 @@ export default function MarineEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Offshore Design</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Oil rigs and wind farm infrastructure</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Oil Rigs And Wind Farm Infrastructure</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -172,7 +172,7 @@ export default function MarineEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Structural Analysis</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Advanced computational analysis</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Advanced Computational Analysis</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -183,7 +183,7 @@ export default function MarineEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Feasibility Studies</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Project viability and optimization</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Project Viability And Optimization</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -194,7 +194,7 @@ export default function MarineEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Stability Assessment</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Rigorous stability analysis</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Rigorous Stability Analysis</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -205,7 +205,7 @@ export default function MarineEngineeringPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Regulatory Compliance</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">International standards adherence</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">International Standards Adherence</p>
                   </div>
                 </div>
               </div>

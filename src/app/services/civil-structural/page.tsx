@@ -16,19 +16,19 @@ interface ServiceHighlight {
 const highlights: ServiceHighlight[] = [
   {
     title: "Structural Analysis",
-    description: "Advanced structural analysis and design for buildings and infrastructure."
+    description: "Advanced Structural Analysis And Design For Buildings And Infrastructure."
   },
   {
     title: "BIM Technology",
-    description: "State-of-the-art building information modeling and visualization."
+    description: "State-Of-The-Art Building Information Modeling And Visualization."
   },
   {
     title: "Project Management",
-    description: "Comprehensive project oversight from inception to completion."
+    description: "Comprehensive Project Oversight From Inception To Completion."
   },
   {
     title: "Quality Assurance",
-    description: "Rigorous testing and verification of structural integrity."
+    description: "Rigorous Testing And Verification Of Structural Integrity."
   }
 ];
 

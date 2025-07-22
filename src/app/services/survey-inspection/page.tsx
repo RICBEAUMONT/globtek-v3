@@ -131,7 +131,7 @@ export default function SurveyInspectionPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Vessel Surveys</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Condition assessment</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Condition Assessment</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -142,7 +142,7 @@ export default function SurveyInspectionPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Equipment Inspection</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">System evaluation</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">System Evaluation</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -153,7 +153,7 @@ export default function SurveyInspectionPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Safety Audits</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Compliance verification</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Compliance Verification</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -164,7 +164,7 @@ export default function SurveyInspectionPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Pre-Purchase Surveys</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Asset evaluation</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Asset Evaluation</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -175,7 +175,7 @@ export default function SurveyInspectionPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Technical Consulting</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert guidance and recommendations</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert Guidance And Recommendations</p>
                   </div>
                 </div>
               </div>

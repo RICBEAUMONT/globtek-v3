@@ -16,19 +16,19 @@ interface ServiceHighlight {
 const highlights: ServiceHighlight[] = [
   {
     title: "Water Supply Systems",
-    description: "Development of large-scale infrastructure for water supply and distribution networks."
+    description: "Development Of Large-Scale Infrastructure For Water Supply And Distribution Networks."
   },
   {
     title: "Wastewater Treatment",
-    description: "Comprehensive wastewater treatment and disposal solutions for communities and industries."
+    description: "Comprehensive Wastewater Treatment And Disposal Solutions For Communities And Industries."
   },
   {
     title: "Irrigation Systems",
-    description: "Design and implementation of efficient irrigation and water management systems."
+    description: "Design And Implementation Of Efficient Irrigation And Water Management Systems."
   },
   {
     title: "Stormwater Management",
-    description: "Advanced solutions for stormwater collection, treatment, and disposal."
+    description: "Advanced Solutions For Stormwater Collection, Treatment, And Disposal."
   }
 ];
 

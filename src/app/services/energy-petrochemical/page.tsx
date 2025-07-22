@@ -16,19 +16,19 @@ interface ServiceHighlight {
 const highlights: ServiceHighlight[] = [
   {
     title: "Energy Generation",
-    description: "Comprehensive solutions for oil, gas, wind, hydro, solar, and biomass energy projects."
+    description: "Comprehensive Solutions For Oil, Gas, Wind, Hydro, Solar, And Biomass Energy Projects."
   },
   {
     title: "Renewable Energy",
-    description: "Expert guidance in transitioning from fossil fuels to sustainable energy sources."
+    description: "Expert Guidance In Transitioning From Fossil Fuels To Sustainable Energy Sources."
   },
   {
     title: "Petrochemical Engineering",
-    description: "Advanced engineering and design services for petrochemical facilities and operations."
+    description: "Advanced Engineering And Design Services For Petrochemical Facilities And Operations."
   },
   {
     title: "Project Management",
-    description: "End-to-end management of energy and petrochemical projects, including regulatory compliance."
+    description: "End-To-End Management Of Energy And Petrochemical Projects, Including Regulatory Compliance."
   }
 ];
 

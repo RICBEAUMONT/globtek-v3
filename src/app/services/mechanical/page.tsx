@@ -16,19 +16,19 @@ interface ServiceHighlight {
 const highlights: ServiceHighlight[] = [
   {
     title: "Petrochemical Systems",
-    description: "Expert design and implementation of fuel pipelines, tank farms, and petrochemical installations."
+    description: "Expert Design And Implementation Of Fuel Pipelines, Tank Farms, And Petrochemical Installations."
   },
   {
     title: "Water Systems",
-    description: "Comprehensive water and wastewater system solutions for industrial and municipal applications."
+    description: "Comprehensive Water And Wastewater System Solutions For Industrial And Municipal Applications."
   },
   {
     title: "Fire Protection",
-    description: "Advanced fire protection system design and implementation for maximum safety compliance."
+    description: "Advanced Fire Protection System Design And Implementation For Maximum Safety Compliance."
   },
   {
     title: "HVAC Systems",
-    description: "State-of-the-art heating, ventilation, and air conditioning solutions for all environments."
+    description: "State-Of-The-Art Heating, Ventilation, And Air Conditioning Solutions For All Environments."
   }
 ];
 

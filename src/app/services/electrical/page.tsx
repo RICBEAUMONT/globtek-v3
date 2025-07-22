@@ -16,19 +16,19 @@ interface ServiceHighlight {
 const highlights: ServiceHighlight[] = [
   {
     title: "Power Transmission",
-    description: "Expert design and implementation of high-voltage transmission lines and infrastructure."
+    description: "Expert Design And Implementation Of High-Voltage Transmission Lines And Infrastructure."
   },
   {
     title: "Distribution Systems",
-    description: "Comprehensive distribution network planning and optimization for reliable power delivery."
+    description: "Comprehensive Distribution Network Planning And Optimization For Reliable Power Delivery."
   },
   {
     title: "Substation Design",
-    description: "Advanced substation engineering with focus on safety and efficiency."
+    description: "Advanced Substation Engineering With Focus On Safety And Efficiency."
   },
   {
     title: "Technical Consulting",
-    description: "Expert guidance in electrical engineering, compliance, and system optimization."
+    description: "Expert Guidance In Electrical Engineering, Compliance, And System Optimization."
   }
 ];
 

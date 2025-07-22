@@ -133,7 +133,7 @@ export default function RoadsTransportationPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Road Network Design</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Highway engineering</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Highway Engineering</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -144,7 +144,7 @@ export default function RoadsTransportationPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Rail Infrastructure</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Safety and efficiency</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Safety And Efficiency</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -155,7 +155,7 @@ export default function RoadsTransportationPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Transportation Planning</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Strategic urban mobility solutions</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Strategic Urban Mobility Solutions</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -166,7 +166,7 @@ export default function RoadsTransportationPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Technical Consulting</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert guidance and project optimization</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert Guidance And Project Optimization</p>
                   </div>
                 </div>
               </div>

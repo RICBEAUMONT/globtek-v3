@@ -26,19 +26,19 @@ interface ServiceHighlight {
 const highlights: ServiceHighlight[] = [
   {
     title: "Environmental Impact Assessment",
-    description: "Comprehensive environmental impact assessments and management solutions for sustainable development."
+    description: "Comprehensive Environmental Impact Assessments And Management Solutions For Sustainable Development."
   },
   {
     title: "Land & Water Advisory",
-    description: "Expert guidance in land and water resource management and conservation strategies."
+    description: "Expert Guidance In Land And Water Resource Management And Conservation Strategies."
   },
   {
     title: "Urban Planning",
-    description: "Integrated urban planning solutions for sustainable city development."
+    description: "Integrated Urban Planning Solutions For Sustainable City Development."
   },
   {
     title: "GIS Modeling",
-    description: "Advanced GIS modeling and environmental compliance monitoring solutions."
+    description: "Advanced GIS Modeling And Environmental Compliance Monitoring Solutions."
   }
 ];
 

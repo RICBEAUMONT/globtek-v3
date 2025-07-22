@@ -131,7 +131,7 @@ export default function ProjectManagementPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Project Planning</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Comprehensive scheduling</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Comprehensive Scheduling</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -142,7 +142,7 @@ export default function ProjectManagementPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Resource Management</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Efficient team allocation</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Efficient Team Allocation</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -153,7 +153,7 @@ export default function ProjectManagementPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Risk Assessment</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Comprehensive risk analysis</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Comprehensive Risk Analysis</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -164,7 +164,7 @@ export default function ProjectManagementPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Quality Control</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Rigorous quality assurance</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Rigorous Quality Assurance</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 group hover:bg-white/[0.02] p-2.5 -mx-2.5 rounded-lg transition-all duration-300">
@@ -175,7 +175,7 @@ export default function ProjectManagementPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-medium group-hover:text-[#e43d30] transition-colors">Technical Consulting</h4>
-                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert guidance and optimization</p>
+                    <p className="text-gray-400 text-sm leading-snug mt-1 group-hover:text-gray-300 transition-colors">Expert Guidance And Optimization</p>
                   </div>
                 </div>
               </div>
