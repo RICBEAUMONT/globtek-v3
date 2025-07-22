@@ -439,7 +439,7 @@ export default function CoastalPortInfrastructurePage() {
                 </p>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="bg-gray-50 rounded-lg p-3 group-hover:bg-[#e43d30]/5 transition-colors duration-300">
-                    <div className="text-2xl font-bold text-[#e43d30]">7+</div>
+                    <div className="text-2xl font-bold text-[#e43d30]">8</div>
                     <div className="text-sm text-gray-600">South African Ports</div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 group-hover:bg-[#e43d30]/5 transition-colors duration-300">

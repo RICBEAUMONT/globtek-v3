@@ -138,9 +138,11 @@ const Navbar = () => {
   const pathname = usePathname();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
-  // Close mobile menu when route changes
+  // Close mobile menu and mega menu when route changes, and scroll to top
   useEffect(() => {
     setIsOpen(false);
+    setActiveDropdown(null);
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   // Close dropdown when clicking outside
@@ -253,6 +255,10 @@ const Navbar = () => {
                         : 'text-[var(--color-text-primary)] hover:text-[var(--color-accent)]'
                     }`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      window.scrollTo(0, 0);
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -304,6 +310,10 @@ const Navbar = () => {
                                     href={child.href || '#'}
                                     className="snap-start flex-none w-[70px] hover:w-[350px] h-[350px] relative group/card mx-1 first:ml-2 last:mr-2 rounded-md overflow-hidden transition-all duration-300 ease-in-out"
                                     role="menuitem"
+                                    onClick={() => {
+                                      setActiveDropdown(null);
+                                      window.scrollTo(0, 0);
+                                    }}
                                   >
                                     {/* Background Image */}
                                     <div className="absolute inset-0 w-full h-full">
@@ -395,7 +405,11 @@ const Navbar = () => {
                     }`}
                     role="menuitem"
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      setActiveDropdown(null);
+                      window.scrollTo(0, 0);
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -433,7 +447,11 @@ const Navbar = () => {
                             }`}
                             role="menuitem"
                             aria-current={isActive(child.href) ? 'page' : undefined}
-                            onClick={() => setIsOpen(false)}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setActiveDropdown(null);
+                              window.scrollTo(0, 0);
+                            }}
                           >
                             {child.name}
                           </Link>
