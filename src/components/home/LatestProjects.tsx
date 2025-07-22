@@ -74,13 +74,13 @@ export default function LatestProjects({
 
         <div className="flex justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children scroll-reveal max-w-7xl" style={{ justifyItems: 'center', justifyContent: 'center' }}>
-            {projects.map((project, index) => (
-              <Link
-                key={project.title}
-                href={project.href}
-                className="group relative bg-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#e43d30]/5 aspect-[1/1.2]"
-                style={{ '--child-index': index } as React.CSSProperties}
-              >
+          {projects.map((project, index) => (
+            <Link
+              key={project.title}
+              href={project.href}
+              className="group relative bg-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#e43d30]/5 aspect-[1/1.2]"
+              style={{ '--child-index': index } as React.CSSProperties}
+            >
               {/* Project Image */}
               <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                 <Image

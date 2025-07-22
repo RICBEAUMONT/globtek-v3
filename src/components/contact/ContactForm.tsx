@@ -64,8 +64,8 @@ This message was sent from the Globtek website contact form.
       
       // Show success message after a short delay
       setTimeout(() => {
-        setSubmitSuccess(true);
-        reset();
+      setSubmitSuccess(true);
+      reset();
       }, 1000);
       
     } catch (error) {

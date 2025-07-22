@@ -97,17 +97,17 @@ export default function ProjectsClient() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 mb-12"
           >
-            {/* Section Header */}
+          {/* Section Header */}
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-2xl font-bold text-[#14171c] mb-2">
                   Find Your Project
-                </h2>
+            </h2>
                 <p className="text-gray-600">
                   Filter through our diverse portfolio of engineering projects
-                </p>
-              </div>
-              
+            </p>
+          </div>
+
               {/* View Mode Toggle */}
               <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
                 <button
@@ -213,8 +213,8 @@ export default function ProjectsClient() {
                     <div className="space-y-2">
                       <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                       <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-                    </div>
-                  </div>
+              </div>
+            </div>
                 ))}
               </motion.div>
             ) : (
@@ -230,15 +230,15 @@ export default function ProjectsClient() {
                     : "space-y-6"
                 )}
               >
-                {filteredProjects.slice(0, displayedProjects).map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                                         <Link
-                       href={`/projects/${project.slug}`}
+            {filteredProjects.slice(0, displayedProjects).map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link
+                  href={`/projects/${project.slug}`}
                        className={cn(
                          "group block transition-all duration-300 h-full",
                          viewMode === 'grid' 
@@ -253,20 +253,20 @@ export default function ProjectsClient() {
                            ? "aspect-[4/3]"
                            : "w-48 h-32 rounded-xl flex-shrink-0"
                        )}>
-                         <Image
-                           src={project.image}
-                           alt={project.title}
-                           fill
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
                            className="object-cover transition-transform duration-500 group-hover:scale-110"
-                         />
+                    />
                          
                          {/* Category Badge */}
                          <div className="absolute top-4 left-4">
                            <span className="text-xs text-white bg-[#e43d30] px-3 py-1 rounded-full font-medium shadow-sm">
-                             {project.category}
-                           </span>
+                          {project.category}
+                        </span>
                          </div>
-                       </div>
+                      </div>
 
                        {/* Project Content */}
                        <div className={cn(
@@ -280,8 +280,8 @@ export default function ProjectsClient() {
                          )}>
                            {/* Project Title */}
                            <h3 className="text-xl font-bold text-[#14171c] group-hover:text-[#e43d30] transition-colors duration-300">
-                             {project.title}
-                           </h3>
+                        {project.title}
+                      </h3>
 
                            {/* Project Description */}
                            <p className={cn(
@@ -290,19 +290,19 @@ export default function ProjectsClient() {
                                ? "line-clamp-3" 
                                : ""
                            )}>
-                             {project.description}
-                           </p>
+                        {project.description}
+                      </p>
 
                            {/* View Details Link */}
                            <div className="flex items-center gap-2 text-sm font-medium text-[#e43d30] opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-auto">
                              <span>View Details</span>
                              <ArrowRight className="h-4 w-4" />
-                           </div>
-                         </div>
-                       </div>
-                     </Link>
-                  </motion.div>
-                ))}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
               </motion.div>
             )}
           </AnimatePresence>
@@ -327,8 +327,8 @@ export default function ProjectsClient() {
                   </>
                 ) : (
                   <>
-                    Load More Projects
-                    <ChevronDown className="h-5 w-5" />
+                Load More Projects
+                <ChevronDown className="h-5 w-5" />
                   </>
                 )}
               </button>
@@ -359,7 +359,7 @@ export default function ProjectsClient() {
                 >
                   View All Projects
                 </button>
-              </div>
+            </div>
             </motion.div>
           )}
         </section>

@@ -95,7 +95,7 @@ export default function NavalArchitectPage() {
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
                 We engineer ships and marine platforms that are robust, safe, operable in extreme environments, and optimized for long-term performance. Every hull, system, and component we develop is supported by:
               </p>
-              <ul className="space-y-2 text-[#697393] text-sm mt-4">
+              <ul className="space-y-2 text-gray-600 text-sm mt-4">
                 <li className="flex items-start gap-2">
                   <span className="mt-1">
                     <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,7 +145,7 @@ export default function NavalArchitectPage() {
                 <p className="text-gray-300 text-base leading-relaxed">
                   Globtek supports naval and commercial shipbuilding from first sketch to final trial. Whether you're developing an offshore support vessel, a planing hull interceptor, or a moored platform in deepwater seas—our solutions are underpinned by:
                 </p>
-                <ul className="space-y-2 text-[#697393] text-sm font-normal mt-2">
+                <ul className="space-y-2 text-gray-300 text-sm font-normal mt-2">
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
                       <svg className="w-4 h-4 text-[#e43d30]" fill="currentColor" viewBox="0 0 20 20">

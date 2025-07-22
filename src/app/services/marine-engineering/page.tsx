@@ -282,9 +282,9 @@ export default function MarineEngineeringPage() {
             </button>
           </div>
         </div>
-      )}
+        )}
 
-      {/* CTA Section */}
+        {/* CTA Section */}
       <Container>
         <div className="mt-24">
           <SimpleCTA

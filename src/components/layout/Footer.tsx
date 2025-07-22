@@ -164,16 +164,16 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-white mb-4">Multi-Disciplinary</h3>
               <ul className="space-y-1">
                 {footerNavigation.services[1].items.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                        <li key={item.name}>
+                          <Link
+                            href={item.href}
+                            className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
             </div>
 
             {/* Contact Info */}
