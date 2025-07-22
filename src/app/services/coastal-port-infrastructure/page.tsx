@@ -184,41 +184,41 @@ export default function CoastalPortInfrastructurePage() {
               {expanded === 1 && (
                 <div className="mt-4 animate-fade-in">
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">We conduct comprehensive inspections of:</p>
-                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Breakwaters, seawalls, groynes, and revetments</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Breakwaters, seawalls, groynes, and revetments</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Quay walls and berthing structures</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Quay walls and berthing structures</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Slipways and marine platforms</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Slipways and marine platforms</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Fenders, bollards, ladders, and quay furniture</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Fenders, bollards, ladders, and quay furniture</strong></span>
                     </li>
                   </ul>
                   <p className="text-gray-300 text-sm leading-relaxed mt-4 mb-3">Using WSCAM's 7-Level rating methodology, our assessments classify asset integrity based on visual inspection (Level 1), tactile testing, non-destructive methods (Level 2-3), and advanced structural diagnosis (Level 4-7). Each inspection integrates:</p>
-                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Defect mapping</strong> (spalling, corrosion, cracking)</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Defect mapping</strong> (spalling, corrosion, cracking)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Joint and bearing condition evaluations</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Joint and bearing condition evaluations</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Tidal exposure and sediment transport analysis</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Tidal exposure and sediment transport analysis</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Marine growth, debris accumulation, and scour observation</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Marine growth, debris accumulation, and scour observation</strong></span>
                     </li>
                   </ul>
                   <p className="text-gray-300 text-sm leading-relaxed mt-4"><strong className="text-white">Deliverables include:</strong> Rating matrices, defect severity maps, maintenance prioritization, and remaining life estimations.</p>
@@ -243,41 +243,41 @@ export default function CoastalPortInfrastructurePage() {
               {expanded === 2 && (
                 <div className="mt-4 animate-fade-in">
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">Our engineering team develops nature-based and structural protection systems, including:</p>
-                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Rock revetments and articulated concrete block mats</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Rock revetments and articulated concrete block mats</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Vertical and stepped seawalls</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Vertical and stepped seawalls</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Sand nourishment and dynamic dune systems</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Sand nourishment and dynamic dune systems</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Geotextile tubes and submerged berms</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Geotextile tubes and submerged berms</strong></span>
                     </li>
                   </ul>
                   <p className="text-gray-300 text-sm leading-relaxed mt-4 mb-3">We use coastal modelling tools to assess wave transformation, overtopping rates, longshore drift, and climate change impacts:</p>
-                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">2D/3D nearshore wave modelling</strong> (MIKE21, SWAN)</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">2D/3D nearshore wave modelling</strong> (MIKE21, SWAN)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Shoreline retreat prediction</strong> using SBEACH and XBeach</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Shoreline retreat prediction</strong> using SBEACH and XBeach</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Wave run-up and overtopping</strong> using EurOtop methodologies</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Wave run-up and overtopping</strong> using EurOtop methodologies</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Probabilistic analysis</strong> of sea level rise and storm surge</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Probabilistic analysis</strong> of sea level rise and storm surge</span>
                     </li>
                   </ul>
                 </div>
@@ -301,22 +301,22 @@ export default function CoastalPortInfrastructurePage() {
               {expanded === 3 && (
                 <div className="mt-4 animate-fade-in">
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">Globtek evaluates the load capacity and condition of berthing infrastructure, ensuring it meets current and future operational demands.</p>
-                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Assessment of fender energy absorption</strong>, anchor bolt integrity, and rubber wear</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Assessment of fender energy absorption</strong>, anchor bolt integrity, and rubber wear</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Bollard load transfer inspection</strong> and corrosion mapping</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Bollard load transfer inspection</strong> and corrosion mapping</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Fatigue checks on quay edge beams</strong> and deck slabs using FEA</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Fatigue checks on quay edge beams</strong> and deck slabs using FEA</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Verification of design adequacy</strong> for vessel class compatibility</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Verification of design adequacy</strong> for vessel class compatibility</span>
                     </li>
                   </ul>
                   <p className="text-gray-300 text-sm leading-relaxed mt-4">We combine field observations, structural simulation, and load testing data to recommend refurbishment, replacement, or upgrade strategies.</p>
@@ -341,22 +341,22 @@ export default function CoastalPortInfrastructurePage() {
               {expanded === 4 && (
                 <div className="mt-4 animate-fade-in">
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">Risk is at the core of our design and inspection ethos. We apply:</p>
-                  <ul className="space-y-3 text-gray-300 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Hazard identification and ranking</strong> (storm surge, overtopping, wave loading)</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Hazard identification and ranking</strong> (storm surge, overtopping, wave loading)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Asset vulnerability analysis</strong> using WSCAM trends and failure databases</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Asset vulnerability analysis</strong> using WSCAM trends and failure databases</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Scenario-based planning</strong> for extreme weather and long-term coastal change</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Scenario-based planning</strong> for extreme weather and long-term coastal change</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Emergency response infrastructure assessment</strong> (evacuation pathways, flood barriers)</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Emergency response infrastructure assessment</strong> (evacuation pathways, flood barriers)</span>
                     </li>
                   </ul>
                   <p className="text-gray-300 text-sm leading-relaxed mt-4">Quantitative tools such as Fault Tree Analysis (FTA) and Failure Mode and Effects Analysis (FMEA) guide prioritization and ensure regulatory compliance.</p>

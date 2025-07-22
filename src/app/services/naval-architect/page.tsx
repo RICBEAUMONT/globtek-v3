@@ -95,7 +95,7 @@ export default function NavalArchitectPage() {
               <p className="text-lg text-[#4a4a4a] leading-relaxed">
                 We engineer ships and marine platforms that are robust, safe, operable in extreme environments, and optimized for long-term performance. Every hull, system, and component we develop is supported by:
               </p>
-              <ul className="space-y-2 text-gray-600 text-sm mt-4">
+              <ul className="space-y-2 text-sm mt-4">
                 <li className="flex items-start gap-2">
                   <span className="mt-1">
                     <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ export default function NavalArchitectPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12c1.333-1 2.667-1 4 0s2.667 1 4 0 2.667-1 4 0 2.667 1 4 0" />
                     </svg>
                   </span>
-                  <span>State-of-the-art CFD and seakeeping simulations</span>
+                  <span className="text-[#e43d30]">State-of-the-art CFD and seakeeping simulations</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1">
@@ -112,7 +112,7 @@ export default function NavalArchitectPage() {
                       <path d="M4 12h16" strokeWidth="2" />
                     </svg>
                   </span>
-                  <span>Fatigue and structural lifecycle modelling</span>
+                  <span className="text-[#e43d30]">Fatigue and structural lifecycle modelling</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1">
@@ -121,7 +121,7 @@ export default function NavalArchitectPage() {
                       <path d="M12 7v5l3 3" strokeWidth="2" />
                     </svg>
                   </span>
-                  <span>Dynamic control and manoeuvring analysis</span>
+                  <span className="text-[#e43d30]">Dynamic control and manoeuvring analysis</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1">
@@ -130,7 +130,7 @@ export default function NavalArchitectPage() {
                       <circle cx="12" cy="12" r="10" strokeWidth="2" />
                     </svg>
                   </span>
-                  <span>Risk-informed decision-making using advanced reliability tools</span>
+                  <span className="text-[#e43d30]">Risk-informed decision-making using advanced reliability tools</span>
                 </li>
               </ul>
             </div>
@@ -145,14 +145,14 @@ export default function NavalArchitectPage() {
                 <p className="text-gray-300 text-base leading-relaxed">
                   Globtek supports naval and commercial shipbuilding from first sketch to final trial. Whether you're developing an offshore support vessel, a planing hull interceptor, or a moored platform in deepwater seas—our solutions are underpinned by:
                 </p>
-                <ul className="space-y-2 text-gray-300 text-sm font-normal mt-2">
+                <ul className="space-y-2 text-sm font-normal mt-2">
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
                       <svg className="w-4 h-4 text-[#e43d30]" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span>Solid academic grounding</span>
+                    <span className="text-[#e43d30]">Solid academic grounding</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -160,7 +160,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span>Deep software integration (Maxsurf, OrcaFlex, OpenFOAM, ANSYS AQWA, Star-CCM+)</span>
+                    <span className="text-[#e43d30]">Deep software integration (Maxsurf, OrcaFlex, OpenFOAM, ANSYS AQWA, Star-CCM+)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -168,7 +168,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span>Field-proven validation data</span>
+                    <span className="text-[#e43d30]">Field-proven validation data</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -176,7 +176,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span>A structured systems engineering methodology</span>
+                    <span className="text-[#e43d30]">A structured systems engineering methodology</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -184,7 +184,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span>Modern risk-based design and lifecycle optimisation</span>
+                    <span className="text-[#e43d30]">Modern risk-based design and lifecycle optimisation</span>
                   </li>
                 </ul>
               </div>

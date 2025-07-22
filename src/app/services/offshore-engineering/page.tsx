@@ -248,37 +248,37 @@ export default function OffshoreEngineeringPage() {
               {expanded === 1 && (
                 <div className="mt-4 animate-fade-in">
                   <p className="text-gray-100 text-sm leading-relaxed mb-3">We support the design and analysis of a wide range of offshore units:</p>
-                  <ul className="space-y-3 text-gray-100 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Monopile, jacket and gravity-based structures</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Monopile, jacket and gravity-based structures</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Semi-submersibles, SPARs, TLPs and FPSOs</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Semi-submersibles, SPARs, TLPs and FPSOs</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Buoyancy tanks, pontoons, and articulated columns</strong></span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Buoyancy tanks, pontoons, and articulated columns</strong></span>
                     </li>
                   </ul>
                   <p className="text-gray-100 text-sm leading-relaxed mt-4 mb-3">We evaluate:</p>
-                  <ul className="space-y-3 text-gray-100 text-sm leading-relaxed">
+                  <ul className="space-y-3 text-sm leading-relaxed">
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Static and dynamic loading</strong> under metocean conditions</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Static and dynamic loading</strong> under metocean conditions</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Global and local structural integrity</strong> using ANSYS AQWA, OrcaFlex, and SACS</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Global and local structural integrity</strong> using ANSYS AQWA, OrcaFlex, and SACS</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Motion responses (RAOs)</strong>, mooring loads, and accelerations</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Motion responses (RAOs)</strong>, mooring loads, and accelerations</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="flex-shrink-0 w-1.5 h-1.5 bg-[#e43d30] rounded-full mt-2"></span>
-                      <span><strong className="text-white">Fatigue life</strong> based on wave spectra and operational scenarios</span>
+                      <span className="text-[#e43d30]"><strong className="text-[#e43d30]">Fatigue life</strong> based on wave spectra and operational scenarios</span>
                     </li>
                   </ul>
                 </div>
