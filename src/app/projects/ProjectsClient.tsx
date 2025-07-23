@@ -138,8 +138,8 @@ export default function ProjectsClient() {
             {/* Search and Filter Controls */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Search Bar */}
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <div className="relative flex items-center">
+                <Search className="absolute left-4 h-5 w-5 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search projects..."
@@ -150,8 +150,8 @@ export default function ProjectsClient() {
               </div>
 
               {/* Category Filter */}
-              <div className="relative">
-                <Filter className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <div className="relative flex items-center">
+                <Filter className="absolute left-4 h-5 w-5 text-gray-400" />
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
@@ -163,7 +163,7 @@ export default function ProjectsClient() {
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+                <ChevronDown className="absolute right-4 h-5 w-5 text-gray-400 pointer-events-none" />
               </div>
 
               {/* Quick Stats */}
