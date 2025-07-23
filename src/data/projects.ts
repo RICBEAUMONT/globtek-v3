@@ -25,45 +25,7 @@ export interface Project {
 
 export const allProjects: Project[] = [
   {
-    id: 'ksda-municipality',
-    title: 'KSDA Municipality - Infrastructure Services',
-    description: 'Planning, Design & Supervision of Infrastructure Services (Internal Roads, Internal Water Reticulation & 1716 VIP Toilets) At Chris Hani Informal Settlement',
-    category: 'Infrastructure Development',
-    image: '/images/projects/ksda-municipality/hero.jpg',
-    completionDate: 'In Progress',
-    client: 'King Sabata Dalindyebo Local District Municipality',
-    slug: 'ksda-municipality',
-    featured: true,
-    details: {
-      overview: 'King Sabata Dalindyebo Local District Municipality appointed Globtek as a Professional Service Provider to assist with the implementation of upgrades to the Municipalities\' informal settlements. This particular upgrade involved the Planning, Design and Supervision of infrastructure services (Internal Roads, Internal Water Reticulation & 1716VIP Toilets) at Chris Hani Informal settlements.',
-      challenge: 'The project required comprehensive planning and design of infrastructure services for informal settlements, ensuring compliance with rural and RDP standards while meeting the needs of the community.',
-      solution: 'Our team implemented a systematic approach to design and supervise the infrastructure services, including internal roads, water reticulation, and VIP toilets, all while ensuring compliance with relevant standards and regulations.',
-      results: 'Successfully delivered comprehensive infrastructure services that improve the living conditions of the Chris Hani Informal Settlement community.',
-      keyFeatures: [
-        'Internal Roads Planning & Design to rural standards',
-        'Internal Water Reticulation Planning & Design to RDP Standards',
-        'VIP Toilets Planning & Design to approved specifications',
-        'Tender Documentation Preparation',
-        'Contract Administration'
-      ],
-      specifications: {
-        'Study Period': 'September 2021 – Project In Progress',
-        'Consultant Team': 'Globtek Consulting',
-        'Contact Person': 'Ms Liziwe Mkwali',
-        'Role': 'Project Manager',
-        'Contact': '084 256 2239',
-        'Email': 'LiziweM@ksd.gov.za'
-      },
-      gallery: [
-        '/images/projects/ksda-municipality/gallery-1.jpg',
-        '/images/projects/ksda-municipality/gallery-2.jpg',
-        '/images/projects/ksda-municipality/gallery-3.jpg',
-        '/images/projects/ksda-municipality/gallery-4.jpg'
-      ]
-    }
-  },
-  {
-    id: '1',
+    id: 'open-ocean-870-verification',
     title: 'Load Line Length Verification & Modifications – Open Ocean 870',
     description: 'Expert naval architectural services for Two Oceans Marine Manufacturing, assisting with critical modifications and compliance verification for the Open Ocean 870 luxury catamaran.',
     category: 'Naval Architecture',
@@ -98,7 +60,7 @@ export const allProjects: Project[] = [
     }
   },
   {
-    id: '2',
+    id: 'ctv-deck-tie-down-design',
     title: 'CTV Deck Tie-Down Design for Legacy Marine',
     description: 'Specialized naval architecture services for structural analysis and safe working load (SWL) verification of a deck tie-down pipe on a Crew Transfer Vessel (CTV).',
     category: 'Naval Architecture',
@@ -132,15 +94,15 @@ export const allProjects: Project[] = [
     }
   },
   {
-    id: 'tnpa-763',
+    id: 'tnpa-763-dry-dock-fire-system-upgrade',
     title: 'TNPA 763 - Dry Dock Fire System Upgrade at the Port of Durban',
-    slug: 'tnpa-763-dry-dock-fire-system-upgrade',
-    category: 'Fire Engineering',
-    client: 'Transnet National Port Authority - Durban',
-    completionDate: '2021',
-    image: '/images/projects/tnpa-763-dry-dock-fire-system-upgrade/hero.jpg',
-    featured: true,
     description: 'A comprehensive fire system upgrade project at the Port of Durban, including fire suppression, detection, and alarm systems.',
+    category: 'Fire Systems Engineering',
+    image: '/images/projects/tnpa-763-dry-dock-fire-system-upgrade/hero.jpg',
+    completionDate: '2021',
+    client: 'Transnet National Port Authority - Durban',
+    slug: 'tnpa-763-dry-dock-fire-system-upgrade',
+    featured: true,
     details: {
       overview: `Globtek Consulting Engineers was appointed by TNPA – Durban, to undertake the role of Management Contractor (MC) with Project Management and Supervisory responsibilities as outlined in the NEC 3 contract.
 
@@ -177,7 +139,7 @@ The TNPA sought to upgrade the Dry Dock Fire System, Fire Suppression, Detection
     id: 'transnet-richards-bay',
     title: 'Transnet Richards Bay - Port Survey & As-Built Drawings',
     description: 'Provision of a detailed Port Survey to provide as built drawings for all services within the Port Boundary at the Port of Richards Bay in an editable format.',
-    category: 'Port Infrastructure',
+    category: 'Port & Marine Infrastructure',
     image: '/images/projects/transnet-richards-bay/hero.jpg',
     completionDate: 'In Progress',
     client: 'Transnet National Ports Authority (TNPA)',
@@ -255,7 +217,7 @@ The TNPA sought to upgrade the Dry Dock Fire System, Fire Suppression, Detection
     id: 'islandview-condition-assessment',
     title: 'Islandview - Condition Assessment of Assets (17 Sites)',
     description: 'Comprehensive condition assessment of 17 sites at Island View Precinct, Port of Durban, including structural integrity, utility systems, and remaining useful life evaluation.',
-    category: 'Port Infrastructure',
+    category: 'Port & Marine Infrastructure',
     image: '/images/projects/islandview-condition-assessment/hero.jpg',
     completionDate: '2019',
     client: 'Transnet National Ports Authority (TNPA) – Durban',

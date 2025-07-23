@@ -73,7 +73,7 @@ export default function LatestProjects({
         </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children scroll-reveal max-w-7xl" style={{ justifyItems: 'center', justifyContent: 'center' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 stagger-children scroll-reveal max-w-7xl" style={{ justifyItems: 'center', justifyContent: 'center' }}>
           {projects.map((project, index) => (
             <Link
               key={project.title}
@@ -105,10 +105,10 @@ export default function LatestProjects({
                       {project.completionDate}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-white group-hover:text-[#e43d30] transition-colors">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-[#e43d30] transition-colors line-clamp-2 min-h-[3.5rem]">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-200 leading-relaxed mt-2 font-light line-clamp-2 group-hover:text-white transition-colors">
+                  <p className="text-sm text-gray-200 leading-relaxed mt-2 font-light line-clamp-2 group-hover:line-clamp-none group-hover:text-white transition-all duration-300">
                     {project.description}
                   </p>
                   

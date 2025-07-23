@@ -3,30 +3,17 @@
 import { useState, useEffect, useRef } from 'react';
 
 const videos = [
-  '/videos/homepage/1106956765-preview.mp4',
-  '/videos/homepage/1106956765-preview copy.mp4'
+  '/videos/homepage/shutterstock_1106956765.mov',
+  '/videos/homepage/shutterstock_1106956765 copy.mov'
 ];
 
 export default function HeroBackground() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     // Initialize video refs array
     videoRefs.current = videoRefs.current.slice(0, videos.length);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
-        setIsTransitioning(false);
-      }, 1000); // Wait for fade out before changing video
-    }, 8000); // Change video every 8 seconds
-
-    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -38,20 +25,33 @@ export default function HeroBackground() {
           videoRef.play().catch(console.error);
         } else {
           videoRef.pause();
+          videoRef.currentTime = 0; // Reset other videos
         }
       }
     });
   }, [currentVideoIndex]);
+
+  const handleTimeUpdate = (videoIndex: number) => {
+    const video = videoRefs.current[videoIndex];
+    if (video && videoIndex === currentVideoIndex) {
+      const timeUntilEnd = video.duration - video.currentTime;
+      const fadeStartTime = 1; // Start transition 1 second before end
+      
+      if (timeUntilEnd <= fadeStartTime) {
+        // Switch to next video
+        const nextIndex = (currentVideoIndex + 1) % videos.length;
+        setCurrentVideoIndex(nextIndex);
+      }
+    }
+  };
 
   return (
     <div className="absolute inset-0 overflow-hidden">
       {videos.map((video, index) => (
         <div
           key={video}
-          className={`absolute inset-0 transition-all duration-[2000ms] ${
-            index === currentVideoIndex
-              ? 'opacity-100 scale-110'
-              : 'opacity-0 scale-100'
+          className={`absolute inset-0 transition-opacity duration-500 ${
+            index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <video
@@ -61,9 +61,9 @@ export default function HeroBackground() {
             src={video}
             className="object-cover w-full h-full"
             muted
-            loop
             playsInline
             autoPlay={index === 0}
+            onTimeUpdate={() => handleTimeUpdate(index)}
           />
         </div>
       ))}
