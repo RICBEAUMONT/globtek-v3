@@ -36,40 +36,30 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Format the email content
-      const subject = `New Contact Form Submission - ${data.projectType}`;
-      const body = `
-New contact form submission from Globtek website:
+      // Send form data to API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-Phone: ${data.phone || 'Not provided'}
-Company: ${data.company || 'Not provided'}
-Project Type: ${data.projectType}
-Budget: ${data.budget || 'Not specified'}
-Timeframe: ${data.timeframe || 'Not specified'}
+      const result = await response.json();
 
-Message:
-${data.message}
-
----
-This message was sent from the Globtek website contact form.
-      `.trim();
-
-      // Create mailto link
-      const mailtoLink = `mailto:info@globtek.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      // Open default email client
-      window.location.href = mailtoLink;
-      
-      // Show success message after a short delay
-      setTimeout(() => {
-      setSubmitSuccess(true);
-      reset();
-      }, 1000);
+      if (response.ok) {
+        // Show success message
+        setSubmitSuccess(true);
+        reset();
+      } else {
+        // Handle error
+        console.error('Form submission error:', result.error);
+        alert('Failed to send message. Please try again.');
+      }
       
     } catch (error) {
       console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
