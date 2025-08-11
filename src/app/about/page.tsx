@@ -360,14 +360,16 @@ export default function AboutPage() {
 
               <div className="space-y-6">
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Globtek is a diverse engineering consulting firm in South Africa with connections that extend across borders and internationally. 
-                  Established in 2013, our motivation stems from a desire to foster and enable positive change in infrastructure and industry within 
-                  our communities, country, continent, and beyond.
+                  Globtek Group is a dynamic holding company founded in 2013, with strategic investments across Naval Architecture, Marine And Coastal Engineering, Rail Infrastructure, And Multidisciplinary Engineering. Through our specialized subsidiaries, we deliver integrated solutions that shape the future of infrastructure — locally and globally.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Our ambitious vision is realized by harnessing the collective knowledge of various local and global engineering professionals 
-                  to achieve outstanding results for our clients. Trust, integrity, and excellence are the cornerstones of our lasting professional 
-                  relationships, making us the preferred choice for progress and success.
+                  Our team of world-class engineers and technical experts brings precision, creativity, and deep domain knowledge to every project. Whether designing advanced vessels, constructing resilient coastal structures, developing efficient rail systems, or executing complex civil works, Globtek consistently delivers outcomes that exceed expectations.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  We approach engineering holistically — evaluating every facet of a project to optimize performance, sustainability, and long-term value.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Our foundation is built on trust, integrity, and excellence, and we are committed to revolutionizing infrastructure and industry across communities, nations, and global markets.
                 </p>
               </div>
 
@@ -505,6 +507,120 @@ export default function AboutPage() {
 
       {/* Company History Timeline */}
       <Journey events={timeline} />
+
+      {/* Our Principles */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto w-full max-w-[1140px] px-4 sm:px-6">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            {/* Section Label */}
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-12 bg-[var(--color-accent)]"></div>
+              <span className="text-[var(--color-accent)] font-medium uppercase tracking-wider text-sm">Our Foundation</span>
+              <div className="h-px w-12 bg-[var(--color-accent)]"></div>
+            </div>
+            
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Our Principles
+            </h2>
+            <p className="text-xl text-gray-500">
+              The fundamental values that guide our decisions and shape our culture
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Ethical Integrity */}
+            <div className="group">
+              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
+                <div className="text-[var(--color-accent)] mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <Award className="h-7 w-7" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
+                  Ethical Integrity
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Upholding transparency, accountability, and fairness.
+                </p>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+              </div>
+            </div>
+
+            {/* Excellence in Execution */}
+            <div className="group">
+              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
+                <div className="text-[var(--color-accent)] mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <Target className="h-7 w-7" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
+                  Excellence in Execution
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Delivering superior outcomes through innovation and discipline.
+                </p>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+              </div>
+            </div>
+
+            {/* Responsibility & Dedication */}
+            <div className="group">
+              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
+                <div className="text-[var(--color-accent)] mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <Heart className="h-7 w-7" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
+                  Responsibility & Dedication
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Committing to long-term success and stakeholder value.
+                </p>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+              </div>
+            </div>
+
+            {/* Continuous Learning */}
+            <div className="group">
+              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
+                <div className="text-[var(--color-accent)] mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <Lightbulb className="h-7 w-7" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
+                  Continuous Learning
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Investing in education and staying ahead of industry evolution.
+                </p>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+              </div>
+            </div>
+
+            {/* Performance Optimization */}
+            <div className="group">
+              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
+                <div className="text-[var(--color-accent)] mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <Target className="h-7 w-7" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
+                  Performance Optimization
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Refining every process for efficiency and sustainability.
+                </p>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* The Globtek Way */}
       <GlobtekWay pillars={globtekWay} />
