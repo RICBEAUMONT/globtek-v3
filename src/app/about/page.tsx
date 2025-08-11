@@ -245,7 +245,7 @@ export default function AboutPage() {
               </div>
 
               {/* Description */}
-              <p className="text-[13px] text-gray-300/90 leading-[1.6]">
+              <p className="text-lg sm:text-xl text-gray-300/90 leading-relaxed">
                 We&apos;re not just another engineering firm. We&apos;re a team of passionate professionals who believe in the power of innovation and excellence.
               </p>
 
