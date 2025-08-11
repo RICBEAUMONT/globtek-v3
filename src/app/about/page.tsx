@@ -387,32 +387,132 @@ export default function AboutPage() {
               <div className="absolute -left-4 -bottom-4 w-24 h-24 bg-[var(--color-accent)]/5 rounded-full blur-2xl"></div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 relative">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#6b728008_1px,transparent_1px),linear-gradient(to_bottom,#6b728008_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-50"></div>
+            <div className="space-y-6">
+              {/* Section Label */}
+              <div className="flex items-center gap-3">
+                <div className="h-px w-12 bg-[var(--color-accent)]"></div>
+                <span className="text-[var(--color-accent)] font-medium uppercase tracking-wider text-sm">Our Foundation</span>
+                <div className="h-px w-12 bg-[var(--color-accent)]"></div>
+              </div>
               
-              {/* Decorative Corner */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--color-accent)]/5 rounded-full blur-3xl"></div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Our Principles
+              </h2>
+              <p className="text-lg text-gray-500 mb-8">
+                The fundamental values that guide our decisions and shape our culture
+              </p>
 
-              {companyHighlights.map((highlight) => (
-                <div
-                  key={highlight.title}
-                  className="relative bg-white p-8 rounded-xl hover:shadow-xl transition-all duration-300 group border border-gray-100"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl"></div>
-                  <div className="relative">
-                    <div className="text-[var(--color-accent)] mb-6 flex items-center justify-center w-14 h-14 rounded-xl bg-[var(--color-accent)]/5 group-hover:scale-110 group-hover:bg-[var(--color-accent)]/10 transition-all duration-500">
-                      <highlight.icon className="h-7 w-7 group-hover:scale-110 transition-transform duration-500" />
+              <div className="grid grid-cols-2 gap-4">
+                {/* Ethical Integrity */}
+                <div className="group h-full">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="text-[var(--color-accent)]">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Award className="h-5 w-5" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                          Ethical Integrity
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          Upholding transparency, accountability, and fairness.
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors duration-300">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                      {highlight.description}
-                    </p>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                   </div>
                 </div>
-              ))}
+
+                {/* Excellence in Execution */}
+                <div className="group h-full">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="text-[var(--color-accent)]">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Target className="h-5 w-5" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                          Excellence in Execution
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          Delivering superior outcomes through innovation and discipline.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  </div>
+                </div>
+
+                {/* Responsibility & Dedication */}
+                <div className="group h-full">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="text-[var(--color-accent)]">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Heart className="h-5 w-5" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                          Responsibility & Dedication
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          Committing to long-term success and stakeholder value.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  </div>
+                </div>
+
+                {/* Continuous Learning */}
+                <div className="group h-full">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="text-[var(--color-accent)]">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Lightbulb className="h-5 w-5" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                          Continuous Learning
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          Investing in education and staying ahead of industry evolution.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  </div>
+                </div>
+
+                {/* Performance Optimization */}
+                <div className="group h-full">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="text-[var(--color-accent)]">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Target className="h-5 w-5" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                          Performance Optimization
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          Refining every process for efficiency and sustainability.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -508,119 +608,7 @@ export default function AboutPage() {
       {/* Company History Timeline */}
       <Journey events={timeline} />
 
-      {/* Our Principles */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto w-full max-w-[1140px] px-4 sm:px-6">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            {/* Section Label */}
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="h-px w-12 bg-[var(--color-accent)]"></div>
-              <span className="text-[var(--color-accent)] font-medium uppercase tracking-wider text-sm">Our Foundation</span>
-              <div className="h-px w-12 bg-[var(--color-accent)]"></div>
-            </div>
-            
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Our Principles
-            </h2>
-            <p className="text-xl text-gray-500">
-              The fundamental values that guide our decisions and shape our culture
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Ethical Integrity */}
-            <div className="group">
-              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
-                <div className="text-[var(--color-accent)] mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Award className="h-7 w-7" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
-                  Ethical Integrity
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Upholding transparency, accountability, and fairness.
-                </p>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              </div>
-            </div>
-
-            {/* Excellence in Execution */}
-            <div className="group">
-              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
-                <div className="text-[var(--color-accent)] mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Target className="h-7 w-7" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
-                  Excellence in Execution
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Delivering superior outcomes through innovation and discipline.
-                </p>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              </div>
-            </div>
-
-            {/* Responsibility & Dedication */}
-            <div className="group">
-              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
-                <div className="text-[var(--color-accent)] mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Heart className="h-7 w-7" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
-                  Responsibility & Dedication
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Committing to long-term success and stakeholder value.
-                </p>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              </div>
-            </div>
-
-            {/* Continuous Learning */}
-            <div className="group">
-              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
-                <div className="text-[var(--color-accent)] mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Lightbulb className="h-7 w-7" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
-                  Continuous Learning
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Investing in education and staying ahead of industry evolution.
-                </p>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              </div>
-            </div>
-
-            {/* Performance Optimization */}
-            <div className="group">
-              <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100">
-                <div className="text-[var(--color-accent)] mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <Target className="h-7 w-7" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[var(--color-accent)] transition-colors">
-                  Performance Optimization
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Refining every process for efficiency and sustainability.
-                </p>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* The Globtek Way */}
       <GlobtekWay pillars={globtekWay} />
