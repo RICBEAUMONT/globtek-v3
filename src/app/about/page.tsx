@@ -405,18 +405,18 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 {/* Ethical Integrity */}
                 <div className="group h-full">
-                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                  <div className="relative bg-gradient-to-br from-[#14171c] to-[#1a1f2a] p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 h-full">
                     <div className="flex items-start gap-3">
                       <div className="text-[var(--color-accent)]">
-                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Award className="h-5 w-5" />
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                        <h3 className="text-base font-semibold text-white mb-1 group-hover:text-[var(--color-accent)] transition-colors">
                           Ethical Integrity
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed">
                           Upholding transparency, accountability, and fairness.
                         </p>
                       </div>
@@ -427,18 +427,18 @@ export default function AboutPage() {
 
                 {/* Excellence in Execution */}
                 <div className="group h-full">
-                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                  <div className="relative bg-gradient-to-br from-[#14171c] to-[#1a1f2a] p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 h-full">
                     <div className="flex items-start gap-3">
                       <div className="text-[var(--color-accent)]">
-                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Target className="h-5 w-5" />
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                        <h3 className="text-base font-semibold text-white mb-1 group-hover:text-[var(--color-accent)] transition-colors">
                           Excellence in Execution
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed">
                           Delivering superior outcomes through innovation and discipline.
                         </p>
                       </div>
@@ -449,18 +449,18 @@ export default function AboutPage() {
 
                 {/* Responsibility & Dedication */}
                 <div className="group h-full">
-                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                  <div className="relative bg-gradient-to-br from-[#14171c] to-[#1a1f2a] p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 h-full">
                     <div className="flex items-start gap-3">
                       <div className="text-[var(--color-accent)]">
-                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Heart className="h-5 w-5" />
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                        <h3 className="text-base font-semibold text-white mb-1 group-hover:text-[var(--color-accent)] transition-colors">
                           Responsibility & Dedication
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed">
                           Committing to long-term success and stakeholder value.
                         </p>
                       </div>
@@ -471,18 +471,18 @@ export default function AboutPage() {
 
                 {/* Continuous Learning */}
                 <div className="group h-full">
-                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                  <div className="relative bg-gradient-to-br from-[#14171c] to-[#1a1f2a] p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 h-full">
                     <div className="flex items-start gap-3">
                       <div className="text-[var(--color-accent)]">
-                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Lightbulb className="h-5 w-5" />
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                        <h3 className="text-base font-semibold text-white mb-1 group-hover:text-[var(--color-accent)] transition-colors">
                           Continuous Learning
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed">
                           Investing in education and staying ahead of industry evolution.
                         </p>
                       </div>
@@ -493,18 +493,18 @@ export default function AboutPage() {
 
                 {/* Performance Optimization */}
                 <div className="group h-full">
-                  <div className="relative bg-gradient-to-br from-gray-50 to-white p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 h-full">
+                  <div className="relative bg-gradient-to-br from-[#14171c] to-[#1a1f2a] p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-700 h-full">
                     <div className="flex items-start gap-3">
                       <div className="text-[var(--color-accent)]">
-                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Target className="h-5 w-5" />
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">
+                        <h3 className="text-base font-semibold text-white mb-1 group-hover:text-[var(--color-accent)] transition-colors">
                           Performance Optimization
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed">
                           Refining every process for efficiency and sustainability.
                         </p>
                       </div>

@@ -168,58 +168,140 @@ export default function ContactPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                  Visit Our Office
+                  Visit Our Offices
                 </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#14171c] mb-6 tracking-tight">
                 Where to <span className="text-[#e43d30]">Find Us</span>
-                </h2>
+              </h2>
               <p className="text-xl text-[#4a4a4a] leading-relaxed max-w-3xl mx-auto">
-                Visit our headquarters in Durban or connect with us during business hours for personalized assistance.
+                Visit any of our three office locations across South Africa or connect with us during business hours for personalized assistance.
                 </p>
               </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-              {/* Map Section */}
-              <div className="space-y-8">
-                <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-8 relative overflow-hidden">
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-                  </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-                  
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-white mb-6">Our Location</h3>
-                    <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.5377730016654!2d31.0225663!3d-29.8375799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7a9c8bbd0ad27%3A0x3c5b8553c84d65f1!2s62%20Smiso%20Nkwanyana%20Rd%2C%20Morningside%2C%20Durban%2C%204001!5e0!3m2!1sen!2sza!4v1710936163043!5m2!1sen!2sza"
-                    className="w-full h-[400px]"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Globtek Engineering Headquarters"
-                    aria-label="Map showing Globtek Engineering headquarters in Durban"
-                  />
+            {/* Office Locations Grid */}
+            <div className="grid lg:grid-cols-3 gap-8 mb-16">
+              {/* Durban Office */}
+              <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-6 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
                 </div>
-                    {/* Address Card */}
-                    <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                  <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-[#e43d30]" />
-                        <p className="text-white font-medium">
-                          62 Smiso Nkwanyana Road, Morningside, Durban, 4001, South Africa
-                    </p>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[60px]"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-white mb-4">Durban Office</h3>
+                  <div className="rounded-xl overflow-hidden shadow-xl border border-white/10 mb-4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.5377730016654!2d31.0225663!3d-29.8375799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7a9c8bbd0ad27%3A0x3c5b8553c84d65f1!2s62%20Smiso%20Nkwanyana%20Rd%2C%20Morningside%2C%20Durban%2C%204001!5e0!3m2!1sen!2sza!4v1710936163043!5m2!1sen!2sza"
+                      className="w-full h-[200px]"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Globtek Engineering Durban Office"
+                      aria-label="Map showing Globtek Engineering Durban office"
+                    />
+                  </div>
+                  {/* Address Card */}
+                  <div className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-[#e43d30] mt-0.5 flex-shrink-0" />
+                      <div className="text-sm text-white">
+                        <p className="font-medium">62 Smiso Nkwanyana Road</p>
+                        <p>Morningside, Durban, 4001</p>
+                        <p>South Africa</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Business Hours Section */}
-              <div className="space-y-8">
-                <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-8 relative overflow-hidden">
+              {/* Mthatha Office */}
+              <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-6 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[60px]"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-white mb-4">Mthatha Office</h3>
+                  <div className="rounded-xl overflow-hidden shadow-xl border border-white/10 mb-4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.5377730016654!2d28.7766!3d-31.5889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e5d5c5c5c5c5c5%3A0x3c5b8553c84d65f1!2s7%20Sisson%20St%2C%20Mthatha%20Central%2C%20Mthatha%2C%205099%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1710936163043!5m2!1sen!2sza"
+                      className="w-full h-[200px]"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Globtek Engineering Mthatha Office"
+                      aria-label="Map showing Globtek Engineering Mthatha office"
+                    />
+                  </div>
+                  {/* Address Card */}
+                  <div className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-[#e43d30] mt-0.5 flex-shrink-0" />
+                      <div className="text-sm text-white">
+                        <p className="font-medium">Office F2.2, ECDC Building</p>
+                        <p>7 Sisson Street, Fort Gale</p>
+                        <p>Mthatha Central, 5099</p>
+                        <p>South Africa</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Cape Town Office */}
+              <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-6 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[60px]"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-white mb-4">Cape Town Office</h3>
+                  <div className="rounded-xl overflow-hidden shadow-xl border border-white/10 mb-4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.5377730016654!2d18.4241!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e5d5c5c5c5c5c5%3A0x3c5b8553c84d65f1!2s11%20Christiaan%20Barnard%20St%2C%20Foreshore%2C%20Cape%20Town%2C%208001%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1710936163043!5m2!1sen!2sza"
+                      className="w-full h-[200px]"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Globtek Engineering Cape Town Office"
+                      aria-label="Map showing Globtek Engineering Cape Town office"
+                    />
+                  </div>
+                  {/* Address Card */}
+                  <div className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-[#e43d30] mt-0.5 flex-shrink-0" />
+                      <div className="text-sm text-white">
+                        <p className="font-medium">11 Christiaan Barnard Street</p>
+                        <p>Foreshore</p>
+                        <p>Cape Town, 8001</p>
+                        <p>South Africa</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+
+              {/* Business Hours Section - Left Side */}
+              <div className="h-full">
+                <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-8 relative overflow-hidden h-full">
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-5">
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
@@ -248,9 +330,11 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Planning Your Visit Card */}
-                <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              {/* Planning Your Visit Card - Right Side */}
+              <div className="h-full">
+                <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-[#e43d30]/10 flex items-center justify-center">
                       <svg className="w-6 h-6 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
