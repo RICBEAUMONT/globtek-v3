@@ -52,6 +52,8 @@ export default function CoastalPortInfrastructurePage() {
   useScrollReveal();
   const [expanded, setExpanded] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   const coastalImages = [
     '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-1.jpg',
@@ -59,7 +61,7 @@ export default function CoastalPortInfrastructurePage() {
     '/images/coastal-port-infrastructure/coastal-port-infrastructure_hero_image-3.jpg',
   ];
 
-  const slideshowImages = [
+  const coastalSliderImages = [
     '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-1.jpg',
     '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-2.jpg',
     '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-3.jpg',
@@ -68,10 +70,18 @@ export default function CoastalPortInfrastructurePage() {
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setCurrentSlide(prev => (prev === slideshowImages.length - 1 ? 0 : prev + 1));
+      setCurrentSlide(prev => (prev === coastalSliderImages.length - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(slideInterval);
-  }, [slideshowImages.length]);
+  }, [coastalSliderImages.length]);
+
+  const handleImageClick = (src: string) => {
+    setEnlargedImage(src);
+  };
+
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
 
   const timestamp = Date.now();
 
@@ -114,7 +124,7 @@ export default function CoastalPortInfrastructurePage() {
             </div>
           </div>
           <div className="relative rounded-2xl shadow-xl overflow-hidden min-h-[500px] h-full">
-            {slideshowImages.map((src, index) => (
+            {coastalSliderImages.map((src, index) => (
               <Image
                 key={src}
                 src={src}
@@ -128,7 +138,7 @@ export default function CoastalPortInfrastructurePage() {
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
             <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-              {slideshowImages.map((_, index) => (
+              {coastalSliderImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
@@ -150,8 +160,71 @@ export default function CoastalPortInfrastructurePage() {
           showViewAllButton={true}
         />
         )}
+      </Container>
 
-        {/* Core Services Section - Simplified */}
+      {/* Scrolling Image Slider Section */}
+      <section className="w-full py-8 overflow-hidden">
+        <div className="relative w-full">
+          <div 
+            className={`flex items-center gap-8 animate-scroll-left ${isHovered ? 'paused' : ''}`} 
+            style={{ width: 'max-content' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {coastalSliderImages.concat(coastalSliderImages).map((src, idx) => (
+              <div 
+                key={idx} 
+                className="relative h-64 w-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => handleImageClick(src)}
+              >
+                <Image
+                  src={src}
+                  alt={`Coastal port infrastructure slider image ${idx % coastalSliderImages.length + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 80vw, 420px"
+                  priority={idx < coastalSliderImages.length}
+                />
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enlarged Image Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={closeEnlargedImage}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
+            <Image
+              src={enlargedImage}
+              alt="Enlarged coastal port infrastructure image"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 90vw, 80vw"
+            />
+            <button
+              onClick={closeEnlargedImage}
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300"
+              aria-label="Close enlarged image"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Core Services Section - Simplified */}
+      <Container className="py-16 md:py-24">
         <section className="relative pt-36 pb-6 px-2 bg-white">
           <div className="flex justify-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6 whitespace-nowrap">

@@ -126,15 +126,15 @@ export default function OffshoreEngineeringPage() {
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
                   <span className="flex items-center">
                     <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                    Physics-based simulation
+                    Physics-Based Simulation
                   </span>
                   <span className="flex items-center">
                     <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                    Risk-informed design
+                    Risk-Informed Design
                   </span>
                   <span className="flex items-center">
                     <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                    Regulatory compliance
+                    Regulatory Compliance
                   </span>
                 </div>
               </div>

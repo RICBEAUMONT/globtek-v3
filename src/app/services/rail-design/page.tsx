@@ -148,7 +148,7 @@ export default function RailDesignPage() {
                    <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
                      <span className="flex items-center">
                        <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       Data-driven Design
+                       Data-Driven Design
                      </span>
                      <span className="flex items-center">
                        <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
@@ -169,7 +169,7 @@ export default function RailDesignPage() {
                      </span>
                      <span className="flex items-center">
                        <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       Simulation modeling
+                       Simulation Modeling
                      </span>
                    </div>
                  </div>

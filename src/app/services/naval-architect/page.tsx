@@ -152,7 +152,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span className="text-[#e43d30]">Solid academic grounding</span>
+                    <span className="text-[#e43d30]">Solid Academic Grounding</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -160,7 +160,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span className="text-[#e43d30]">Deep software integration (Maxsurf, OrcaFlex, OpenFOAM, ANSYS AQWA, Star-CCM+)</span>
+                    <span className="text-[#e43d30]">Deep Software Integration (Maxsurf, OrcaFlex, OpenFOAM, ANSYS AQWA, Star-CCM+)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -168,7 +168,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span className="text-[#e43d30]">Field-proven validation data</span>
+                    <span className="text-[#e43d30]">Field-Proven Validation Data</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -176,7 +176,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span className="text-[#e43d30]">A structured systems engineering methodology</span>
+                    <span className="text-[#e43d30]">A Structured Systems Engineering Methodology</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1">
@@ -184,7 +184,7 @@ export default function NavalArchitectPage() {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </span>
-                    <span className="text-[#e43d30]">Modern risk-based design and lifecycle optimisation</span>
+                    <span className="text-[#e43d30]">Modern Risk-Based Design and Lifecycle Optimisation</span>
                   </li>
                 </ul>
               </div>
