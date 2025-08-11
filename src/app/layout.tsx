@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   title: "Globtek | Naval Architecture",
   description: "Globtek specializes in naval architecture and marine engineering solutions",
   keywords: "engineering, professional services, technology solutions, innovation, design",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 const _navigation = [

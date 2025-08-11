@@ -44,7 +44,7 @@ export default function Journey({ events, className = '' }: JourneyProps) {
             Our Journey
           </h2>
           <p className="text-xl text-gray-500">
-            A decade of engineering excellence and continuous growth, shaping the future of industry.
+            From its origins as a specialized engineering consultancy to its current role as a diversified holding company, Globtek Group has grown through strategic expansion, technical excellence, and a commitment to infrastructure transformation.
           </p>
         </div>
 

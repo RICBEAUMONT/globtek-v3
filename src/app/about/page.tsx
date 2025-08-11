@@ -108,23 +108,33 @@ const expertise = [
 const timeline = [
   {
     year: '2013',
-    title: 'Foundation',
+    title: 'Tekoa Consulting founded as a Civil/Structural Engineering consultancy',
     description: 'Established in South Africa with a vision for global impact'
   },
   {
-    year: '2015',
-    title: 'International Expansion',
-    description: 'Extended operations beyond South African borders'
+    year: '2015–2018',
+    title: 'Diversified into a Multidisciplinary Engineering firm, adding Mechanical, Electrical, and Environmental services',
+    description: 'Expanded service offerings to provide comprehensive engineering solutions'
   },
   {
-    year: '2018',
-    title: 'Major Milestones',
-    description: 'Completed 250+ successful projects across multiple industries'
+    year: '2020',
+    title: 'Restructured into a Holding Company and Name Change – Globtek Group',
+    description: 'Strategic transformation to support diversified business operations'
   },
   {
-    year: '2023',
-    title: 'A Decade of Excellence',
-    description: 'Celebrating 10 years of engineering innovation and success'
+    year: '2021',
+    title: 'Established Globtek Engineering as a multidisciplinary subsidiary',
+    description: 'Created dedicated engineering division for core technical services'
+  },
+  {
+    year: '2022',
+    title: 'Launched Globtek Marine, focused on Naval Architecture, Marine & Coastal Engineering',
+    description: 'Specialized marine engineering division for maritime projects'
+  },
+  {
+    year: '2024',
+    title: 'Formed Globtek Rail Infrastructure, specializing in rail systems and transport corridors',
+    description: 'New division focused on rail infrastructure and transportation engineering'
   }
 ];
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Outer circle -->
+  <circle cx="16" cy="16" r="15" fill="none" stroke="#e43d30" stroke-width="2"/>
+  
+  <!-- Compass rose points -->
+  <!-- North -->
+  <path d="M16 2 L18 14 L16 16 L14 14 Z" fill="#e43d30"/>
+  <!-- South -->
+  <path d="M16 30 L18 18 L16 16 L14 18 Z" fill="#e43d30"/>
+  <!-- East -->
+  <path d="M30 16 L18 18 L16 16 L18 14 Z" fill="#e43d30"/>
+  <!-- West -->
+  <path d="M2 16 L14 18 L16 16 L14 14 Z" fill="#e43d30"/>
+  
+  <!-- Secondary points -->
+  <!-- Northeast -->
+  <path d="M22 10 L19 15 L16 16 L17 13 Z" fill="#14171c"/>
+  <!-- Northwest -->
+  <path d="M10 10 L13 15 L16 16 L15 13 Z" fill="#14171c"/>
+  <!-- Southeast -->
+  <path d="M22 22 L19 17 L16 16 L17 19 Z" fill="#14171c"/>
+  <!-- Southwest -->
+  <path d="M10 22 L13 17 L16 16 L15 19 Z" fill="#14171c"/>
+  
+  <!-- Center circle -->
+  <circle cx="16" cy="16" r="3" fill="#e43d30"/>
+  <circle cx="16" cy="16" r="1" fill="white"/>
+  
+  <!-- North indicator -->
+  <circle cx="16" cy="6" r="1" fill="#e43d30"/>
+</svg>
