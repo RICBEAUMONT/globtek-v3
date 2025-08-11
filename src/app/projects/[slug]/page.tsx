@@ -172,19 +172,7 @@ export default function ProjectDetailPage() {
                 </div>
               </div>
 
-              {project.details.specifications && (
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h3 className="text-xl font-bold text-[#14171c] mb-4">Specifications</h3>
-                  <div className="space-y-4">
-                    {Object.entries(project.details.specifications).map(([key, value]) => (
-                      <div key={key}>
-                        <div className="text-sm text-[#4a4a4a]">{key}</div>
-                        <div className="font-medium text-[#14171c]">{value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+
 
               <div className="mt-6">
                 <Link

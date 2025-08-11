@@ -20,7 +20,7 @@ const navigation: NavigationItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   {
-    name: 'Core Capabilities',
+    name: 'Naval & Marine',
     children: [
       { 
         name: 'Naval Architecture', 
@@ -66,6 +66,7 @@ const navigation: NavigationItem[] = [
       }
     ]
   },
+  { name: 'Rail Infrastructure', href: '/services/rail-design' },
   {
     name: 'Multi-Disciplinary',
     children: [
@@ -74,12 +75,6 @@ const navigation: NavigationItem[] = [
         href: '/services/roads-transportation',
         description: 'Infrastructure development and transportation engineering solutions.',
         imageUrl: '/images/services/roads-transportations/hero.jpg'
-      },
-      { 
-        name: 'Rail Design', 
-        href: '/services/rail-design',
-        description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
-        imageUrl: '/images/rails/rails_image-2.jpg'
       },
       { 
         name: 'Civil and Structural Engineering', 

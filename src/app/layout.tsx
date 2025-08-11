@@ -7,8 +7,8 @@ import LayoutWrapper from "@/components/layout/LayoutWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Globtek | Professional Engineering Solutions",
-  description: "Globtek provides innovative engineering solutions with expertise in design, development, and implementation of cutting-edge technologies.",
+  title: "Globtek | Naval Architecture",
+  description: "Globtek specializes in naval architecture and marine engineering solutions",
   keywords: "engineering, professional services, technology solutions, innovation, design",
 };
 

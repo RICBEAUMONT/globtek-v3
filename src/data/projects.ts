@@ -95,7 +95,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 'tnpa-763-dry-dock-fire-system-upgrade',
-    title: 'TNPA 763 - Dry Dock Fire System Upgrade at the Port of Durban',
+    title: 'TNPA - Dry Dock Fire System Upgrade at the Port of Durban',
     description: 'A comprehensive fire system upgrade project at the Port of Durban, including fire suppression, detection, and alarm systems.',
     category: 'Fire Systems Engineering',
     image: '/images/projects/tnpa-763-dry-dock-fire-system-upgrade/hero.jpg',
