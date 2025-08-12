@@ -7,6 +7,7 @@ import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import ServiceProjects from '@/components/sections/ServiceProjects';
+import { useState } from 'react';
 
 interface ServiceHighlight {
   title: string;
@@ -34,6 +35,8 @@ const highlights: ServiceHighlight[] = [
 
 export default function SurveyInspectionPage() {
   useScrollReveal();
+  const [isHovered, setIsHovered] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   const timestamp = Date.now();
   const heroImages = [
@@ -41,6 +44,28 @@ export default function SurveyInspectionPage() {
     `/images/services/survey-inspection/hero-2.jpg`,
     `/images/services/survey-inspection/hero-3.jpg`
   ];
+
+  const surveyImages = [
+    '/images/survey-and-inspection/survey-1.png',
+    '/images/survey-and-inspection/survey-2.png',
+    '/images/survey-and-inspection/survey-3.png',
+    '/images/survey-and-inspection/survey-4.png',
+    '/images/survey-and-inspection/survey-5.png',
+    '/images/survey-and-inspection/survey-6.png',
+    '/images/survey-and-inspection/survey-7.png',
+    '/images/survey-and-inspection/survey-8.png',
+    '/images/survey-and-inspection/survey-9.png',
+    '/images/survey-and-inspection/survey-10.png',
+    '/images/survey-and-inspection/survey-11.png'
+  ];
+
+  const handleImageClick = (src: string) => {
+    setEnlargedImage(src);
+  };
+
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
 
   return (
     <main className="min-h-screen">
@@ -192,8 +217,112 @@ export default function SurveyInspectionPage() {
         />
         )}
 
-        {/* CTA Section */}
-        <div className="mt-24">
+      </Container>
+
+      {/* Scrolling Image Slider Section - Full Width */}
+      <section className="w-full py-8 pb-16 overflow-hidden">
+        <div className="relative w-full">
+          <div 
+            className={`flex items-center gap-8 animate-scroll-left ${isHovered ? 'paused' : ''}`} 
+            style={{ width: 'max-content' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {surveyImages.concat(surveyImages).map((src, idx) => (
+              <div 
+                key={idx} 
+                className="relative h-64 w-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => handleImageClick(src)}
+              >
+                <Image
+                  src={src}
+                                          alt={`Survey inspection image ${idx % surveyImages.length + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 80vw, 420px"
+                  priority={idx < surveyImages.length}
+                />
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enlarged Image Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={closeEnlargedImage}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
+            <Image
+              src={enlargedImage}
+              alt="Enlarged survey inspection image"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 90vw, 80vw"
+            />
+            <button
+              onClick={closeEnlargedImage}
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300"
+              aria-label="Close enlarged image"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Video Section */}
+              <section className="w-full pt-16 pb-18 bg-gray-50">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Text Content */}
+            <div className="text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full mb-6 border border-[#e43d30]/20">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Survey Operations
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                See Our Survey & Inspection Process
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Watch how our expert team conducts comprehensive maritime surveys and inspections with precision and attention to detail. Our experienced professionals use advanced technology and proven methodologies to ensure your vessels and equipment meet the highest safety and compliance standards.
+              </p>
+            </div>
+            
+            {/* Right Column - Video */}
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-2xl max-w-lg mx-auto">
+                <video 
+                  className="w-full h-96 object-cover"
+                  controls
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                >
+                  <source src="/images/survey-and-inspection/video/20250610_100401.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <Container>
+        <div className="mt-0">
           <SimpleCTA
             title="Ready to"
             titleAccent="Start Your Survey?"
