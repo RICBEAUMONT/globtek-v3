@@ -331,22 +331,42 @@ export default function Home() {
                 {
                   phase: "01",
                   title: "Research & Concept",
-                  description: "Initial exploration and feasibility studies"
+                  description: "Initial exploration and feasibility studies",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  )
                 },
                 {
                   phase: "02", 
                   title: "Design & Development",
-                  description: "Detailed engineering and system integration"
+                  description: "Detailed engineering and system integration",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  )
                 },
                 {
                   phase: "03",
                   title: "Documentation & Specs",
-                  description: "Technical documentation and contract drawings"
+                  description: "Technical documentation and contract drawings",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  )
                 },
                 {
                   phase: "04",
                   title: "Construction & Delivery",
-                  description: "On-site support and quality assurance"
+                  description: "On-site support and quality assurance",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  )
                 }
               ].map((step, index) => (
                 <div key={index} className="relative group">
@@ -356,10 +376,12 @@ export default function Home() {
                   )}
                   
                   <div className="relative z-10 bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                    {/* Phase Number - Styled like icons */}
+
+                    
+                    {/* Number Icon */}
                     <div className="w-16 h-16 rounded-xl bg-[#e43d30]/10 flex items-center justify-center mb-6 group-hover:bg-[#e43d30]/20 transition-colors duration-300">
                       <div className="text-[#e43d30] font-bold text-2xl">
-                        {step.phase}
+                        {index + 1}
                       </div>
                     </div>
                     
@@ -374,118 +396,118 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-
         </Container>
       </section>
 
-      {/* Comprehensive Naval Architecture Services Section */}
+      {/* Core Capabilities Section */}
       <section className="py-24 bg-gradient-to-br from-[#14171c] to-[#1a1f2a] relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-        </div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-        
         <Container>
-          <div className="relative z-10">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-3 mb-4 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
-                <span className="text-[#e43d30] font-medium text-sm">Core Capabilities</span>
-                <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                Comprehensive Naval Architecture Services
-              </h3>
-              <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                From initial concept to final delivery, we provide end-to-end naval architecture solutions
-              </p>
+          <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-12 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
             </div>
-
-            {/* Services Grid - Simplified */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Concept & Feasibility",
-                  description: "Initial design exploration, technical feasibility studies, and economic viability assessment",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  ),
-                  features: ["Ship sizing studies", "System trade-offs", "Cost analysis"]
-                },
-                {
-                  title: "Design & Engineering",
-                  description: "Detailed naval architecture, system integration, and technical documentation",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  ),
-                  features: ["Contract drawings", "Technical specs", "System analysis"]
-                },
-                {
-                  title: "Construction Support",
-                  description: "On-site coordination, quality assurance, and production oversight",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  ),
-                  features: ["Shipyard liaison", "Quality control", "Commissioning support"]
-                }
-              ].map((service, index) => (
-                <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-[#e43d30]/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#e43d30]/10">
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-xl bg-[#e43d30]/20 flex items-center justify-center mb-6 group-hover:bg-[#e43d30]/30 transition-colors duration-300">
-                    <div className="text-[#e43d30]">
-                      {service.icon}
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#e43d30] transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  
-                  {/* Key Features */}
-                  <div className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-3 text-sm text-gray-400">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#e43d30]"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* Hover Indicator */}
-                  <div className="mt-6 pt-6 border-t border-white/5 group-hover:border-[#e43d30]/20 transition-colors">
-                    <div className="flex items-center text-[#e43d30] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn More
-                      <svg className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
+            
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[100px]"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
+            
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-3 mb-4 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                  <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
+                  <span className="text-[#e43d30] font-medium text-sm">Core Capabilities</span>
+                  <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
                 </div>
-              ))}
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                  Comprehensive Naval Architecture Services
+                </h3>
+                <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                  From initial concept to final delivery, we provide end-to-end naval architecture solutions
+                </p>
+              </div>
+
+              {/* Services Grid - Simplified */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                {[
+                  {
+                    title: "Concept & Feasibility",
+                    description: "Initial design exploration, technical feasibility studies, and economic viability assessment",
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    ),
+                    features: ["Ship Sizing Studies", "System Trade-Offs", "Cost Analysis"]
+                  },
+                  {
+                    title: "Design & Engineering",
+                    description: "Detailed naval architecture, system integration, and technical documentation",
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    ),
+                    features: ["Contract Drawings", "Technical Specs", "System Analysis"]
+                  },
+                  {
+                    title: "Construction Support",
+                    description: "On-site coordination, quality assurance, and production oversight",
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    ),
+                    features: ["Shipyard Liaison", "Quality Control", "Commissioning Support"]
+                  }
+                ].map((service, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-[#e43d30]/30 transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[#e43d30]/10">
+                    {/* Icon */}
+                    <div className="w-16 h-16 rounded-xl bg-[#e43d30]/20 flex items-center justify-center mb-6 group-hover:bg-[#e43d30]/30 transition-all duration-500 ease-out">
+                      <div className="text-[#e43d30]">
+                        {service.icon}
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#e43d30] transition-all duration-500 ease-out">
+                      {service.title}
+                    </h4>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    
+                    {/* Key Features - Hidden by default, shown on hover */}
+                    <div className="space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out max-h-0 group-hover:max-h-32 overflow-hidden">
+                      {service.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center gap-3 text-sm text-gray-400">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#e43d30]"></div>
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Hover Indicator */}
+                    <div className="mt-6 pt-6 border-t border-white/5 group-hover:border-[#e43d30]/20 transition-all duration-500 ease-out">
+                      <div className="flex items-center text-white group-hover:text-[#c63529] text-sm font-medium transition-all duration-500 ease-out">
+                        Learn More
+                        <svg className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-500 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Process Phases Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+            {/* Process Phases Section */}
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
         <Container>
           <div className="space-y-16">
             {/* Concept & Feasibility Design */}
@@ -645,7 +667,7 @@ export default function Home() {
               </div>
             </div>
 
-                        {/* Production Liaison */}
+            {/* Production Liaison */}
             <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-2xl p-8 md:p-12 relative overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-5">
@@ -691,7 +713,7 @@ export default function Home() {
                           <svg className="w-4 h-4 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                        </div>
+                          </div>
                         <div className="text-sm text-white font-medium group-hover:text-[#e43d30] transition-colors">
                           {service}
                         </div>
