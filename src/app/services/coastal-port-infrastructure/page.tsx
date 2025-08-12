@@ -62,10 +62,19 @@ export default function CoastalPortInfrastructurePage() {
   ];
 
   const coastalSliderImages = [
-    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-1.jpg',
-    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-2.jpg',
-    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-3.jpg',
-    '/images/coastal-port-infrastructure/coastal-port-infrastructure_image-4.jpg',
+    '/images/coastal-engineering/coastaleng-1.png',
+    '/images/coastal-engineering/coastaleng-2.png',
+    '/images/coastal-engineering/coastaleng-3.png',
+    '/images/coastal-engineering/coastaleng-4.png',
+    '/images/coastal-engineering/coastaleng-5.png',
+    '/images/coastal-engineering/coastaleng-6.png',
+    '/images/coastal-engineering/coastaleng-7.png',
+    '/images/coastal-engineering/coastaleng-8.png',
+    '/images/coastal-engineering/coastaleng-9.png',
+    '/images/coastal-engineering/coastaleng-10.png',
+    '/images/coastal-engineering/coastaleng-11.png',
+    '/images/coastal-engineering/coastaleng-12.png',
+    '/images/coastal-engineering/coastaleng-13.png',
   ];
 
   useEffect(() => {
