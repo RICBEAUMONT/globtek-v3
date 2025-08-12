@@ -189,7 +189,7 @@ export default function Home() {
       </div>
 
       {/* Message from COO Section (moved from About page) */}
-      <section className="py-24 bg-[#14171c] relative overflow-hidden">
+      <section className="py-20 bg-[#14171c] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           {/* Enhanced Grid Pattern */}
@@ -306,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* Naval Architecture Design Process Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-20 bg-white relative overflow-hidden">
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -400,7 +400,7 @@ export default function Home() {
       </section>
 
       {/* Core Capabilities Section */}
-      <section className="py-24 bg-gradient-to-br from-[#14171c] to-[#1a1f2a] relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-[#14171c] to-[#1a1f2a] relative overflow-hidden" style={{ paddingBlock: 'calc(var(--spacing) * 10)' }}>
         <Container>
           <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-12 relative overflow-hidden">
             {/* Background Pattern */}
@@ -450,7 +450,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     ),
-                    features: ["Contract Drawings", "Technical Specs", "System Analysis"]
+                    features: ["Contract Drawings", "Technical Specifications", "System Analysis"]
                   },
                   {
                     title: "Construction Support",
@@ -507,7 +507,7 @@ export default function Home() {
       </section>
 
             {/* Process Phases Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
         <Container>
           <div className="space-y-16">
             {/* Concept & Feasibility Design */}
@@ -521,11 +521,11 @@ export default function Home() {
                   <h4 className="text-lg font-semibold text-[#14171c]">These efforts involve the complete early phase definition of the ship, including:</h4>
                   <ul className="space-y-2">
                     {[
-                      "Principal characteristics",
-                      "Hullform selection and sizing",
-                      "General arrangements",
-                      "Weight estimates",
-                      "Speed, power and endurance calculations"
+                      "Principal Characteristics",
+                      "Hullform Selection and Sizing",
+                      "General Arrangements",
+                      "Weight Estimates",
+                      "Speed, Power and Endurance Calculations"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-[#e43d30] mt-2 flex-shrink-0"></div>
@@ -548,11 +548,11 @@ export default function Home() {
                   <h4 className="text-xl font-bold text-white mb-6">Performance Characteristics</h4>
                   <div className="space-y-4">
                     {[
-                      "Combat system",
-                      "Speed and endurance optimization",
+                      "Combat System",
+                      "Speed and Endurance Optimization",
                       "Seakeeping",
                       "Survivability",
-                      "Noise and vibration reduction"
+                      "Noise and Vibration Reduction"
                     ].map((characteristic, index) => (
                       <div key={index} className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg bg-[#e43d30]/20 flex items-center justify-center">
@@ -589,10 +589,10 @@ export default function Home() {
                     <h4 className="text-lg font-semibold text-white mb-4">Objectives of this phase include:</h4>
                     <ul className="space-y-2">
                       {[
-                        "Refining operational requirements",
-                        "Assessing ship performance within cost constraints",
-                        "Identifying critical system interfaces",
-                        "Establishing the functional baseline of the platform"
+                        "Refining Operational Requirements",
+                        "Assessing Ship Performance Within Cost Constraints",
+                        "Identifying Critical System Interfaces",
+                        "Establishing the Functional Baseline of the Platform"
                       ].map((objective, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 rounded-full bg-[#e43d30] mt-2 flex-shrink-0"></div>
@@ -605,14 +605,14 @@ export default function Home() {
                     <h4 className="text-lg font-semibold text-white mb-4">Typical Products Developed:</h4>
                     <ul className="space-y-2 text-sm">
                       {[
-                        "General arrangements",
+                        "General Arrangements",
                         "Weights",
-                        "Trim and stability",
-                        "Longitudinal strength and midship section",
-                        "Electric load analysis",
+                        "Trim and Stability",
+                        "Longitudinal Strength and Midship Section",
+                        "Electric Load Analysis",
                         "Cooling and HVAC Analysis",
-                        "Machinery arrangements",
-                        "Auxiliary machinery arrangements"
+                        "Machinery Arrangements",
+                        "Auxiliary Machinery Arrangements"
                       ].map((product, index) => (
                         <li key={index} className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#e43d30]"></div>
@@ -667,64 +667,70 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Production Liaison */}
-            <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-2xl p-8 md:p-12 relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[100px]"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-              
-              <div className="relative z-10">
-                {/* Section Header */}
-                <div className="text-center mb-12">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full mb-6 border border-[#e43d30]/20">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                    Shipyard Support
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
-                    Production Liaison <span className="text-[#e43d30]">Support</span>
-                  </h3>
-                  <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-                    During construction, we provide comprehensive platform development with on-site and off-site support to ensure successful project delivery.
-                  </p>
-                </div>
+          </div>
+        </Container>
+      </section>
 
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                  {[
-                    "Project management",
-                    "Port engineering",
-                    "Field engineering support",
-                    "Weight control",
-                    "Calculations for lifts & turns",
-                    "Launching and docking",
-                    "Stability test/experiments",
-                    "Test & trials support"
-                  ].map((service, index) => (
-                    <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10 hover:bg-white/10 hover:border-[#e43d30]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#e43d30]/10">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-[#e43d30]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <svg className="w-4 h-4 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          </div>
-                        <div className="text-sm text-white font-medium group-hover:text-[#e43d30] transition-colors">
-                          {service}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+      {/* Production Liaison Support Section */}
+      <section className="pt-0 pb-0">
+        <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] w-full relative overflow-hidden">
+          {/* Enhanced Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+          </div>
+          
+          {/* Enhanced Decorative Elements */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-20 blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-15 blur-[100px]"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/10 opacity-10 blur-[80px]"></div>
+          
+          <Container>
+            <div className="max-w-7xl mx-auto p-12 md:p-16 relative z-10">
+              <div className="relative z-10">
+              {/* Enhanced Section Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full mb-6 border border-[#e43d30]/20">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  Shipyard Support
                 </div>
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
+                  Production Liaison <span className="text-[#e43d30]">Support</span>
+                </h3>
+                <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                  During construction, we provide comprehensive platform development with on-site and off-site support to ensure successful project delivery.
+                </p>
+              </div>
+
+              {/* Enhanced Services Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                {[
+                  "Project Management",
+                  "Port Engineering",
+                  "Field Engineering Support",
+                  "Weight Control",
+                  "Calculations for Lifts & Turns",
+                  "Launching and Docking",
+                  "Stability Test/Experiments",
+                  "Test & Trials Support"
+                ].map((service, index) => (
+                  <div key={index} className="group flex items-center gap-4 hover:scale-105 transition-all duration-300">
+                    <div className="w-8 h-8 rounded-lg bg-[#e43d30]/20 flex items-center justify-center group-hover:bg-[#e43d30]/30 group-hover:scale-110 transition-all duration-300">
+                      <svg className="w-4 h-4 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-white font-medium group-hover:text-[#e43d30] transition-colors duration-300">
+                      {service}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </Container>
+          </Container>
+        </div>
       </section>
 
       {/* Latest Projects Section */}
