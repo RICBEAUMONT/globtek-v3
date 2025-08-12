@@ -7,7 +7,7 @@ import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import ServiceProjects from '@/components/sections/ServiceProjects';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ServiceHighlight {
   title: string;
@@ -51,6 +51,8 @@ const highlights: ServiceHighlight[] = [
 export default function NavalArchitectPage() {
   useScrollReveal();
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   const timestamp = Date.now();
   const heroImages = [
@@ -58,6 +60,30 @@ export default function NavalArchitectPage() {
     `/images/services/naval-design/hero-2.jpg`,
     `/images/services/naval-design/hero-3.jpg`
   ];
+
+  const navalImages = [
+    '/images/naval-achitect/naval-1.png',
+    '/images/naval-achitect/naval-2.png',
+    '/images/naval-achitect/naval-3.png',
+    '/images/naval-achitect/naval-4.png',
+    '/images/naval-achitect/naval-5.png',
+    '/images/naval-achitect/naval-6.png'
+  ];
+
+  const handleImageClick = (src: string) => {
+    setEnlargedImage(src);
+  };
+
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      // Auto-scroll functionality can be added here if needed
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, []);
 
   return (
     <main className="min-h-screen">
@@ -200,8 +226,71 @@ export default function NavalArchitectPage() {
             showViewAllButton={true}
           />
         )}
+      </Container>
 
-        {/* Core Services Section - Simplified */}
+      {/* Scrolling Image Slider Section - Full Width */}
+      <section className="w-full py-8 overflow-hidden">
+        <div className="relative w-full">
+          <div 
+            className={`flex items-center gap-8 animate-scroll-left ${isHovered ? 'paused' : ''}`} 
+            style={{ width: 'max-content' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {navalImages.concat(navalImages).map((src, idx) => (
+              <div 
+                key={idx} 
+                className="relative h-64 w-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => handleImageClick(src)}
+              >
+                <Image
+                  src={src}
+                  alt={`Naval architecture slider image ${idx % navalImages.length + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 80vw, 420px"
+                  priority={idx < navalImages.length}
+                />
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enlarged Image Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={closeEnlargedImage}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
+            <Image
+              src={enlargedImage}
+              alt="Enlarged naval architecture image"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 90vw, 80vw"
+            />
+            <button
+              onClick={closeEnlargedImage}
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300"
+              aria-label="Close enlarged image"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Core Services Section - Full Width */}
+      <Container>
         <section className="relative pt-36 pb-6 px-2 bg-white">
           <div className="flex justify-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6 whitespace-nowrap">

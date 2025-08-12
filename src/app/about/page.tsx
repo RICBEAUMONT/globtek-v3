@@ -303,7 +303,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <div className="text-white font-semibold text-base sm:text-lg">Precision Engineering</div>
-                      <div className="text-gray-400 text-sm">Industry-leading accuracy</div>
+                      <div className="text-white text-sm">Industry-leading accuracy</div>
                     </div>
                   </div>
                 </div>
@@ -317,7 +317,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <div className="text-white font-semibold text-base sm:text-lg">Global Impact</div>
-                      <div className="text-gray-400 text-sm">Worldwide solutions</div>
+                      <div className="text-white text-sm">Worldwide solutions</div>
                     </div>
                   </div>
                 </div>
@@ -392,7 +392,6 @@ export default function AboutPage() {
               <div className="flex items-center gap-3">
                 <div className="h-px w-12 bg-[var(--color-accent)]"></div>
                 <span className="text-[var(--color-accent)] font-medium uppercase tracking-wider text-sm">Our Foundation</span>
-                <div className="h-px w-12 bg-[var(--color-accent)]"></div>
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
