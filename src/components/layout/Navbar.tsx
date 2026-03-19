@@ -69,7 +69,7 @@ const navigation: NavigationItem[] = [
     ]
   },
   {
-    name: 'Rail Infrastructure',
+    name: 'Rail',
     dropdownOnly: true,
     children: [
       { name: 'Infrastructure', href: '/services/rail-infrastructure' },
