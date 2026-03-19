@@ -62,9 +62,10 @@ Globtek Engineering
 Phone: +27 87 057 5956 | Email: info@globtek.co.za
     `.trim();
 
-    // Send email to Globtek team
+    // Send notification email - use CONTACT_NOTIFICATION_EMAIL for testing (e.g. ricardo@bransol.net), else info@globtek.co.za
+    const notificationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'info@globtek.co.za';
     const teamEmailResult = await sendEmail({
-      to: 'info@globtek.co.za',
+      to: notificationEmail,
       subject,
       body: emailBody
     });
@@ -86,9 +87,12 @@ Phone: +27 87 057 5956 | Email: info@globtek.co.za
         { status: 200 }
       );
     } else {
+      const teamError = !teamEmailResult.success ? (teamEmailResult as { error?: string }).error : null;
+      const userError = !userEmailResult.success ? (userEmailResult as { error?: string }).error : null;
       console.error('Email sending failed:', { teamEmailResult, userEmailResult });
+      const errorDetail = teamError || userError || 'Unknown error';
       return NextResponse.json(
-        { error: 'Failed to send confirmation email. Please try again.' },
+        { error: 'Failed to send email. Please try again.', detail: errorDetail },
         { status: 500 }
       );
     }

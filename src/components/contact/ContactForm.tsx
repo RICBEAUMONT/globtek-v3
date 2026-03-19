@@ -52,9 +52,10 @@ export default function ContactForm() {
         setSubmitSuccess(true);
         reset();
       } else {
-        // Handle error
-        console.error('Form submission error:', result.error);
-        alert('Failed to send message. Please try again.');
+        // Handle error - show detail if available for debugging
+        const errorMsg = result.detail || result.error || 'Unknown error';
+        console.error('Form submission error:', result.error, result.detail);
+        alert(`Failed to send message. ${result.detail || 'Please try again.'}`);
       }
       
     } catch (error) {

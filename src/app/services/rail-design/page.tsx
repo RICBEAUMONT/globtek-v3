@@ -1,447 +1,512 @@
 'use client';
 
-import Container from '@/components/layout/Container';
+import { useState } from 'react';
 import Image from 'next/image';
-import SimpleCTA from '@/components/shared/SimpleCTA';
-import PageHero from '@/components/layout/PageHero';
 import Link from 'next/link';
+import Container from '@/components/layout/Container';
+import PageHero from '@/components/layout/PageHero';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import ServiceProjects from '@/components/sections/ServiceProjects';
-import { useState, useEffect } from 'react';
+import {
+  MapPin,
+  PencilRuler,
+  LayoutList,
+  Calendar,
+  Grid3X3,
+  FileText,
+  ShieldCheck,
+  Wrench,
+  Plus,
+  Check,
+} from 'lucide-react';
 
-interface ServiceHighlight {
-  title: string;
-  description: string;
-}
-
-const highlights: ServiceHighlight[] = [
-  {
-    title: "Commercial Vessels",
-    description: "Innovative designs for cargo ships, tankers, and passenger vessels optimized for efficiency and safety."
-  },
-  {
-    title: "Military Craft",
-    description: "Advanced naval architecture solutions for military vessels with focus on performance and strategic requirements."
-  },
-  {
-    title: "Recreational Boats",
-    description: "Custom design services for yachts and recreational watercraft, balancing luxury with functionality."
-  },
-  {
-    title: "Technical Consulting",
-    description: "Expert guidance in marine engineering, compliance, and optimization of vessel designs."
-  }
+const heroImages = [
+  '/images/rails/rails_hero_image-1.jpg',
+  '/images/rails/rails_hero_image-2.jpg',
+  '/images/rails/rails_hero_image-3.jpg',
 ];
 
-/**
- * CoreServicesSection
- *
- * This section displays a badge, heading, subheading, and a grid of expandable service cards.
- *
- * - The badge, heading, and subheading can be customized for different pages.
- * - The service cards are controlled by a single expanded state, ensuring only one is open at a time.
- * - The layout is responsive and visually consistent with the site's design system.
- *
- * To reuse:
- *   - Extract this section into a separate component (e.g., components/sections/CoreServicesSection.tsx).
- *   - Pass props for badge text, heading, subheading, and card content.
- *   - Use on any page that needs a similar expandable services/capabilities block.
- */
+const statsBand = [
+  { value: 'Full-Lifecycle', label: 'Project Coverage' },
+  { value: '8+', label: 'Specialist Capabilities' },
+  { value: 'BIM / CAD', label: 'Digital Delivery' },
+  { value: 'Multi-Disc', label: 'Interface Engineering' },
+];
+
+const capabilities = [
+  {
+    num: '01',
+    title: 'Rail Planning, Feasibility & Concept Development',
+    short: 'Corridor and route feasibility assessments, alignment concept development, and high-level cost modelling to establish a viable technical foundation.',
+    intro: 'Early-stage rail planning establishes the technical foundation for viable and operationally efficient rail systems. Services include:',
+    bullets: [
+      'Corridor and route feasibility assessments',
+      'Horizontal and vertical alignment concept development',
+      'Preliminary track geometry and layout studies',
+      'Early risk identification, constraints mapping, and interface definition',
+      'High-level cost modelling and implementation strategies',
+    ],
+    icon: MapPin,
+  },
+  {
+    num: '02',
+    title: 'Permanent Way & Track Engineering',
+    short: 'Comprehensive geometric design for mainline, freight, passenger, terminal, yard, and industrial rail systems including turnouts and special trackwork.',
+    intro: 'Comprehensive permanent way engineering for mainline, freight, passenger, terminal, yard, and industrial rail systems. Services include:',
+    bullets: [
+      'Track layout development and geometric design',
+      'Horizontal and vertical alignment optimisation',
+      'Turnout, crossing, and special trackwork design',
+      'Rail, sleeper, fastening, and ballast system specification',
+      'Clearance validation and operational interface analysis',
+      'Engineering for heavy‑haul, freight, high‑speed, and mixed‑traffic operations',
+    ],
+    icon: PencilRuler,
+  },
+  {
+    num: '03',
+    title: 'Civil, Earthworks & Track Foundation Design',
+    short: 'Track formation, subgrade design, ground improvement, cut/fill earthworks, drainage, retaining structures, and level crossing design.',
+    intro: 'Civil works and foundation engineering enable durable, high‑performance track systems. Capabilities include:',
+    bullets: [
+      'Track formation, subgrade design, and ground improvement',
+      'Cut/fill earthworks modelling and slope stability engineering',
+      'Rail corridor drainage and water management',
+      'Design of culverts, embankments, and retaining structures',
+      'Level crossings, access road layouts, and civil‑track interfaces',
+    ],
+    icon: LayoutList,
+  },
+  {
+    num: '04',
+    title: 'Systems & Interface Engineering',
+    short: 'OHTE/OTE interface engineering, signalling and train control coordination, telecoms routing, clearance envelope assessment, and multi-disciplinary risk management.',
+    intro: 'Integration of rail systems to ensure seamless operational and technical compatibility. Services include:',
+    bullets: [
+      'Overhead traction and electrification (OHTE/OTE) interface engineering',
+      'Signalling and train control system coordination',
+      'Telecommunications, cabling, and ducting route planning',
+      'Clearance envelope assessment and segregation requirements',
+      'Multi‑disciplinary interface management and risk mitigation',
+    ],
+    icon: Calendar,
+  },
+  {
+    num: '05',
+    title: 'Digital Engineering & Design Platforms',
+    short: 'Civil 3D for terrain modelling, Bentley OpenRail for geometry and turnouts, integrated BIM/CAD workflows, and data-driven quantity extraction.',
+    intro: 'Engineering delivery is supported by advanced digital design environments for accuracy, interoperability, and efficiency:',
+    bullets: [
+      'Autodesk Civil 3D for terrain modelling, corridor design, and earthworks optimisation',
+      'Bentley Rail Track / OpenRail for rail geometry, turnouts, and system integration',
+      'Integrated CAD/BIM workflows for multi‑discipline coordination',
+      'Data‑driven modelling to support quantity extraction and constructability assessment',
+    ],
+    icon: Grid3X3,
+  },
+  {
+    num: '06',
+    title: 'Detailed Design & Technical Documentation',
+    short: 'Construction-ready drawings, track layouts, profiles, cross-sections, technical specifications, bills of quantities, and design-stage risk reviews.',
+    intro: 'Production of construction‑ready deliverables aligned with regulatory and client requirements:',
+    bullets: [
+      'Detailed design drawings, track layouts, and plan sets',
+      'Profiles, cross‑sections, and standard details',
+      'Technical specifications and engineering design reports',
+      'Bills of quantities, schedules, and costing inputs',
+      'Constructability analyses and design‑stage risk reviews',
+    ],
+    icon: FileText,
+  },
+  {
+    num: '07',
+    title: 'Design Assurance & Engineering Governance',
+    short: 'Independent technical reviews, compliance verification, constructability assessments, safety-in-design evaluations, and interface risk mitigation.',
+    intro: 'Embedded quality and compliance processes ensure safe, robust, and standards‑aligned designs:',
+    bullets: [
+      'Independent technical reviews and engineering audits',
+      'Compliance verification against applicable standards',
+      'Constructability, safety‑in‑design, and hazard assessments',
+      'Interface risk identification and mitigation strategies',
+    ],
+    icon: ShieldCheck,
+  },
+  {
+    num: '08',
+    title: 'Construction Support & As‑Built Engineering',
+    short: 'Technical support during tender, design clarifications, site inspections, compliance reviews, and full as-built documentation and close-out deliverables.',
+    intro: 'Engineering support during construction to ensure accurate implementation of the design intent:',
+    bullets: [
+      'Technical support during tender and contractor engagement',
+      'Response to design clarifications and technical queries',
+      'Site inspections, verification checks, and design compliance reviews',
+      'As‑built documentation, record drawings, and close‑out deliverables',
+    ],
+    icon: Wrench,
+  },
+];
+
+const toolCards = [
+  { name: 'Autodesk Civil 3D', desc: 'Terrain modelling, corridor design, and earthworks optimisation for rail corridors.' },
+  { name: 'Bentley OpenRail', desc: 'Rail geometry, turnout design, and full system integration for all track types.' },
+  { name: 'BIM / CAD Workflows', desc: 'Integrated multi-discipline coordination for compliant, clash-free design outputs.' },
+  { name: 'Data-Driven Modelling', desc: 'Quantity extraction, constructability assessment, and model-based cost planning.' },
+];
+
+const valueBullets = [
+  'Safe, compliant, and reliable rail infrastructure delivery',
+  'Reduced construction, systems, and interface risk',
+  'Improved constructability and multi‑disciplinary coordination',
+  'Designs aligned with operational and maintenance requirements',
+  'Enhanced long‑term performance and lifecycle value',
+];
 
 export default function RailDesignPage() {
-  useScrollReveal();
-  const [expanded, setExpanded] = useState<number | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
-
-  const heroImages = [
-    '/images/rails/rails_hero_image-1.jpg',
-    '/images/rails/rails_hero_image-2.jpg',
-    '/images/rails/rails_hero_image-3.jpg',
-  ];
-
-  const railImages = [
-    '/images/rails/rails_image-1.jpg',
-    '/images/rails/rails_image-2.jpg',
-    '/images/rails/rails_image-3.jpg',
-    '/images/rails/rails_image-4.jpg',
-    '/images/rails/rails_image-5.jpg',
-    '/images/rails/rails_image-6.jpg',
-    '/images/rails/rails_image-7.jpg',
-    '/images/rails/rails_image-8.jpg',
-  ];
-
-  useEffect(() => {
-    const slideInterval = setInterval(() => {
-      setCurrentSlide(prev => (prev === railImages.length - 1 ? 0 : prev + 1));
-    }, 5000);
-    return () => clearInterval(slideInterval);
-  }, [railImages.length]);
-
-  const handleImageClick = (src: string) => {
-    setEnlargedImage(src);
-  };
-
-  const closeEnlargedImage = () => {
-    setEnlargedImage(null);
-  };
-
-  const timestamp = Date.now();
+  const { ref } = useScrollReveal();
+  const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
   return (
     <main className="min-h-screen">
       <PageHero
-        title="Rail Design & Technical Capabilities"
-        subtitle="Rail Engineering Solutions"
-        description="At Globtek, we don't just design—we engineer certainty. Using advanced modelling, fatigue analysis, and real-world data, we deliver rail design solutions built for performance and sustainability."
+        title="Rail Design & Engineering"
+        subtitle="Integrated rail engineering solutions"
+        description="Delivering integrated rail engineering solutions across the full project lifecycle, with designs optimised for operational performance, constructability, safety, and long‑term asset resilience. Engineering workflows utilise advanced digital platforms to ensure coordinated, compliant, and delivery‑ready outcomes."
         images={heroImages}
         slideInterval={6000}
         breadcrumbs={[
           { name: 'Services', href: '/services' },
-          { name: 'Rail Design', href: '/services/rail-design' }
+          { name: 'Rail Design', href: '/services/rail-design' },
         ]}
         overlayOpacity="medium"
-        accentColor="#0066CC"
+        accentColor="#e43d30"
         align="left"
       />
 
-      {/* Main Content */}
-      <Container className="py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6 whitespace-nowrap">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Our Rail Engineering Expertise
+      <div ref={ref}>
+      {/* Stats band — dark strip, 4 cells (from HTML) */}
+      <div className="bg-[#181818] grid grid-cols-2 md:grid-cols-4 border-b border-white/5">
+        {statsBand.map((stat, i) => (
+          <div
+            key={i}
+            className="scroll-reveal py-8 px-6 md:py-9 md:px-10 border-b md:border-b-0 border-r-0 md:border-r border-white/5 last:border-r-0"
+          >
+            <div className="text-2xl md:text-3xl font-bold text-white leading-none mb-1">
+              {stat.value.includes('+') ? (
+                <>8<span className="text-[var(--color-accent)]">+</span></>
+              ) : stat.value.includes('/') ? (
+                <>BIM<span className="text-[var(--color-accent)]">/</span>CAD</>
+              ) : (
+                stat.value
+              )}
             </div>
-            <h2 className="text-[2.5rem] font-bold tracking-tight text-[#14171c] mb-6 leading-[1.1]">
-              Engineering Reliability. Driving Rail Innovation.
-            </h2>
-            <div className="space-y-6">
-              <p className="text-lg text-[#4a4a4a] leading-relaxed">
-                Rail engineering is a key area of our expertise, aimed at enhancing your transportation infrastructure capabilities.<br />
-                Our team of seasoned engineers excels in the design, planning, and management of rail projects, regardless of their scale.<br /><br />
-                From developing new tracks to maintaining and enhancing them, our expertise guarantees the secure and effective functioning of your rail network. If you aim to improve your current railway system or need support for a new initiative, we offer the specialized knowledge necessary for your success. Reach out to us today to explore how our rail engineering services can support your transportation objectives.
-              </p>
+            <div className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-gray-500">
+              {stat.label}
             </div>
           </div>
-          <div className="relative rounded-2xl shadow-xl overflow-hidden min-h-[500px] h-full">
-            {/* Text card with dark background */}
-            <div className="w-full h-full bg-[#14171c] flex items-center justify-center pt-4 pb-12 px-12 relative">
-              {/* Subtle accent elements */}
-              <div className="absolute top-8 right-8 w-2 h-2 bg-[#e43d30] rounded-full opacity-60"></div>
-              <div className="absolute bottom-8 left-8 w-1 h-1 bg-[#e43d30] rounded-full opacity-40"></div>
-              {/* Content */}
-              <div className="text-center text-white max-w-md">
-                <h3 className="text-2xl font-bold mb-6 leading-tight">
-                  Engineered for
-                  <span className="block text-[#e43d30] mt-1">Performance & Safety</span>
-                </h3>
-                <p className="text-base leading-relaxed text-gray-300 mb-6">
-                  Globtek’s Railway Division offers complete engineering solutions for Rail Infrastructure, incorporating civil, systems, and transport engineering.
-                </p>
-                 {/* Group the header and bullets */}
-                 <div className="mb-4">
-                   <h4 className="text-sm text-gray-300 font-medium mb-2 text-center">Our methodology focuses on:</h4>
-                   <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-                     <span className="flex items-center">
-                       <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       Data-Driven Design
-                     </span>
-                     <span className="flex items-center">
-                       <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       Adherence to Regulations
-                     </span>
-                   </div>
-                 </div>
-                 <div className="mb-4">
-                   <h4 className="text-sm text-gray-300 font-medium mb-2 text-center">Use of digital engineering tools such as:</h4>
-                   <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-                     <span className="flex items-center">
-                       <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       BIS
-                     </span>
-                     <span className="flex items-center">
-                       <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       GIS
-                     </span>
-                     <span className="flex items-center">
-                       <div className="w-1.5 h-1.5 bg-[#e43d30] rounded-full mr-2"></div>
-                       Simulation Modeling
-                     </span>
-                   </div>
-                 </div>
-              </div>
-            </div>
+        ))}
+      </div>
+
+      {/* Overview — two columns: text left, image right */}
+      <section className="grid md:grid-cols-2 min-h-[480px]">
+        <div className="bg-[#f7f6f4] p-10 md:p-16 lg:p-20 flex flex-col justify-center scroll-reveal">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-6 h-0.5 rounded-full bg-[var(--color-accent)]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+              Service Overview
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] leading-tight mb-6">
+            Delivering Rail Infrastructure That Performs
+          </h2>
+          <p className="text-[var(--color-text-secondary)] text-sm md:text-base leading-relaxed mb-4">
+            Globtek&apos;s rail design and engineering service delivers integrated solutions across the full project lifecycle. Our engineering workflows utilise advanced digital platforms to ensure coordinated, compliant, and delivery-ready outcomes.
+          </p>
+          <p className="text-[var(--color-text-secondary)] text-sm md:text-base leading-relaxed mb-8">
+            From early-stage planning through to construction support and as-built documentation, our multi-disciplinary team applies rigorous technical governance and design assurance at every phase.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white text-xs font-bold uppercase tracking-wider py-3 px-6 hover:bg-[var(--color-accent-dark)] transition-colors"
+            >
+              Start a Conversation
+              <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 border-2 border-[var(--color-text-primary)] text-[var(--color-text-primary)] text-xs font-bold uppercase tracking-wider py-3 px-6 hover:bg-[var(--color-text-primary)] hover:text-white transition-colors"
+            >
+              View Our Projects
+              <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
-      </Container>
-
-      {/* Scrolling Image Slider Section */}
-      <section className="w-full py-8 overflow-hidden">
-        <div className="relative w-full">
-          <div 
-            className={`flex items-center gap-8 animate-scroll-left ${isHovered ? 'paused' : ''}`} 
-            style={{ width: 'max-content' }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {railImages.concat(railImages).map((src, idx) => (
-              <div 
-                key={idx} 
-                className="relative h-64 w-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => handleImageClick(src)}
-              >
-              <Image
-                src={src}
-                  alt={`Rail engineering slider image ${idx % railImages.length + 1}`}
-                fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 80vw, 420px"
-                  priority={idx < railImages.length}
-              />
-                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                  </svg>
-                </div>
-              </div>
-              ))}
-            </div>
+        <div className="relative min-h-[320px] md:min-h-full overflow-hidden bg-[var(--color-bg-dark)]">
+          <Image
+            src={heroImages[0]}
+            alt="Rail infrastructure engineering"
+            fill
+            className="object-cover grayscale-[15%] brightness-[0.85] hover:grayscale-0 hover:brightness-95 transition-all duration-700"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent" />
+          <div className="absolute bottom-6 left-6 bg-[var(--color-accent)] px-4 py-2.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-white">
+              Rail Design & Engineering
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Enlarged Image Modal */}
-      {enlargedImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={closeEnlargedImage}
+      {/* Capabilities — 4-col grid, 8 cards with icon, number, red top bar on hover */}
+      <section className="bg-white py-16 md:py-24 px-4 md:px-8">
+        <Container>
+          <div className="scroll-reveal mb-12 md:mb-14">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-0.5 rounded-full bg-[var(--color-accent)]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                Core Capabilities
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-2">
+              Eight Areas of Specialist Expertise
+            </h2>
+            <p className="text-sm text-[var(--color-text-secondary)] max-w-xl leading-relaxed">
+              Each capability is delivered by experienced engineers using industry-leading tools and embedded quality assurance processes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200">
+            {capabilities.map((cap, i) => {
+              const Icon = cap.icon;
+              return (
+                <div
+                  key={i}
+                  className="scroll-reveal bg-white p-6 md:p-8 relative group transition-colors hover:bg-[#f7f6f4]"
+                >
+                  <div
+                    className="absolute top-0 left-0 right-0 h-0.5 bg-[var(--color-accent)] scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                    aria-hidden
+                  />
+                  <div className="w-10 h-10 flex items-center justify-center rounded border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/10 text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:border-[var(--color-accent)] group-hover:text-white transition-colors mb-4">
+                    <Icon className="w-5 h-5" strokeWidth={2} />
+                  </div>
+                  <div className="text-[10px] font-bold tracking-widest text-[var(--color-accent)]/80 mb-3">
+                    {cap.num}
+                  </div>
+                  <h3 className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-primary)] mb-3 leading-snug">
+                    {cap.title}
+                  </h3>
+                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                    {cap.short}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* Deep dive — accordion */}
+      <section className="bg-[#f7f6f4] py-16 md:py-24 px-4 md:px-8">
+        <Container>
+          <div className="scroll-reveal mb-12 md:mb-14">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-0.5 rounded-full bg-[var(--color-accent)]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                Service Detail
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-2">
+              In-Depth Capability Overview
+            </h2>
+            <p className="text-sm text-[var(--color-text-secondary)] max-w-xl leading-relaxed">
+              Explore the detailed scope of each engineering discipline delivered by the Globtek rail team.
+            </p>
+          </div>
+
+          <div className="scroll-reveal border-t border-gray-200">
+            {capabilities.map((cap, i) => {
+              const isOpen = openAccordion === i;
+              return (
+                <div
+                  key={i}
+                  className="border-b border-gray-200"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenAccordion(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between gap-4 py-5 text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-[10px] font-bold tracking-widest text-[var(--color-accent)] min-w-[28px]">
+                        {cap.num}
+                      </span>
+                      <span className="text-sm font-bold uppercase tracking-wide text-[var(--color-text-primary)]">
+                        {cap.title}
+                      </span>
+                    </div>
+                    <span
+                      className={`flex-shrink-0 w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-500 transition-all ${
+                        isOpen ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-white rotate-45' : ''
+                      }`}
+                      aria-hidden
+                    >
+                      <Plus className="w-4 h-4" strokeWidth={2} />
+                    </span>
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                      isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="pb-6 pl-0 md:pl-[46px]">
+                        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
+                          {cap.intro}
+                        </p>
+                        <ul className="grid sm:grid-cols-2 gap-0 list-none">
+                          {cap.bullets.map((b, j) => (
+                            <li
+                              key={j}
+                              className="flex items-center gap-2 py-2 pr-4 border-b border-gray-200 text-xs text-[var(--color-text-secondary)]"
+                            >
+                              <span className="w-4 h-0.5 flex-shrink-0 bg-[var(--color-accent)]" aria-hidden />
+                              {b}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* Digital tools — dark section */}
+      <section className="bg-[var(--color-bg-dark)] py-16 md:py-24 px-4 md:px-8 relative overflow-hidden">
+        <span
+          className="absolute right-0 top-1/2 -translate-y-1/2 text-[120px] md:text-[180px] font-black text-white/[0.03] pointer-events-none select-none"
+          aria-hidden
         >
-          <div className="relative max-w-4xl max-h-[90vh] w-full h-full">
-            <Image
-              src={enlargedImage}
-              alt="Enlarged rail engineering image"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 90vw, 80vw"
-            />
-            <button
-              onClick={closeEnlargedImage}
-              className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-300"
-              aria-label="Close enlarged image"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Core Services Section - Expandable Cards */}
-        <section className="relative pt-36 pb-6 px-2 bg-white">
-          <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6 whitespace-nowrap">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Core Services
+          BIM
+        </span>
+        <Container className="relative">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div className="scroll-reveal">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-0.5 rounded-full bg-[var(--color-accent)]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                  Digital Engineering
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                Advanced Design Platforms & Digital Delivery
+              </h2>
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                Engineering delivery is supported by advanced digital design environments built for accuracy, interoperability, and efficiency. Our integrated workflows ensure coordinated, data-rich outputs across all disciplines.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white text-xs font-bold uppercase tracking-wider py-3 px-6 hover:bg-[var(--color-accent-dark)] transition-colors"
+              >
+                Discuss Your Project
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
+              {toolCards.map((tool, i) => (
+                <div
+                  key={i}
+                  className="scroll-reveal bg-[#1f1f1f] p-5 md:p-6 border-l-2 border-transparent hover:border-[var(--color-accent)] hover:bg-[#252525] transition-all"
+                >
+                  <div className="text-xs font-bold uppercase tracking-wide text-white mb-1">
+                    {tool.name}
+                  </div>
+                  <div className="text-xs text-gray-500 leading-relaxed">
+                    {tool.desc}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#14171c] mb-4 text-center">
-            From Concept to Completion<br />Our Core Capabilities
+        </Container>
+      </section>
+
+      {/* Value — red strip with checkmarks */}
+      <section className="bg-[var(--color-accent)] py-16 md:py-20 px-4 md:px-8">
+        <Container>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div className="scroll-reveal">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-0.5 rounded-full bg-white/50" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                  Value to Clients
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+                What This Means for Your Project
+              </h2>
+              <p className="text-sm text-white/90 leading-relaxed">
+                Our rail design and engineering capability is structured to deliver measurable outcomes — reducing risk, improving coordination, and enabling long-term asset performance.
+              </p>
+            </div>
+            <ul className="scroll-reveal list-none space-y-0">
+              {valueBullets.map((bullet, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-4 py-4 border-b border-white/15 first:border-t border-white/15"
+                >
+                  <span className="flex-shrink-0 w-7 h-7 flex items-center justify-center bg-white/15 text-white mt-0.5">
+                    <Check className="w-4 h-4" strokeWidth={2.5} />
+                  </span>
+                  <span className="text-sm text-white/95 leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA — dark with RAIL watermark */}
+      <section className="bg-[var(--color-bg-dark)] py-24 md:py-32 px-4 md:px-8 text-center relative overflow-hidden">
+        <span
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(80px,18vw,200px)] font-black text-white/[0.04] tracking-[0.2em] pointer-events-none select-none whitespace-nowrap"
+          aria-hidden
+        >
+          RAIL
+        </span>
+        <div className="relative">
+          <h2 className="text-2xl md:text-4xl font-normal text-white mb-3 leading-tight">
+            Ready to Discuss
+            <br />
+            <strong className="text-[var(--color-accent)]">Your Rail Project?</strong>
           </h2>
-          <p className="text-center text-[#4a4a4a] font-medium mb-12 text-base">A focused suite of services for every stage of rail engineering</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
-            {/* Service Step 1 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 1 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 1 ? null : 1)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 1}
+          <p className="text-sm text-gray-500 max-w-md mx-auto mb-10 leading-relaxed">
+            Our rail engineering team is ready to support your project from feasibility through to delivery. Get in touch to start the conversation.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white text-xs font-bold uppercase tracking-wider py-3 px-6 hover:bg-[var(--color-accent-dark)] transition-colors"
             >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Route Determination & Feasibility Studies</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 1 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 1 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Topographical and geotechnical assessments using LiDAR, drone surveys, and borehole data</li>
-                <li className="text-white">Multi-criteria corridor analysis (environmental, social, economic, and engineering constraints)</li>
-                <li className="text-white">Preliminary horizontal and vertical alignment design using CAD and GIS platforms</li>
-                <li className="text-white">Cost-benefit analysis (CBA) and demand forecasting using transport modeling tools (e.g., VISUM, EMME)</li>
-                <li className="text-white">Environmental Impact Assessments (EIA) and stakeholder engagement facilitation</li>
-                  </ul>
-              )}
-            </div>
-            {/* Service Step 2 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 2 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 2 ? null : 2)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 2}
+              Contact Our Team
+              <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 border border-white/20 text-white/80 text-xs font-bold uppercase tracking-wider py-3 px-6 hover:border-white hover:text-white transition-colors"
             >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Basic & Detailed Rail Infrastructure Design</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 2 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 2 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Track geometry design (horizontal curves, vertical profiles, cant, transition curves) per PRASA/Transnet standards</li>
-                <li className="text-white">Formation layer design including subgrade, sub-ballast, and ballast specifications</li>
-                <li className="text-white">Turnout and crossing layout design using software like Bentley OpenRail or AutoCAD Civil 3D</li>
-                <li className="text-white">Bridge, culvert, and retaining structure design in accordance with TMH7 and Eurocode standards</li>
-                <li className="text-white">Rail electrification readiness (clearance envelopes, mast foundations, OHTE interfaces)</li>
-                <li className="text-white">Signalling design and installations of CAS (Condition assessment systems) infrastructure</li>
-                  </ul>
-              )}
-            </div>
-            {/* Service Step 3 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 3 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 3 ? null : 3)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 3}
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" /><path d="M9 17l3 3 3-3"/><path d="M9 7l3-3 3 3"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Traffic & Transport Engineering</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 3 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 3 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Rail demand modeling for freight and passenger services</li>
-                <li className="text-white">Timetable simulation and capacity analysis using OpenTrack or RailSys</li>
-                <li className="text-white">Intermodal integration planning (rail-road-port-air)</li>
-                <li className="text-white">Level crossing safety audits and grade separation feasibility</li>
-                <li className="text-white">Station access and egress flow modeling using pedestrian simulation tools (e.g., Legion)</li>
-                  </ul>
-              )}
-            </div>
-            {/* Service Step 4 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 4 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 4 ? null : 4)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 4}
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                  <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5.25-3.5 9.74-8 11-4.5-1.26-8-5.75-8-11V7l8-4z" /><path d="M12 12l3-3-3-3"/><path d="M12 12l-3-3 3-3"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Stormwater & Drainage Design for Rail Corridors</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 4 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 4 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Hydrological modeling using HEC-HMS or StormCAD</li>
-                <li className="text-white">Hydraulic design of culverts, channels, and detention ponds</li>
-                <li className="text-white">Flood risk assessments and rail embankment protection</li>
-                <li className="text-white">Erosion control and slope stabilization using geotechnical and bioengineering methods</li>
-                  </ul>
-              )}
-            </div>
-            {/* Service Step 5 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 5 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 5 ? null : 5)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 5}
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Rail Rehabilitation & Upgrade Planning</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 5 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 5 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Track condition assessments using ultrasonic, radiographic, GPR, and visual inspection data</li>
-                <li className="text-white">Life-cycle cost analysis (LCCA) for asset renewal prioritization</li>
-                <li className="text-white">Upgrade design for axle load, speed, and capacity enhancements</li>
-                <li className="text-white">Integration of new signalling and electrification systems</li>
-                <li className="text-white">Construction staging and operational continuity planning</li>
-                <li className="text-white">Exothermic welding of all rail sections as well as the welding of turnout crossings</li>
-                <li className="text-white">Removal and/or rehabilitation of rail defects using specialised track equipment and On-Track-Machines</li>
-                  </ul>
-              )}
-            </div>
-            {/* Service Step 6 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 6 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 6 ? null : 6)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 6}
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Integration with Smart & Intelligent Mobility Systems</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 6 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 6 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Digital twin development for rail assets using BIM and IoT sensors</li>
-                <li className="text-white">Real-time monitoring systems for track, rolling stock, and infrastructure health</li>
-                <li className="text-white">Smart ticketing and passenger information systems</li>
-                <li className="text-white">Integration with Mobility-as-a-Service (MaaS) platforms</li>
-                <li className="text-white">Data analytics for predictive maintenance and operational optimization</li>
-                  </ul>
-              )}
-            </div>
-            {/* Service Step 7 */}
-          <div className={`bg-[#14171c] text-white rounded-xl shadow p-5 flex flex-col cursor-pointer transition-all duration-200 border border-[#e43d30]/20 min-h-[126px] ${expanded === 7 ? 'ring-2 ring-[#e43d30]/80' : ''}`}
-              onClick={() => setExpanded(expanded === 7 ? null : 7)}
-              tabIndex={0}
-              role="button"
-              aria-expanded={expanded === 7}
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#e43d30]/10">
-                <svg className="w-5 h-5 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </span>
-              <h3 className="text-base font-semibold text-[#e43d30] flex-1 text-white">Rail Maintenance Compliance and Quality Assurance Services</h3>
-              <svg className={`w-5 h-5 ml-1 text-[#e43d30] transition-transform duration-200 ${expanded === 7 ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </div>
-              {expanded === 7 && (
-              <ul className="mt-4 space-y-2 text-white text-sm leading-relaxed animate-fade-in list-disc pl-5 brand-bullets">
-                <li className="text-white">Process Adherence Audits are independent audits to verify compliance with internal maintenance practices, ensuring that operational processes are being followed consistently across all levels.</li>
-                <li className="text-white">Rail and Welding Audits are focused on evaluating the quality, competence, and compliance of rail and welding maintenance teams. These audits assess adherence to Standard Operating Procedures (SOPs) related to welding, rail repairs, and associated maintenance activities</li>
-                <li className="text-white">Maintenance Inspection Audits (commonly referred to as MICA within Transnet) to assess adherence to prescribed maintenance frequencies and inspection cycles. These audits also ensure that inspections are conducted by appropriately qualified personnel in accordance with relevant standards.</li>
-                  </ul>
-              )}
-            </div>
+              View Rail Projects
+              <span aria-hidden>→</span>
+            </Link>
           </div>
-        </section>
-
-        {/* CTA Section */}
-      <div className="mt-24">
-          <SimpleCTA
-          title="Ready to Build"
-          titleAccent="Your Rail Project?"
-          description="Let's discuss how our rail engineering expertise can bring your vision to life."
-            primaryButton={{
-            text: "Start Your Project",
-              href: "/contact"
-            }}
-            secondaryButton={{
-              text: "View All Services",
-              href: "/services"
-            }}
-          />
         </div>
+      </section>
+      </div>
     </main>
   );
-} 
+}

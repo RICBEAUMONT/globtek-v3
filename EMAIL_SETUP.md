@@ -2,8 +2,11 @@
 
 ## Overview
 The contact form now sends two emails:
-1. **Notification email** to `info@globtek.co.za` with form details
+1. **Notification email** to the configured recipient (default `info@globtek.co.za`) with form details
 2. **Confirmation email** to the user acknowledging receipt
+
+### Testing with a different notification recipient
+Set `CONTACT_NOTIFICATION_EMAIL=ricardo@bransol.net` (or your email) in `.env.local` to receive form submissions for testing.
 
 ## Setup Instructions
 

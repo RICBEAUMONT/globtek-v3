@@ -14,6 +14,8 @@ interface NavigationItem {
   imageUrl?: string;
   children?: NavigationItem[];
   icon?: React.ReactNode;
+  /** When true, show a compact dropdown list instead of the mega menu */
+  dropdownOnly?: boolean;
 }
 
 const navigation: NavigationItem[] = [
@@ -66,7 +68,16 @@ const navigation: NavigationItem[] = [
       }
     ]
   },
-  { name: 'Rail Infrastructure', href: '/services/rail-design' },
+  {
+    name: 'Rail Infrastructure',
+    dropdownOnly: true,
+    children: [
+      { name: 'Rail Design', href: '/services/rail-design' },
+      { name: 'Operational Support', href: '/services/rail-operational-support' },
+      { name: 'Rail Maintenance', href: '/services/rail-maintenance' },
+      { name: 'Innovation', href: '/services/rail-innovation' }
+    ]
+  },
   {
     name: 'Multi-Disciplinary',
     children: [
@@ -275,8 +286,47 @@ const Navbar = () => {
                       <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                     </button>
 
+                    {/* Dropdown (compact) */}
+                    {item.children && item.dropdownOnly && (
+                      <div
+                        className={`absolute left-0 top-full pt-2 hidden md:block`}
+                        onMouseEnter={() => setActiveDropdown(item.name)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                      >
+                        <div
+                          className={`min-w-[220px] rounded-xl bg-white shadow-lg border border-gray-100 py-2 transform transition-all duration-200 ease-out ${
+                            activeDropdown === item.name
+                              ? 'opacity-100 translate-y-0 pointer-events-auto'
+                              : 'opacity-0 -translate-y-1 pointer-events-none'
+                          }`}
+                          role="menu"
+                          aria-label={`${item.name} submenu`}
+                        >
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.name}
+                              href={child.href || '#'}
+                              className={`block px-4 py-2.5 text-sm font-medium transition-colors duration-200 ${
+                                isActive(child.href)
+                                  ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/5'
+                                  : 'text-[var(--color-text-primary)] hover:text-[var(--color-accent)] hover:bg-gray-50'
+                              }`}
+                              role="menuitem"
+                              aria-current={isActive(child.href) ? 'page' : undefined}
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                window.scrollTo(0, 0);
+                              }}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Mega Menu */}
-                    {item.children && (
+                    {item.children && !item.dropdownOnly && (
                       <div 
                         className={`absolute left-0 top-full w-screen bg-transparent hidden md:block`}
                         onMouseEnter={() => setActiveDropdown(item.name)}

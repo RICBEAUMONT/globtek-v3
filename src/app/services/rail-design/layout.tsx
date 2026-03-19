@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import RailDesignPage from './page';
 
 export const metadata: Metadata = {
-  title: 'Rail Design - Technical Capabilities | Globtek Engineering',
-  description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
-  keywords: 'rail design, railway engineering, transit design, rail systems, technical capabilities, rail consulting, transportation engineering',
+  title: 'Rail Design & Engineering | Globtek Engineering',
+  description: 'Delivering integrated rail engineering solutions across the full project lifecycle, with designs optimised for operational performance, constructability, safety, and long‑term asset resilience.',
+  keywords: 'rail design, railway engineering, permanent way, track engineering, rail systems, rail consulting, transportation engineering',
   openGraph: {
-    title: 'Rail Design - Technical Capabilities | Globtek Engineering',
-    description: 'Specialized rail design and technical capabilities for high-speed, freight, and urban transit systems.',
+    title: 'Rail Design & Engineering | Globtek Engineering',
+    description: 'Delivering integrated rail engineering solutions across the full project lifecycle, with designs optimised for operational performance, constructability, safety, and long‑term asset resilience.',
     images: [
       {
         url: '/images/services/rail-design/hero.jpg', // Placeholder image

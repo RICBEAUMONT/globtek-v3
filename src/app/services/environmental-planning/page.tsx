@@ -147,9 +147,162 @@ export default function EnvironmentalPlanningPage() {
             </div>
           </div>
         </div>
+      </Container>
 
-        {/* Featured Projects Section */}
-        <ServiceProjects 
+      {/* Image Reel Section */}
+      <section className="w-full py-8 overflow-hidden">
+        <div className="relative w-full">
+          <div 
+            className="flex items-center gap-8 animate-scroll-left" 
+            style={{ width: 'max-content' }}
+          >
+            {heroImages.concat(heroImages).map((src, idx) => (
+              <div 
+                key={idx} 
+                className="relative h-64 w-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105"
+              >
+                <Image
+                  src={src}
+                  alt={`Environmental planning image ${idx % heroImages.length + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 80vw, 420px"
+                  priority={idx < heroImages.length}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Purpose Section */}
+      <Container className="py-4 md:py-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Strategic Purpose
+          </div>
+          <h2 className="text-[2.5rem] font-bold tracking-tight text-[#14171c] mb-6 leading-[1.1]">
+            Building Climate Resilience
+          </h2>
+          <p className="text-lg text-[#4a4a4a] leading-relaxed max-w-4xl mx-auto">
+            At Globtek, we recognize the urgency of climate resilience and the shared global responsibility to build a safer, more sustainable future. Our Environmental Division plays a pivotal role in this mission—delivering independent, multidisciplinary planning and environmental services that enhance the viability, compliance, and sustainability of infrastructure projects across:
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center p-6 rounded-2xl bg-white border border-[#e43d30]/20 hover:shadow-lg transition-all duration-300 hover:border-[#e43d30]/40">
+            <div className="w-16 h-16 rounded-2xl bg-[#e43d30]/10 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-[#14171c] mb-3">Naval Architecture & Marine Engineering</h3>
+            <p className="text-[#4a4a4a] leading-relaxed">
+              Sustainable marine infrastructure and vessel design with environmental compliance at the core.
+            </p>
+          </div>
+          
+          <div className="text-center p-6 rounded-2xl bg-white border border-[#e43d30]/20 hover:shadow-lg transition-all duration-300 hover:border-[#e43d30]/40">
+            <div className="w-16 h-16 rounded-2xl bg-[#e43d30]/10 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-[#14171c] mb-3">Rail Engineering</h3>
+            <p className="text-[#4a4a4a] leading-relaxed">
+              Eco-friendly rail infrastructure development with minimal environmental footprint and maximum efficiency.
+            </p>
+          </div>
+          
+          <div className="text-center p-6 rounded-2xl bg-white border border-[#e43d30]/20 hover:shadow-lg transition-all duration-300 hover:border-[#e43d30]/40">
+            <div className="w-16 h-16 rounded-2xl bg-[#e43d30]/10 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-[#14171c] mb-3">Multidisciplinary Infrastructure Development</h3>
+            <p className="text-[#4a4a4a] leading-relaxed">
+              Comprehensive infrastructure solutions that balance development needs with environmental preservation.
+            </p>
+          </div>
+        </div>
+      </Container>
+
+      {/* Vision & ESG Commitment Section */}
+      <Container className="py-12 md:py-16">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#14171c] to-[#14171c] rounded-2xl shadow-xl"></div>
+          <div className="relative p-6 md:p-8 rounded-2xl border border-[#e43d30]/10 backdrop-blur-sm">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium mb-6">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                Vision & ESG Commitment
+              </div>
+              <h2 className="text-[2.5rem] font-bold tracking-tight text-white mb-6 leading-[1.1]">
+                Strategic Partners in Resilient Infrastructure
+              </h2>
+              <p className="text-lg text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                Globtek's Environmental Division is more than a service provider—we are strategic partners in shaping resilient, future-ready infrastructure. We champion:
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="flex items-start gap-4 p-6 rounded-xl hover:bg-white/[0.02] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-[#e43d30] flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Innovative thinking and climate-smart engineering</h4>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4 p-6 rounded-xl hover:bg-white/[0.02] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-[#e43d30] flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">ESG integration across project lifecycles</h4>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4 p-6 rounded-xl hover:bg-white/[0.02] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-[#e43d30] flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Sustainable development aligned with Globtek's pan-African growth strategy</h4>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4 p-6 rounded-xl hover:bg-white/[0.02] transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-[#e43d30] flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Scalable solutions that meet global standards and local realities</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      {/* Featured Projects Section */}
+      <Container className="py-2 md:py-4">
+        <ServiceProjects
           category="Environmental Planning"
           maxProjects={3}
           showViewAllButton={true}

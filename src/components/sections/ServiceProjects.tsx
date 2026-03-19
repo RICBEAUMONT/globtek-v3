@@ -82,15 +82,15 @@ export default function ServiceProjects({
     : title;
 
   return (
-    <div className={`mt-24 ${className}`}>
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-6">
+    <div className={`mt-8 ${className}`}>
+      <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-4">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
           Featured Projects
         </div>
-        <h2 className="text-[2.5rem] font-bold tracking-tight text-[var(--color-text-primary)] mb-6 leading-[1.1]">
+        <h2 className="text-[2.5rem] font-bold tracking-tight text-[var(--color-text-primary)] mb-4 leading-[1.1]">
           {sectionTitle}
         </h2>
         <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
