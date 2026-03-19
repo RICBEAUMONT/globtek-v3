@@ -256,10 +256,18 @@ const Navbar = () => {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`text-sm font-medium transition-all duration-300 focus:outline-none focus:text-[var(--color-accent)] ${
-                      isActive(item.href)
-                        ? 'text-[var(--color-accent)]'
-                        : 'text-[var(--color-text-primary)] hover:text-[var(--color-accent)]'
+                    className={`${
+                      item.href === '/contact'
+                        ? 'inline-flex items-center justify-center px-4 py-2 rounded-md bg-[var(--color-accent)] text-white text-sm font-semibold transition-all duration-300 hover:bg-[var(--color-accent-dark)]'
+                        : 'text-sm font-medium transition-all duration-300 focus:outline-none focus:text-[var(--color-accent)]'
+                    } ${
+                      item.href === '/contact'
+                        ? ''
+                        : `${
+                            isActive(item.href)
+                              ? 'text-[var(--color-accent)]'
+                              : 'text-[var(--color-text-primary)] hover:text-[var(--color-accent)]'
+                          }`
                     }`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
                     onClick={() => {
@@ -444,10 +452,14 @@ const Navbar = () => {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 text-sm rounded-md transition-all duration-300 focus:outline-none focus:text-[var(--color-accent)] ${
-                      isActive(item.href)
-                        ? 'text-[var(--color-accent)] bg-[var(--color-bg-secondary)]'
-                        : 'text-[var(--color-text-primary)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-secondary)]'
+                    className={`block px-3 py-2 text-sm rounded-md transition-all duration-300 focus:outline-none ${
+                      item.href === '/contact'
+                        ? 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]'
+                        : `${
+                            isActive(item.href)
+                              ? 'text-[var(--color-accent)] bg-[var(--color-bg-secondary)]'
+                              : 'text-[var(--color-text-primary)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-secondary)]'
+                          }`
                     }`}
                     role="menuitem"
                     aria-current={isActive(item.href) ? 'page' : undefined}
