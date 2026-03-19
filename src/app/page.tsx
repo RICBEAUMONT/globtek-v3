@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowRight, Ship, Award, Globe, Anchor } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Ship, Award, Globe, Anchor, Search, Pencil, FileText, Wrench } from 'lucide-react';
 import Container from '@/components/layout/Container';
 import Link from 'next/link';
 import SimpleCTA from '@/components/shared/SimpleCTA';
@@ -78,6 +79,27 @@ export default function Home() {
       category: project.category,
       completionDate: project.completionDate
     }));
+
+  type PhaseKey = 'concept' | 'preliminary' | 'contract' | 'detailed';
+  const [activePhase, setActivePhase] = useState<PhaseKey>('concept');
+
+  const marqueeItems = [
+    'Project Management',
+    'Port Engineering',
+    'Field Engineering Support',
+    'Weight Control',
+    'Calculations for Lifts & Turns',
+    'Launching and Docking',
+    'Stability Test & Experiments',
+    'Test & Trials Support',
+  ];
+
+  const phaseTabs: { key: PhaseKey; label: string }[] = [
+    { key: 'concept', label: 'Concept & Feasibility' },
+    { key: 'preliminary', label: 'Preliminary Design' },
+    { key: 'contract', label: 'Contract Design' },
+    { key: 'detailed', label: 'Detailed Design' },
+  ];
 
   return (
     <main className="min-h-screen">
@@ -188,210 +210,145 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Message from COO Section (moved from About page) */}
-      <section className="py-20 bg-[#14171c] relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0">
-          {/* Enhanced Grid Pattern */}
-          <div className="absolute inset-0 opacity-15">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#6b728015_1px,transparent_1px),linear-gradient(to_bottom,#6b728015_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-          </div>
-        </div>
+      {/* Message from Our Group COO */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="max-w-[1140px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[420px_1fr] min-h-[680px]">
+          {/* Image panel */}
+          <div className="relative overflow-hidden bg-[#14171c] rounded-2xl lg:rounded-none lg:rounded-l-2xl">
+            <img
+              src="/images/staff-images/MR-LUNGISA-DOUSE_2.png"
+              alt="Lungisa Douse – Chief Group Operations Officer"
+              className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-[1.03] filter grayscale-[15%] brightness-[0.85]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-        <div className="relative mx-auto w-full max-w-[1140px] px-4 sm:px-6">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            {/* Enhanced Section Label */}
-            <div className="inline-flex items-center justify-center gap-3 mb-6 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-              <div className="h-px w-8 bg-[var(--color-accent)]"></div>
-              <span className="text-[var(--color-accent)] font-medium uppercase tracking-wider text-sm">Leadership Insights</span>
-              <div className="h-px w-8 bg-[var(--color-accent)]"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-7">
+              <div className="bg-[var(--color-accent)] px-5 py-4">
+                <h4 className="font-bold text-white text-sm mb-1">Lungisa Douse</h4>
+                <p className="text-white/80 text-[11px] tracking-wide">
+                  Chief Group Operations Officer · MSc Naval Architecture, MRINA
+                </p>
+              </div>
+
+              <div className="flex mt-2">
+                <div className="flex-1 bg-black/50 backdrop-blur-md px-4 py-3 border-r border-white/10">
+                  <div className="text-white font-extrabold text-base leading-none">
+                    25+ <span className="text-[var(--color-accent)]">Years</span>
+                  </div>
+                  <div className="text-white/45 text-[9px] uppercase tracking-[0.15em] mt-1">Experience</div>
+                </div>
+                <div className="flex-1 bg-black/50 backdrop-blur-md px-4 py-3">
+                  <div className="text-white font-extrabold text-base leading-none">
+                    1<span className="text-[var(--color-accent)]">st</span>
+                  </div>
+                  <div className="text-white/45 text-[9px] uppercase tracking-[0.15em] mt-1">Black Naval Architect SA</div>
+                </div>
+              </div>
             </div>
-            
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
-              Message from Our Group COO
+          </div>
+
+          {/* Text panel */}
+          <div className="bg-[#f7f6f4] p-10 md:p-16 rounded-2xl lg:rounded-none lg:rounded-r-2xl">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-6 h-[2px] bg-[var(--color-accent)]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                Leadership Insights
+              </span>
+              <div className="w-6 h-[2px] bg-[var(--color-accent)]" />
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-[#14171c] leading-tight mb-3">
+              Message from
+              <br />
+              Our Group COO
             </h2>
-            <p className="text-xl text-gray-400">
+
+            <p className="text-[11px] text-gray-500 uppercase tracking-[0.15em] mb-7">
               Leading with vision, innovation, and purpose
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Enhanced Image Column */}
-            <div className="relative lg:h-auto order-2 lg:order-1 lg:sticky lg:top-8">
-              <div className="relative h-[500px] lg:h-[700px] w-full rounded-2xl overflow-hidden shadow-2xl group">
-                <img
-                  src="/images/staff-images/MR-LUNGISA-DOUSE_2.png"
-                  alt="Lungisa Douse - Chief Group Operations Officer at Globtek"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105 w-full h-full"
-                  style={{ position: 'absolute', inset: 0 }}
-                />
-                {/* Experience Badge */}
-                <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
-                  <span className="text-white font-medium">25+ Years Experience</span>
-                </div>
-              </div>
+            <p className="text-[#555] text-sm md:text-[13px] leading-relaxed mb-4">
+              As Africa&apos;s first internationally accredited Naval Architect, I&apos;ve witnessed firsthand the transformative power of engineering innovation in the maritime sector. At Globtek, we&apos;re not just designing vessels and marine infrastructure; we&apos;re charting new waters for sustainable maritime development across the continent.
+            </p>
+            <p className="text-[#555] text-sm md:text-[13px] leading-relaxed mb-7">
+              Our approach combines cutting-edge naval architecture with deep understanding of African maritime challenges. We&apos;re committed to developing solutions that enhance marine infrastructure, support coastal communities, and drive sustainable economic growth.
+            </p>
 
-              {/* Enhanced Floating Card - Adjusted positioning */}
-              <div className="absolute right-0 sm:right-0 bottom-8 group max-w-[90%] sm:max-w-[320px]">
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow-2xl hover:from-white/15 hover:to-white/10 transition-all duration-300">
-                  <div className="flex items-center gap-6">
-                    <div className="shrink-0">
-                      <div className="p-3 bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)]/80 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" /><circle cx="12" cy="12" r="10" strokeWidth="2" /></svg>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-lg sm:text-xl mb-1">Lungisa Douse</div>
-                      <div className="text-[var(--color-accent)] font-medium text-sm">Chief Group Operations Officer</div>
-                      <div className="text-gray-400 text-xs mt-1">MSc Naval Architecture, MRINA</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Enhanced Decorative Elements - Adjusted positioning */}
-              <div className="absolute left-0 top-1/3 w-32 h-32 bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)] opacity-10 blur-[100px] animate-pulse"></div>
+            <div className="border-l-3 border-[var(--color-accent)] bg-white p-6 shadow-[0_2px_16px_rgba(0,0,0,0.05)] mb-8">
+              <p className="font-[Montserrat] italic text-[#555] leading-relaxed">
+                "Looking ahead, our vision is to establish Africa as a centre of excellence in marine and coastal engineering. Through innovation, expertise, and dedication, we&apos;re building a legacy of maritime engineering excellence that will benefit generations to come."
+              </p>
             </div>
 
-            {/* Enhanced Content Column */}
-            <div className="space-y-8 order-1 lg:order-2 self-start">
-              <div className="space-y-8">
-                <blockquote className="text-lg text-gray-300 space-y-6">
-                  <p className="relative leading-relaxed">
-                    As Africa&apos;s first internationally accredited Naval Architect, I&apos;ve witnessed firsthand the transformative power of engineering innovation in the maritime sector. At Globtek, we&apos;re not just designing vessels and marine infrastructure; we&apos;re charting new waters for sustainable maritime development across the continent.
-                  </p>
-                  <p className="leading-relaxed">
-                    Our approach combines cutting-edge naval architecture with deep understanding of African maritime challenges. We&apos;re committed to developing solutions that enhance marine infrastructure, support coastal communities, and drive sustainable economic growth through advanced engineering.
-                  </p>
-                  <p className="leading-relaxed">
-                    Looking ahead, our vision is to establish Africa as a center of excellence in marine and coastal engineering. Through innovation, expertise, and dedication, we&apos;re building a legacy of maritime engineering excellence that will benefit generations to come.
-                  </p>
-                </blockquote>
-
-                {/* Enhanced CTA */}
-                <div>
-                  <Link
-                    href="/contact"
-                    className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] text-white font-medium rounded-lg hover:from-[var(--color-accent-dark)] hover:to-[var(--color-accent)] transition-all duration-300 shadow-lg shadow-[var(--color-accent)]/20"
-                  >
-                    Schedule a meeting
-                    <svg className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Key Achievements */}
-              <div className="pt-8 mt-8 border-t border-white/10">
-                <div className="inline-flex items-center gap-3 bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 rounded-full px-6 py-3">
-                  <div className="text-2xl font-bold text-[var(--color-accent)]">1st</div>
-                  <div className="text-sm text-white font-medium">Black Naval Architect in the South African Maritime Commercial Market</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Background Decorative Elements - Adjusted positioning */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
-          <div className="relative w-full max-w-[1140px] mx-auto">
-            <div className="absolute bottom-0 left-1/4 transform -translate-x-1/2">
-              <div className="w-[30rem] h-[30rem] bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)] opacity-[0.03] blur-[100px]"></div>
-            </div>
-            <div className="absolute top-1/4 right-0">
-              <div className="w-[30rem] h-[30rem] bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)] opacity-[0.03] blur-[100px]"></div>
-            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-7 py-3 bg-[var(--color-accent)] text-white text-[10px] font-bold uppercase tracking-wider hover:bg-[var(--color-accent-dark)] transition-colors"
+            >
+              Schedule a Meeting
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Naval Architecture Design Process Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      {/* Our Process — horizontal timeline */}
+      <section className="bg-[#111111] py-20 md:py-24">
         <Container>
-          {/* Section Header */}
-          <div className="text-center max-w-4xl mx-auto mb-20">
+          <div className="text-center max-w-4xl mx-auto mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="h-px w-12 bg-[#e43d30]"></div>
+              <div className="h-px w-12 bg-[#e43d30]" />
               <span className="text-[#e43d30] font-semibold uppercase tracking-[0.2em] text-xs">Our Process</span>
-              <div className="h-px w-12 bg-[#e43d30]"></div>
+              <div className="h-px w-12 bg-[#e43d30]" />
             </div>
-            
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#14171c] mb-6 tracking-tight">
-              Our Naval Architecture Design Process & Development Services
+
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
+              Naval Architecture Design Process &amp; Development Services
             </h2>
-            <p className="text-xl text-[#4a4a4a] leading-relaxed">
-              Our engineers combine the use of in-house proprietary naval architecture tools and state of the art software with an extensive technical library to provide accurate naval architecture assessments to our clients.
+            <p className="text-lg text-[#909090] leading-relaxed max-w-2xl mx-auto">
+              Our engineers combine in-house proprietary naval architecture tools and state-of-the-art software with an extensive technical library to provide accurate assessments to our clients.
             </p>
           </div>
 
-          {/* Process Flow - Visual Timeline */}
-          <div className="mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="relative mb-6">
+            <div className="hidden lg:block absolute top-[36px] left-[18%] right-[18%] h-px bg-gradient-to-r from-[#e43d30] via-[#e43d30]/20 to-[#e43d30] opacity-60" aria-hidden />
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
               {[
                 {
-                  phase: "01",
-                  title: "Research & Concept",
-                  description: "Initial exploration and feasibility studies",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  )
+                  n: 1,
+                  title: 'Research & Concept',
+                  desc: 'Initial exploration and feasibility studies',
+                  icon: <Search className="w-4 h-4 text-white" />,
                 },
                 {
-                  phase: "02", 
-                  title: "Design & Development",
-                  description: "Detailed engineering and system integration",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  )
+                  n: 2,
+                  title: 'Design & Development',
+                  desc: 'Detailed engineering drawings and full system integration across all disciplines',
+                  icon: <Pencil className="w-4 h-4 text-white" />,
                 },
                 {
-                  phase: "03",
-                  title: "Documentation & Specs",
-                  description: "Technical documentation and contract drawings",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  )
+                  n: 3,
+                  title: 'Documentation & Specs',
+                  desc: 'Technical documentation, contract drawings and specifications for compliance',
+                  icon: <FileText className="w-4 h-4 text-white" />,
                 },
                 {
-                  phase: "04",
-                  title: "Construction & Delivery",
-                  description: "On-site support and quality assurance",
-                  icon: (
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  )
-                }
-              ].map((step, index) => (
-                <div key={index} className="relative group">
-                  {/* Connection Line */}
-                  {index < 3 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-[#e43d30]/20 to-[#e43d30]/10 z-0"></div>
-                  )}
-                  
-                  <div className="relative z-10 bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-
-                    
-                    {/* Number Icon */}
-                    <div className="w-16 h-16 rounded-xl bg-[#e43d30]/10 flex items-center justify-center mb-6 group-hover:bg-[#e43d30]/20 transition-colors duration-300">
-                      <div className="text-[#e43d30] font-bold text-2xl">
-                        {index + 1}
-                      </div>
+                  n: 4,
+                  title: 'Construction & Delivery',
+                  desc: 'On-site support, quality assurance, trials and final project handover',
+                  icon: <Wrench className="w-4 h-4 text-white" />,
+                },
+              ].map((step) => (
+                <div key={step.n} className="flex flex-col items-center text-center">
+                  <div className="relative w-[72px] h-[72px] rounded-full border-2 border-[#e43d30] bg-[#111111] flex items-center justify-center mb-6 group transition-colors duration-300 hover:bg-[#e43d30] hover:shadow-[0_0_0_8px_rgba(228,61,48,0.18)]">
+                    <span className="text-[22px] font-extrabold text-[#e43d30] group-hover:text-white transition-colors duration-300">
+                      {step.n}
+                    </span>
+                    <div className="absolute bottom-[-4px] right-[-4px] w-[22px] h-[22px] rounded-full bg-[#e43d30] flex items-center justify-center">
+                      {step.icon}
                     </div>
-                    
-                    {/* Content */}
-                    <h3 className="text-xl font-bold text-[#14171c] mb-3">{step.title}</h3>
-                    <p className="text-[#4a4a4a] leading-relaxed">{step.description}</p>
-                    
-                    {/* Hover Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#e43d30]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                   </div>
+                  <h3 className="text-white text-xs font-bold uppercase tracking-[0.1em] mb-2">{step.title}</h3>
+                  <p className="text-[#909090] text-xs leading-relaxed max-w-[240px]">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -400,337 +357,378 @@ export default function Home() {
       </section>
 
       {/* Core Capabilities Section */}
-      <section className="py-20 bg-gradient-to-br from-[#14171c] to-[#1a1f2a] relative overflow-hidden" style={{ paddingBlock: 'calc(var(--spacing) * 10)' }}>
+      <section className="py-24 bg-[#f7f6f4] relative overflow-hidden">
         <Container>
-          <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] rounded-3xl p-12 relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-px w-8 bg-[var(--color-accent)]" />
+              <span className="text-[var(--color-accent)] font-medium uppercase tracking-wider text-sm">
+                Core Capabilities
+              </span>
+              <div className="h-px w-8 bg-[var(--color-accent)]" />
             </div>
-            
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[100px]"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-            
-            <div className="relative z-10">
-              {/* Header */}
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-3 mb-4 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                  <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
-                  <span className="text-[#e43d30] font-medium text-sm">Core Capabilities</span>
-                  <div className="w-2 h-2 rounded-full bg-[#e43d30]"></div>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                  Comprehensive Naval Architecture Services
-                </h3>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                  From initial concept to final delivery, we provide end-to-end naval architecture solutions
-                </p>
-              </div>
 
-              {/* Services Grid - Simplified */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-                {[
-                  {
-                    title: "Concept & Feasibility",
-                    description: "Initial design exploration, technical feasibility studies, and economic viability assessment",
-                    icon: (
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    ),
-                    features: ["Ship Sizing Studies", "System Trade-Offs", "Cost Analysis"]
-                  },
-                  {
-                    title: "Design & Engineering",
-                    description: "Detailed naval architecture, system integration, and technical documentation",
-                    icon: (
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    ),
-                    features: ["Contract Drawings", "Technical Specifications", "System Analysis"]
-                  },
-                  {
-                    title: "Construction Support",
-                    description: "On-site coordination, quality assurance, and production oversight",
-                    icon: (
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                      </svg>
-                    ),
-                    features: ["Shipyard Liaison", "Quality Control", "Commissioning Support"]
-                  }
-                ].map((service, index) => (
-                  <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-[#e43d30]/30 transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[#e43d30]/10">
-                    {/* Icon */}
-                    <div className="w-16 h-16 rounded-xl bg-[#e43d30]/20 flex items-center justify-center mb-6 group-hover:bg-[#e43d30]/30 transition-all duration-500 ease-out">
-                      <div className="text-[#e43d30]">
-                        {service.icon}
-                      </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-[#14171c] mb-4 tracking-tight">
+              Comprehensive Naval Architecture Services
+            </h3>
+            <p className="text-[#555] text-[13.5px] max-w-2xl mx-auto leading-relaxed">
+              From initial concept to final delivery, we provide end-to-end naval architecture solutions tailored to each client's needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {[
+              {
+                num: '01 — Concept',
+                title: 'Concept & Feasibility',
+                description:
+                  'Initial design exploration, technical feasibility studies, and economic viability assessment for new builds and modifications.',
+                tags: ['Ship Sizing Studies', 'System Trade-Offs', 'Cost Analysis'],
+              },
+              {
+                num: '02 — Design',
+                title: 'Design & Engineering',
+                description:
+                  'Detailed naval architecture, system integration, and technical documentation for vessels of all types and classes.',
+                tags: ['Contract Drawings', 'Technical Specifications', 'System Analysis'],
+              },
+              {
+                num: '03 — Build',
+                title: 'Construction Support',
+                description:
+                  'On-site coordination, quality assurance, and production oversight throughout the entire build and commissioning phase.',
+                tags: ['Shipyard Liaison', 'Quality Control', 'Commissioning Support'],
+              },
+            ].map((card) => (
+              <div
+                key={card.num}
+                className="group bg-white p-9 border-t-[3px] border-transparent shadow-[0_2px_0_#efefef] transition-all duration-300 relative overflow-hidden hover:border-[var(--color-accent)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.09)] hover:-translate-y-[4px]"
+              >
+                <div className="absolute inset-0 bg-[rgba(192,57,43,0.03)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="text-[10px] font-bold tracking-[0.18em] text-[var(--color-accent)] opacity-100 mb-4">
+                  {card.num}
+                </div>
+
+                <h4 className="text-[14px] font-bold uppercase tracking-[0.05em] text-[#14171c] mb-3">
+                  {card.title}
+                </h4>
+                <p className="text-[12.5px] text-[#555] leading-relaxed mb-5">{card.description}</p>
+
+                <div className="mb-6">
+                  {card.tags.map((tag, idx) => (
+                    <div
+                      key={tag}
+                      className={`flex items-center gap-3 py-2 border-b border-[#efefef] ${idx === card.tags.length - 1 ? 'border-b-0' : ''}`}
+                    >
+                      <span className="w-[16px] h-[2px] bg-[var(--color-accent)] flex-shrink-0" aria-hidden />
+                      <span className="text-[11.5px] text-[#555]">{tag}</span>
                     </div>
-                    
-                    {/* Content */}
-                    <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#e43d30] transition-all duration-500 ease-out">
-                      {service.title}
-                    </h4>
-                    <p className="text-gray-300 leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-                    
-                    {/* Key Features - Hidden by default, shown on hover */}
-                    <div className="space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out max-h-0 group-hover:max-h-32 overflow-hidden">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-3 text-sm text-gray-400">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#e43d30]"></div>
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {/* Hover Indicator */}
-                    <div className="mt-6 pt-6 border-t border-white/5 group-hover:border-[#e43d30]/20 transition-all duration-500 ease-out">
-                      <div className="flex items-center text-white group-hover:text-[#c63529] text-sm font-medium transition-all duration-500 ease-out">
-                        Learn More
-                        <svg className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-500 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                <div className="inline-flex items-center gap-2 text-[9px] font-bold tracking-[0.2em] uppercase text-[var(--color-accent)] group-hover:gap-3 transition-all">
+                  Learn More <span aria-hidden className="inline-flex w-4 h-px bg-[var(--color-accent)] opacity-70" />
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </Container>
       </section>
 
             {/* Process Phases Section */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
+      <section className="bg-[#f7f6f4] pb-24">
         <Container>
-          <div className="space-y-16">
-            {/* Concept & Feasibility Design */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-3xl font-bold text-[#14171c] mb-6">Concept & Feasibility Design</h3>
-                <p className="text-[#4a4a4a] leading-relaxed mb-6">
-                  The Globtek concept design process involves the development of design alternatives based on client requirements. Our team of naval architects and marine engineers adapts a set of top-level requirements into concept-level definitions to evaluate technical feasibility, cost and performance.
-                </p>
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-[#14171c]">These efforts involve the complete early phase definition of the ship, including:</h4>
-                  <ul className="space-y-2">
-                    {[
-                      "Principal Characteristics",
-                      "Hullform Selection and Sizing",
-                      "General Arrangements",
-                      "Weight Estimates",
-                      "Speed, Power and Endurance Calculations"
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-[#e43d30] mt-2 flex-shrink-0"></div>
-                        <span className="text-[#4a4a4a]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="bg-[#14171c] w-full p-8 rounded-2xl relative overflow-hidden">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-                
-                <div className="relative z-10">
-                  <h4 className="text-xl font-bold text-white mb-6">Performance Characteristics</h4>
-                  <div className="space-y-4">
-                    {[
-                      "Combat System",
-                      "Speed and Endurance Optimization",
-                      "Seakeeping",
-                      "Survivability",
-                      "Noise and Vibration Reduction"
-                    ].map((characteristic, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-[#e43d30]/20 flex items-center justify-center">
-                          <svg className="w-4 h-4 text-[#e43d30]" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        </div>
-                        <span className="text-white">{characteristic}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          <div className="border border-[#efefef] bg-white overflow-hidden">
+            <div className="flex border-b border-[#efefef] overflow-x-auto">
+              {phaseTabs.map((tab) => {
+                const isActive = activePhase === tab.key;
+                return (
+                  <button
+                    key={tab.key}
+                    type="button"
+                    onClick={() => setActivePhase(tab.key)}
+                    className={`px-7 py-4 text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap transition-colors border-b-3 ${
+                      isActive
+                        ? 'text-[#14171c] border-[#e43d30]'
+                        : 'text-[#909090] border-transparent hover:text-[#555]'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Preliminary Design */}
-            <div className="bg-[#14171c] w-full p-8 md:p-12 rounded-2xl relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[100px]"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-              
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold text-white mb-6">Preliminary Design</h3>
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  The Globtek preliminary design service process includes support to both systems engineering and specific technical areas. The Preliminary Design phase builds on the major ship characteristic/system decisions made during Feasibility Design to achieve a converged baseline design with defined systems requirements.
-                </p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                    <h4 className="text-lg font-semibold text-white mb-4">Objectives of this phase include:</h4>
-                    <ul className="space-y-2">
+            <div className="p-12">
+              {activePhase === 'concept' && (
+                <div className="grid lg:grid-cols-2 gap-14">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-[#14171c] mb-4">
+                      Concept &amp; Feasibility Design
+                    </h3>
+                    <p className="text-[13px] text-[#555] leading-relaxed mb-4">
+                      The Globtek concept design process involves the development of design alternatives based on client requirements. Our team adapts top-level requirements into concept-level definitions to evaluate technical feasibility, cost and performance.
+                    </p>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#c0392b] mb-3 block">
+                      Complete early-phase ship definition includes:
+                    </span>
+                    <ul className="list-none">
                       {[
-                        "Refining Operational Requirements",
-                        "Assessing Ship Performance Within Cost Constraints",
-                        "Identifying Critical System Interfaces",
-                        "Establishing the Functional Baseline of the Platform"
-                      ].map((objective, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 rounded-full bg-[#e43d30] mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-300">{objective}</span>
+                        'Principal Characteristics',
+                        'Hullform Selection and Sizing',
+                        'General Arrangements',
+                        'Weight Estimates',
+                        'Speed, Power and Endurance Calculations',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef]">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                    <h4 className="text-lg font-semibold text-white mb-4">Typical Products Developed:</h4>
-                    <ul className="space-y-2 text-sm">
+
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e43d30] mb-3 block">
+                      Performance Characteristics
+                    </span>
+                    <ul className="list-none">
                       {[
-                        "General Arrangements",
-                        "Weights",
-                        "Trim and Stability",
-                        "Longitudinal Strength and Midship Section",
-                        "Electric Load Analysis",
-                        "Cooling and HVAC Analysis",
-                        "Machinery Arrangements",
-                        "Auxiliary Machinery Arrangements"
-                      ].map((product, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#e43d30]"></div>
-                          <span className="text-gray-300">{product}</span>
+                        'Combat System Integration',
+                        'Speed and Endurance Optimisation',
+                        'Seakeeping Analysis',
+                        'Survivability Assessment',
+                        'Noise and Vibration Reduction',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef] last:border-b-0">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-              </div>
-            </div>
+              )}
 
-            {/* Contract Design */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-[#14171c] w-full p-8 rounded-2xl relative overflow-hidden">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-10 blur-[80px]"></div>
-                
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-6">Contract Design</h3>
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    The Globtek contract design process evaluates the preliminary design further, resulting in a final system design that has sufficient detail and requirements development to begin the detailed design phase.
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    The products developed during the Contract Design phase are used by the shipbuilder to develop a cost estimate for bidding purposes. The objectives of this phase are confirmation that the ship design meets the operational requirements and cost, documentation of criteria for acceptance of the ship and identification of technical and schedule risks.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-[#14171c] mb-6">Detailed Architectural Design and Construction</h3>
-                <p className="text-[#4a4a4a] leading-relaxed mb-6">
-                  G&C's Detail Design & Construction solutions are highly tailorable to the needs of the program, shipbuilder, and end-customer. Our efforts seek to maximize producibility and affordability while mitigating risk for procurement, planning, construction, test, delivery, and acceptance.
-                </p>
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-[#14171c]">Generally, a Detail Design program comprises two key phases:</h4>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <h5 className="font-semibold text-[#14171c] mb-2">Functional Design</h5>
-                      <p className="text-sm text-[#4a4a4a]">Maturation of vessel design to comprehensive and consistent set of design products</p>
-                    </div>
-                    <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <h5 className="font-semibold text-[#14171c] mb-2">Production Design</h5>
-                      <p className="text-sm text-[#4a4a4a]">3D product model development based on functional drawings and build strategy</p>
-                    </div>
+              {activePhase === 'preliminary' && (
+                <div className="grid lg:grid-cols-2 gap-14">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-[#14171c] mb-4">Preliminary Design</h3>
+                    <p className="text-[13px] text-[#555] leading-relaxed mb-4">
+                      The Preliminary Design phase builds on major ship characteristic decisions made during Feasibility Design to achieve a converged baseline design with defined systems requirements.
+                    </p>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e43d30] mb-3 block">
+                      Objectives of this phase:
+                    </span>
+                    <ul className="list-none">
+                      {[
+                        'Refining Operational Requirements',
+                        'Assessing Ship Performance Within Cost Constraints',
+                        'Identifying Critical System Interfaces',
+                        'Establishing the Functional Baseline',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef]">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e43d30] mb-3 block">
+                      Typical Products Developed:
+                    </span>
+                    <ul className="list-none">
+                      {[
+                        'General Arrangements',
+                        'Weights, Trim and Stability',
+                        'Longitudinal Strength and Midship Section',
+                        'Electric Load Analysis',
+                        'Cooling and HVAC Analysis',
+                        'Machinery Arrangements',
+                        'Auxiliary Machinery Arrangements',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef] last:border-b-0">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              </div>
-            </div>
+              )}
 
+              {activePhase === 'contract' && (
+                <div className="grid lg:grid-cols-2 gap-14">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-[#14171c] mb-4">Contract Design</h3>
+                    <p className="text-[13px] text-[#555] leading-relaxed mb-4">
+                      The contract design process evaluates the preliminary design further, resulting in a final system design with sufficient detail to begin the detailed design phase.
+                    </p>
+                    <p className="text-[13px] text-[#555] leading-relaxed mb-4">
+                      Products developed are used by the shipbuilder to develop a cost estimate for bidding purposes.
+                    </p>
+                    <ul className="list-none">
+                      {[
+                        'Confirmation design meets operational requirements',
+                        'Documentation of acceptance criteria',
+                        'Identification of technical and schedule risks',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef]">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e43d30] mb-3 block">
+                      Key Deliverables:
+                    </span>
+                    <ul className="list-none">
+                      {[
+                        'Final system design convergence',
+                        'Shipbuilder cost estimation support',
+                        'Risk mitigation planning',
+                        'Full compliance documentation',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef] last:border-b-0">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {activePhase === 'detailed' && (
+                <div className="grid lg:grid-cols-2 gap-14">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-[#14171c] mb-4">
+                      Detailed Architectural Design &amp; Construction
+                    </h3>
+                    <p className="text-[13px] text-[#555] leading-relaxed mb-4">
+                      Detail Design &amp; Construction solutions are highly tailorable to the needs of the program, shipbuilder, and end-customer. Our efforts maximise producibility and affordability while mitigating risk.
+                    </p>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e43d30] mb-3 block">
+                      Two key phases:
+                    </span>
+                    <ul className="list-none">
+                      {[
+                        'Functional Design — maturation to comprehensive design products',
+                        'Production Design — 3D product model based on build strategy',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef] last:border-b-0">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#e43d30] mt-[18px] mb-[10px] block">
+                      Production Liaison Services:
+                    </span>
+                    <ul className="list-none">
+                      {[
+                        'Project Management & Port Engineering',
+                        'Field Engineering Support',
+                        'Weight Control',
+                        'Calculations for Lifts & Turns',
+                        'Launching and Docking',
+                        'Stability Test/Experiments',
+                        'Test & Trials Support',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 py-2 border-b border-[#efefef] last:border-b-0">
+                          <span className="w-[18px] h-[2px] bg-[#e43d30] flex-shrink-0" aria-hidden />
+                          <span className="text-[12.5px] text-[#555]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </Container>
       </section>
 
       {/* Production Liaison Support Section */}
-      <section className="pt-0 pb-0">
-        <div className="bg-gradient-to-br from-[#14171c] to-[#1a1f2a] w-full relative overflow-hidden">
-          {/* Enhanced Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#e43d3015_1px,transparent_1px),linear-gradient(to_bottom,#e43d3015_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+      <section className="pt-0 pb-12 bg-[#181818] border-y border-white/5">
+        <div className="pt-20 pb-0">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-12 bg-[#e43d30]" aria-hidden />
+              <span className="text-[#e43d30] font-semibold uppercase tracking-[0.2em] text-xs">
+                Shipyard Support
+              </span>
+              <div className="h-px w-12 bg-[#e43d30]" aria-hidden />
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-2">
+              Production Liaison Support
+            </h2>
           </div>
-          
-          {/* Enhanced Decorative Elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-20 blur-[120px]"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/20 opacity-15 blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-[#e43d30] to-[#e43d30]/10 opacity-10 blur-[80px]"></div>
-          
-          <Container>
-            <div className="max-w-7xl mx-auto p-12 md:p-16 relative z-10">
-              <div className="relative z-10">
-              {/* Enhanced Section Header */}
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e43d30]/10 text-[#e43d30] text-sm font-medium rounded-full mb-6 border border-[#e43d30]/20">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                  Shipyard Support
-                </div>
-                <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-                  Production Liaison <span className="text-[#e43d30]">Support</span>
-                </h3>
-                <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                  During construction, we provide comprehensive platform development with on-site and off-site support to ensure successful project delivery.
-                </p>
+        </div>
+
+        <style jsx>{`
+          .globtek-marquee-outer {
+            position: relative;
+            padding: 24px 0 28px;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+          }
+          .globtek-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: globtek-marqueeScroll 30s linear infinite;
+          }
+          .globtek-marquee-outer:hover .globtek-marquee-track {
+            animation-play-state: paused;
+          }
+          @keyframes globtek-marqueeScroll {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+        `}</style>
+
+        <Container>
+          <div className="globtek-marquee-outer">
+            <div className="globtek-marquee-track">
+              <div className="globtek-marquee-set flex items-center">
+                {marqueeItems.map((text) => (
+                  <div key={`${text}-a`} className="flex items-center gap-5 px-8 whitespace-nowrap">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/55 hover:text-white transition-colors">
+                      {text}
+                    </span>
+                    <span className="w-[5px] h-[5px] bg-[#e43d30] rotate-45 opacity-70" aria-hidden />
+                  </div>
+                ))}
               </div>
 
-              {/* Enhanced Services Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-                {[
-                  "Project Management",
-                  "Port Engineering",
-                  "Field Engineering Support",
-                  "Weight Control",
-                  "Calculations for Lifts & Turns",
-                  "Launching and Docking",
-                  "Stability Test/Experiments",
-                  "Test & Trials Support"
-                ].map((service, index) => (
-                  <div key={index} className="group flex items-center gap-4 hover:scale-105 transition-all duration-300">
-                    <div className="w-8 h-8 rounded-lg bg-[#e43d30]/20 flex items-center justify-center group-hover:bg-[#e43d30]/30 group-hover:scale-110 transition-all duration-300">
-                      <svg className="w-4 h-4 text-[#e43d30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="text-white font-medium group-hover:text-[#e43d30] transition-colors duration-300">
-                      {service}
+              <div className="globtek-marquee-set flex items-center" aria-hidden="true">
+                {marqueeItems.map((text) => (
+                  <div key={`${text}-b`} className="flex items-center gap-5 px-8 whitespace-nowrap">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/55">
+                      {text}
                     </span>
+                    <span className="w-[5px] h-[5px] bg-[#e43d30] rotate-45 opacity-70" aria-hidden />
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          </Container>
-        </div>
+        </Container>
       </section>
 
       {/* Latest Projects Section */}
