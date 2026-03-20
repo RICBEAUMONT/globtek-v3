@@ -70,14 +70,43 @@ const navigation: NavigationItem[] = [
   },
   {
     name: 'Rail',
-    dropdownOnly: true,
     children: [
-      { name: 'Infrastructure', href: '/services/rail-infrastructure' },
-      { name: 'Rail Design', href: '/services/rail-design' },
-      { name: 'Operational Support', href: '/services/rail-operational-support' },
-      { name: 'Rail Maintenance', href: '/services/rail-maintenance' },
-      { name: 'Innovation', href: '/services/rail-innovation' }
-    ]
+      {
+        name: 'Infrastructure',
+        href: '/services/rail-infrastructure',
+        description:
+          'Track, civil, OHTE, signalling, telecoms and operational infrastructure — inspection, assessment, and asset intelligence across the full rail corridor.',
+        imageUrl: '/images/rails/rails_hero_image-1.jpg',
+      },
+      {
+        name: 'Rail Design',
+        href: '/services/rail-design',
+        description:
+          'Full-lifecycle rail engineering: planning, permanent way, civil works, drainage, interfaces, and digital delivery from concept through construction support.',
+        imageUrl: '/images/rails/rails_hero_image-2.jpg',
+      },
+      {
+        name: 'Operational Support',
+        href: '/services/rail-operational-support',
+        description:
+          'Operations-focused engineering, assurance, and technical support to keep networks running safely, reliably, and in compliance.',
+        imageUrl: '/images/rails/rails_hero_image-3.jpg',
+      },
+      {
+        name: 'Rail Maintenance',
+        href: '/services/rail-maintenance',
+        description:
+          'Maintenance engineering, renewals planning, and condition-led interventions to extend asset life and control whole-life cost.',
+        imageUrl: '/images/rails/rails_hero_image-1.jpg',
+      },
+      {
+        name: 'Innovation',
+        href: '/services/rail-innovation',
+        description:
+          'Digital rail, data-driven insight, and innovative approaches to improve performance, safety, and efficiency on modern networks.',
+        imageUrl: '/images/rails/rails_hero_image-2.jpg',
+      },
+    ],
   },
   {
     name: 'Multi-Disciplinary',
