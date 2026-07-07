@@ -106,9 +106,17 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
   }, [vcard]);
 
   const shareContact = useCallback(async () => {
+    const shareLines = [
+      profile.name,
+      ...(profile.expertise ? [profile.expertise] : []),
+      profile.title,
+      profile.phone,
+      profile.email,
+    ];
+
     const shareData = {
       title: `${profile.name} — Globtek Rail`,
-      text: `${profile.name}\n${profile.title}\n${profile.phone}\n${profile.email}`,
+      text: shareLines.join('\n'),
       url: cardUrl,
     };
 
@@ -175,7 +183,12 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               {profile.isCompany ? (
                 <p className="sr-only">{profile.name}</p>
               ) : (
-                <p className="mt-1 text-sm font-medium text-[var(--color-accent)]">{profile.title}</p>
+                <>
+                  {profile.expertise && (
+                    <p className="mt-1.5 text-[13px] leading-snug text-white/50">{profile.expertise}</p>
+                  )}
+                  <p className="mt-1 text-sm font-semibold text-[var(--color-accent)]">{profile.title}</p>
+                </>
               )}
               <p
                 className={`max-w-[30ch] text-[17px] sm:text-[18px] leading-relaxed text-white/60 ${

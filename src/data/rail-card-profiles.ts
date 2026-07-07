@@ -5,6 +5,7 @@ export type RailCardProfile = {
   phoneE164: string;
   email: string;
   title: string;
+  expertise?: string;
   isCompany?: boolean;
   heroImage?: string;
   hideLogo?: boolean;
@@ -34,7 +35,8 @@ export const teamCardProfiles: RailCardProfile[] = [
     phone: '074 409 3155',
     phoneE164: '+27744093155',
     email: 'tnmelato@globtek.co.za',
-    title: 'Globtek Rail',
+    expertise: 'MBA',
+    title: 'Group CEO & Founder',
     heroImage: '/images/rails/profiles/themba-melato.png',
     hideLogo: true,
   },
@@ -44,7 +46,8 @@ export const teamCardProfiles: RailCardProfile[] = [
     phone: '071 606 9539',
     phoneE164: '+27716069539',
     email: 'lungisa@globtek.co.za',
-    title: 'Globtek Rail',
+    expertise: 'CEng & MRINA | MSc Naval Architect',
+    title: 'Group COO',
     heroImage: '/images/rails/profiles/lungisa-douse.png',
     hideLogo: true,
   },
@@ -54,7 +57,8 @@ export const teamCardProfiles: RailCardProfile[] = [
     phone: '079 637 5833',
     phoneE164: '+27796375833',
     email: 'kagiso@globtek.co.za',
-    title: 'Globtek Rail',
+    expertise: 'Pr Eng, PMP | M. Eng, B. Eng',
+    title: 'Chief Operational Manager',
     heroImage: '/images/rails/profiles/kagiso-letlala.png',
     hideLogo: true,
   },
@@ -68,6 +72,10 @@ export function getCardProfileBySlug(slug: string): RailCardProfile | undefined 
 
 export function buildVCard(profile: RailCardProfile, cardUrl: string) {
   const fileName = profile.name.toLowerCase().replace(/\s+/g, '-');
+  const note = profile.expertise
+    ? `${profile.expertise} | Globtek Rail — infrastructure design, inspection & lifecycle engineering`
+    : 'Globtek Rail — infrastructure design, inspection & lifecycle engineering';
+
   return {
     content: `BEGIN:VCARD
 VERSION:3.0
@@ -78,7 +86,7 @@ URL:${cardUrl}
 TEL;TYPE=CELL,VOICE:${profile.phoneE164}
 EMAIL:${profile.email}
 ADR;TYPE=WORK:;;62 Smiso Nkwanyana Road;Durban;;4001;South Africa
-NOTE:Globtek Rail — infrastructure design, inspection & lifecycle engineering
+NOTE:${note}
 END:VCARD`,
     fileName: `${fileName}.vcf`,
   };

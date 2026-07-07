@@ -22,14 +22,14 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   return {
     metadataBase: new URL('https://www.globtek.co.za'),
     title: `${profile.name} | Globtek Rail`,
-    description: `${profile.name} — Globtek Rail contact card. ${profile.phone}`,
+    description: `${profile.name} — ${profile.title}. ${profile.phone}`,
     robots: { index: true, follow: true },
     openGraph: {
       type: 'website',
       url: cardUrl,
       siteName: 'Globtek Rail',
       title: `${profile.name} | Globtek Rail`,
-      description: `Contact ${profile.name} at Globtek Rail.`,
+      description: `${profile.name}, ${profile.title} at Globtek Rail.`,
       images: [
         {
           url: OG_IMAGE,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     twitter: {
       card: 'summary_large_image',
       title: `${profile.name} | Globtek Rail`,
-      description: `Contact ${profile.name} at Globtek Rail.`,
+      description: `${profile.name}, ${profile.title} at Globtek Rail.`,
       images: [OG_IMAGE],
     },
   };
