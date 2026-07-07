@@ -10,14 +10,14 @@ export default function LayoutWrapper({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isAdminLoginPage = pathname === '/admin/login';
   const isAdminPage = pathname.startsWith('/admin');
+  const isStandalonePage = pathname === '/card';
 
   return (
     <>
-      {!isAdminPage && <Navbar />}
+      {!isAdminPage && !isStandalonePage && <Navbar />}
       {children}
-      {!isAdminPage && <Footer />}
+      {!isAdminPage && !isStandalonePage && <Footer />}
     </>
   );
 } 
