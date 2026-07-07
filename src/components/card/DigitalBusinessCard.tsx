@@ -23,6 +23,8 @@ import {
 } from 'lucide-react';
 
 const RAIL_LOGO = '/images/rails/globtek-rail-logo-transparent.png';
+const COMPANY_LOGO_CLASS = 'h-auto w-[min(64vw,190px)] max-w-full';
+const PROFILE_LOGO_CLASS = 'h-auto w-[min(26vw,108px)] max-w-full';
 
 const railLinks = [
   { title: 'Rail Design & Engineering', href: '/services/rail-design' },
@@ -39,7 +41,9 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
   const cardUrl = getCardUrl(profile.slug);
   const vcard = buildVCard(profile, cardUrl);
   const hasProfileHero = Boolean(profile.heroImage);
-  const showLogo = !profile.hideLogo;
+  const logoClassName = hasProfileHero ? PROFILE_LOGO_CLASS : COMPANY_LOGO_CLASS;
+  const logoWidth = hasProfileHero ? 108 : 190;
+  const logoHeight = hasProfileHero ? 46 : 80;
 
   const [showQr, setShowQr] = useState(false);
   const [savedContact, setSavedContact] = useState(false);
@@ -141,10 +145,8 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
       <div className="min-h-dvh bg-[#050505] sm:flex sm:items-center sm:justify-center sm:p-6">
         <main className="relative mx-auto flex w-full max-w-[420px] min-h-dvh flex-col bg-[#0a0a0a] text-white sm:min-h-[680px] sm:max-h-[860px] sm:overflow-hidden sm:rounded-sm sm:ring-1 sm:ring-white/[0.08] card-enter motion-reduce:animate-none">
           <header
-            className={`relative flex shrink-0 flex-col px-6 pb-8 pt-[max(1.5rem,env(safe-area-inset-top))] ${
-              hasProfileHero
-                ? 'min-h-[400px] justify-end sm:min-h-[420px]'
-                : 'min-h-[360px] justify-between sm:min-h-[380px]'
+            className={`relative flex shrink-0 flex-col justify-between px-6 pb-8 pt-[max(1.5rem,env(safe-area-inset-top))] ${
+              hasProfileHero ? 'min-h-[400px] sm:min-h-[420px]' : 'min-h-[360px] sm:min-h-[380px]'
             }`}
           >
             {hasProfileHero && profile.heroImage ? (
@@ -153,24 +155,18 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               <CardRailHero />
             )}
 
-            {showLogo && (
-              <div className="relative z-[1]">
-                <Image
-                  src={RAIL_LOGO}
-                  alt="Globtek Rail"
-                  width={190}
-                  height={80}
-                  priority
-                  className="h-auto w-[min(64vw,190px)] max-w-full"
-                />
-              </div>
-            )}
+            <div className="relative z-[1] shrink-0">
+              <Image
+                src={RAIL_LOGO}
+                alt="Globtek Rail"
+                width={logoWidth}
+                height={logoHeight}
+                priority
+                className={logoClassName}
+              />
+            </div>
 
-            <div
-              className={`relative z-[1] ${
-                hasProfileHero ? 'mt-auto pt-16' : 'mt-8 sm:mt-10'
-              }`}
-            >
+            <div className={`relative z-[1] ${hasProfileHero ? '' : 'mt-8 sm:mt-10'}`}>
               <h1
                 className={
                   profile.isCompany
@@ -310,15 +306,15 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
           >
             <div className="mb-4 flex shrink-0 items-start justify-between gap-4 sm:mb-5">
               <div className="min-w-0">
-                {showLogo && (
-                  <Image
-                    src={RAIL_LOGO}
-                    alt=""
-                    width={140}
-                    height={59}
-                    className="mb-3 h-auto w-[120px] opacity-95 sm:w-[130px]"
-                  />
-                )}
+                <Image
+                  src={RAIL_LOGO}
+                  alt=""
+                  width={hasProfileHero ? 108 : 140}
+                  height={hasProfileHero ? 46 : 59}
+                  className={`mb-3 h-auto opacity-95 ${
+                    hasProfileHero ? 'w-[108px]' : 'w-[120px] sm:w-[130px]'
+                  }`}
+                />
                 <h2 id="qr-dialog-title" className="text-lg font-semibold text-white">
                   Scan to connect
                 </h2>

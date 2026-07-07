@@ -8,7 +8,6 @@ export type RailCardProfile = {
   expertise?: string;
   isCompany?: boolean;
   heroImage?: string;
-  hideLogo?: boolean;
 };
 
 const SITE_ORIGIN = 'https://www.globtek.co.za';
@@ -38,7 +37,6 @@ export const teamCardProfiles: RailCardProfile[] = [
     expertise: 'MBA',
     title: 'Group CEO & Founder',
     heroImage: '/images/rails/profiles/themba-melato.png',
-    hideLogo: true,
   },
   {
     slug: 'lungisa-douse',
@@ -49,7 +47,6 @@ export const teamCardProfiles: RailCardProfile[] = [
     expertise: 'CEng & MRINA | MSc Naval Architect',
     title: 'Group COO',
     heroImage: '/images/rails/profiles/lungisa-douse.png',
-    hideLogo: true,
   },
   {
     slug: 'kagiso-letlala',
@@ -60,7 +57,6 @@ export const teamCardProfiles: RailCardProfile[] = [
     expertise: 'Pr Eng, PMP | M. Eng, B. Eng',
     title: 'Chief Operational Manager',
     heroImage: '/images/rails/profiles/kagiso-letlala.png',
-    hideLogo: true,
   },
 ];
 
