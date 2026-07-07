@@ -5,6 +5,11 @@ import Image from 'next/image';
 import QRCode from 'react-qr-code';
 import CardRailHero from '@/components/card/CardRailHero';
 import {
+  type RailCardProfile,
+  buildVCard,
+  getCardUrl,
+} from '@/data/rail-card-profiles';
+import {
   ArrowUpRight,
   Globe,
   Mail,
@@ -16,35 +21,7 @@ import {
   Check,
 } from 'lucide-react';
 
-const CARD_URL = 'https://www.globtek.co.za/card';
 const RAIL_LOGO = '/images/rails/globtek-rail-logo-transparent.png';
-
-const contactLinks = [
-  {
-    id: 'phone',
-    title: '031 512 1005',
-    subtitle: 'Call us',
-    href: 'tel:+27315121005',
-    icon: Phone,
-    external: false,
-  },
-  {
-    id: 'email',
-    title: 'Info@globtek.co.za',
-    subtitle: 'General enquiries',
-    href: 'mailto:Info@globtek.co.za',
-    icon: Mail,
-    external: false,
-  },
-  {
-    id: 'website',
-    title: 'globtek.co.za',
-    subtitle: 'Website & services',
-    href: 'https://www.globtek.co.za',
-    icon: Globe,
-    external: true,
-  },
-] as const;
 
 const railLinks = [
   { title: 'Rail Design & Engineering', href: '/services/rail-design' },
@@ -53,22 +30,44 @@ const railLinks = [
   { title: 'Maintenance & Lifecycle', href: '/services/rail-maintenance' },
 ] as const;
 
-const VCARD = `BEGIN:VCARD
-VERSION:3.0
-FN:Globtek Rail
-ORG:Globtek Rail;Globtek
-TITLE:Rail Infrastructure Engineering
-URL:https://www.globtek.co.za/services/rail-design
-TEL;TYPE=WORK,VOICE:+27315121005
-EMAIL:Info@globtek.co.za
-ADR;TYPE=WORK:;;62 Smiso Nkwanyana Road;Durban;;4001;South Africa
-NOTE:Integrated rail design, infrastructure inspection, and lifecycle engineering
-END:VCARD`;
+type DigitalBusinessCardProps = {
+  profile: RailCardProfile;
+};
 
-export default function DigitalBusinessCard() {
+export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProps) {
+  const cardUrl = getCardUrl(profile.slug);
+  const vcard = buildVCard(profile, cardUrl);
+
   const [showQr, setShowQr] = useState(false);
   const [savedContact, setSavedContact] = useState(false);
   const [qrSize, setQrSize] = useState(240);
+
+  const contactLinks = [
+    {
+      id: 'phone',
+      title: profile.phone,
+      subtitle: profile.isCompany ? 'Call us' : 'Mobile',
+      href: `tel:${profile.phoneE164}`,
+      icon: Phone,
+      external: false,
+    },
+    {
+      id: 'email',
+      title: profile.email,
+      subtitle: 'General enquiries',
+      href: `mailto:${profile.email}`,
+      icon: Mail,
+      external: false,
+    },
+    {
+      id: 'website',
+      title: 'globtek.co.za',
+      subtitle: 'Website & services',
+      href: 'https://www.globtek.co.za',
+      icon: Globe,
+      external: true,
+    },
+  ] as const;
 
   useEffect(() => {
     document.body.style.overflow = showQr ? 'hidden' : '';
@@ -92,22 +91,22 @@ export default function DigitalBusinessCard() {
   }, [showQr]);
 
   const downloadVCard = useCallback(() => {
-    const blob = new Blob([VCARD], { type: 'text/vcard;charset=utf-8' });
+    const blob = new Blob([vcard.content], { type: 'text/vcard;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'globtek-rail.vcf';
+    link.download = vcard.fileName;
     link.click();
     URL.revokeObjectURL(url);
     setSavedContact(true);
     window.setTimeout(() => setSavedContact(false), 2500);
-  }, []);
+  }, [vcard]);
 
   const shareContact = useCallback(async () => {
     const shareData = {
-      title: 'Globtek Rail — Contact',
-      text: 'Globtek Rail\nRail Infrastructure Engineering\n031 512 1005\nInfo@globtek.co.za',
-      url: CARD_URL,
+      title: `${profile.name} — Globtek Rail`,
+      text: `${profile.name}\n${profile.title}\n${profile.phone}\n${profile.email}`,
+      url: cardUrl,
     };
 
     if (typeof navigator !== 'undefined' && navigator.share) {
@@ -120,17 +119,16 @@ export default function DigitalBusinessCard() {
     }
 
     try {
-      await navigator.clipboard.writeText(`${shareData.text}\n${CARD_URL}`);
+      await navigator.clipboard.writeText(`${shareData.text}\n${cardUrl}`);
     } catch {
       /* clipboard unavailable */
     }
-  }, []);
+  }, [profile, cardUrl]);
 
   return (
     <>
       <div className="min-h-dvh bg-[#050505] sm:flex sm:items-center sm:justify-center sm:p-6">
         <main className="relative mx-auto flex w-full max-w-[420px] min-h-dvh flex-col bg-[#0a0a0a] text-white sm:min-h-[680px] sm:max-h-[860px] sm:overflow-hidden sm:rounded-sm sm:ring-1 sm:ring-white/[0.08] card-enter motion-reduce:animate-none">
-          {/* Hero */}
           <header className="relative flex min-h-[360px] shrink-0 flex-col justify-between px-6 pb-8 pt-[max(1.5rem,env(safe-area-inset-top))] sm:min-h-[380px]">
             <CardRailHero />
 
@@ -146,14 +144,30 @@ export default function DigitalBusinessCard() {
             </div>
 
             <div className="relative z-[1] mt-8 sm:mt-10">
-              <h1 className="sr-only">Globtek Rail</h1>
-              <p className="max-w-[30ch] text-[17px] sm:text-[18px] leading-relaxed text-white/60">
+              <h1
+                className={
+                  profile.isCompany
+                    ? 'sr-only'
+                    : 'text-[1.65rem] sm:text-[1.85rem] font-bold tracking-tight text-white leading-tight'
+                }
+              >
+                {profile.name}
+              </h1>
+              {profile.isCompany ? (
+                <p className="sr-only">{profile.name}</p>
+              ) : (
+                <p className="mt-1 text-sm font-medium text-[var(--color-accent)]">{profile.title}</p>
+              )}
+              <p
+                className={`max-w-[30ch] text-[17px] sm:text-[18px] leading-relaxed text-white/60 ${
+                  profile.isCompany ? '' : 'mt-3'
+                }`}
+              >
                 Infrastructure design, inspection &amp; lifecycle engineering
               </p>
             </div>
           </header>
 
-          {/* Body */}
           <div className="flex-1 px-4 pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:px-5 sm:pb-5">
             <div className="overflow-hidden rounded-sm ring-1 ring-white/[0.07]">
               {contactLinks.map((item, index) => {
@@ -207,7 +221,6 @@ export default function DigitalBusinessCard() {
             </nav>
           </div>
 
-          {/* Bottom bar */}
           <div
             className="fixed bottom-0 left-0 right-0 z-10 mx-auto w-full max-w-[420px] border-t border-white/[0.06] bg-[#0a0a0a]/88 px-4 py-3 backdrop-blur-xl sm:sticky sm:bg-[#0a0a0a]/95"
             style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
@@ -253,7 +266,6 @@ export default function DigitalBusinessCard() {
         </main>
       </div>
 
-      {/* QR sheet */}
       {showQr && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a] sm:bg-black/80 sm:p-4 sm:backdrop-blur-sm"
@@ -278,6 +290,9 @@ export default function DigitalBusinessCard() {
                 <h2 id="qr-dialog-title" className="text-lg font-semibold text-white">
                   Scan to connect
                 </h2>
+                {!profile.isCompany && (
+                  <p className="mt-0.5 text-sm text-white/45">{profile.name}</p>
+                )}
               </div>
               <button
                 type="button"
@@ -291,10 +306,10 @@ export default function DigitalBusinessCard() {
 
             <div className="flex min-h-0 flex-1 flex-col items-center justify-center py-2">
               <div className="rounded-xl bg-white p-4 sm:p-5">
-                <QRCode value={CARD_URL} size={qrSize} level="M" />
+                <QRCode value={cardUrl} size={qrSize} level="M" />
               </div>
               <p className="mt-4 max-w-full truncate px-2 text-center text-[11px] text-white/30">
-                {CARD_URL}
+                {cardUrl}
               </p>
             </div>
 

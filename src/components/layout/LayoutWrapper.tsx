@@ -11,7 +11,7 @@ export default function LayoutWrapper({
 }) {
   const pathname = usePathname();
   const isAdminPage = pathname.startsWith('/admin');
-  const isStandalonePage = pathname === '/card';
+  const isStandalonePage = pathname === '/card' || pathname.startsWith('/card/');
 
   return (
     <>
