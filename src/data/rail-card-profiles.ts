@@ -35,6 +35,8 @@ export const teamCardProfiles: RailCardProfile[] = [
     phoneE164: '+27744093155',
     email: 'tnmelato@globtek.co.za',
     title: 'Globtek Rail',
+    heroImage: '/images/rails/profiles/themba-melato.png',
+    hideLogo: true,
   },
   {
     slug: 'lungisa-douse',
