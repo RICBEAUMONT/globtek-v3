@@ -190,13 +190,11 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                   <p className="mt-1 text-sm font-semibold text-[var(--color-accent)]">{profile.title}</p>
                 </>
               )}
-              <p
-                className={`max-w-[30ch] text-[17px] sm:text-[18px] leading-relaxed text-white/60 ${
-                  profile.isCompany ? '' : 'mt-3'
-                }`}
-              >
-                Infrastructure design, inspection &amp; lifecycle engineering
-              </p>
+              {profile.isCompany && (
+                <p className="max-w-[30ch] text-[17px] sm:text-[18px] leading-relaxed text-white/60">
+                  Infrastructure design, inspection &amp; lifecycle engineering
+                </p>
+              )}
             </div>
           </header>
 
