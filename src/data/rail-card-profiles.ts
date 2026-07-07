@@ -6,6 +6,8 @@ export type RailCardProfile = {
   email: string;
   title: string;
   isCompany?: boolean;
+  heroImage?: string;
+  hideLogo?: boolean;
 };
 
 const SITE_ORIGIN = 'https://www.globtek.co.za';
@@ -31,7 +33,7 @@ export const teamCardProfiles: RailCardProfile[] = [
     name: 'Themba Melato',
     phone: '074 409 3155',
     phoneE164: '+27744093155',
-    email: 'Info@globtek.co.za',
+    email: 'tnmelato@globtek.co.za',
     title: 'Globtek Rail',
   },
   {
@@ -39,16 +41,20 @@ export const teamCardProfiles: RailCardProfile[] = [
     name: 'Lungisa Douse',
     phone: '071 606 9539',
     phoneE164: '+27716069539',
-    email: 'Info@globtek.co.za',
+    email: 'lungisa@globtek.co.za',
     title: 'Globtek Rail',
+    heroImage: '/images/rails/profiles/lungisa-douse.png',
+    hideLogo: true,
   },
   {
     slug: 'kagiso-letlala',
     name: 'Kagiso Letlala',
     phone: '079 637 5833',
     phoneE164: '+27796375833',
-    email: 'Info@globtek.co.za',
+    email: 'kagiso@globtek.co.za',
     title: 'Globtek Rail',
+    heroImage: '/images/rails/profiles/kagiso-letlala.png',
+    hideLogo: true,
   },
 ];
 
