@@ -17,6 +17,7 @@
     "@supabase/supabase-js": "^2.49.4",
     "@types/next-auth": "^3.13.0",
     "@types/nodemailer": "^6.4.17",
+    "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.5.0",
