@@ -25,6 +25,11 @@ const nextConfig = {
   serverOptions: {
     port: 3000,
   },
+  async rewrites() {
+    return [
+      { source: '/signature', destination: '/signature/index.html' },
+    ]
+  },
 }
 
 module.exports = nextConfig 
