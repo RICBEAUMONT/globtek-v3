@@ -85,6 +85,15 @@ button{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pad
         <label>Mobile</label>
         <input id="f-mobile" value="+27 82 000 0000">
       </div>
+
+      <div class="opt-toggle">
+        <input type="checkbox" id="f-showsignoff" checked>
+        <label for="f-showsignoff">Include sign-off line</label>
+      </div>
+      <div class="opt-toggle" style="border-top:none;padding-top:0;margin-top:10px">
+        <input type="checkbox" id="f-showdisclaimer" checked>
+        <label for="f-showdisclaimer">Include confidentiality disclaimer</label>
+      </div>
     </div>
 
     <!-- PREVIEW -->
@@ -102,7 +111,7 @@ button{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pad
 
       <div class="note">
         <b>Gmail:</b> Settings → See all settings → Signature → paste. &nbsp; <b>Outlook (desktop):</b> File → Options → Mail → Signatures → paste. &nbsp; <b>Outlook web:</b> Settings → Mail → Compose and reply → paste.<br><br>
-        The ENVARA vertical colour logo is hosted with this tool so Gmail and Outlook can load it reliably. Colours, spacing, and the green→transparent divider match the approved design.
+        The ENVARA vertical colour logo is hosted as a PNG with this tool so Gmail and Outlook can load it reliably. Colours, spacing, and the green→transparent divider match the approved design.
       </div>
     </div>
   </div>
@@ -125,7 +134,28 @@ function buildSig(){
               <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#383838;">
                 <span style="color:#31793b;font-weight:bold;">M:</span> ${mobile}
               </td></tr>` : '';
-  return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+  const showSignoff=document.getElementById('f-showsignoff').checked;
+  const showDisclaimer=document.getElementById('f-showdisclaimer').checked;
+
+  const signoff = showSignoff ? `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin-bottom:16px;">
+  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#231f20;line-height:1.5;">
+    Should you have any queries, please do not hesitate to contact me.
+  </td></tr>
+  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#231f20;line-height:1.5;padding-top:12px;">
+    Kind regards,
+  </td></tr>
+</table>
+` : '';
+
+  const disclaimer = showDisclaimer ? `
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin-top:18px;max-width:520px;">
+  <tr><td style="height:1px;line-height:1px;font-size:1px;background:#e3e0d6;">&nbsp;</td></tr>
+  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:9px;color:#a0a0a0;line-height:1.5;padding-top:10px;">
+    <strong style="color:#868686;">Disclaimer:</strong> The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.
+  </td></tr>
+</table>` : '';
+
+  return `${signoff}<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
   <tr>
     <td style="vertical-align:middle;padding-right:26px;">${LOGO}</td>
     <td style="vertical-align:middle;">
@@ -158,7 +188,7 @@ function buildSig(){
       </table>
     </td>
   </tr>
-</table>`;
+</table>${disclaimer}`;
 }
 
 function render(){document.getElementById('sig-preview').innerHTML=buildSig();
@@ -167,6 +197,8 @@ document.querySelectorAll('input').forEach(i=>i.addEventListener('input',render)
 document.getElementById('f-showmobile').addEventListener('change',e=>{
   document.getElementById('mobile-field').style.display=e.target.checked?'block':'none';render();
 });
+document.getElementById('f-showsignoff').addEventListener('change',render);
+document.getElementById('f-showdisclaimer').addEventListener('change',render);
 render();
 
 document.getElementById('copyBtn').addEventListener('click',async()=>{
