@@ -111,7 +111,7 @@ button{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pad
 
       <div class="note">
         <b>Gmail:</b> Settings → See all settings → Signature → paste. &nbsp; <b>Outlook (desktop):</b> File → Options → Mail → Signatures → paste. &nbsp; <b>Outlook web:</b> Settings → Mail → Compose and reply → paste.<br><br>
-        The ENVARA vertical colour logo is hosted as a PNG with this tool so Gmail and Outlook can load it reliably. Colours, spacing, and the green→transparent divider match the approved design.
+        The ENVARA vertical colour logo is hosted as a PNG with this tool so Gmail and Outlook can load it reliably. Paste as HTML (not plain text). If Outlook still auto-colours phone numbers purple, that is a client setting — re-copy from this tool after updating.
       </div>
     </div>
   </div>
@@ -119,10 +119,18 @@ button{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pad
 
 <script>
 const LOGO_URL = 'https://www.globtek.co.za/signature/envara-logo.png';
-const LOGO = `<img src="${LOGO_URL}" alt="ENVARA" width="118" height="77" style="display:block;border:0;outline:none;text-decoration:none;" />`;
+const LOGO = `<img src="${LOGO_URL}" width="118" height="77" alt="ENVARA" border="0" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" />`;
 
 function esc(s){return s.replace(/&(?!amp;)/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function get(id){return document.getElementById(id).value.trim()}
+function telHref(v){return 'tel:'+v.replace(/[^\d+]/g,'')}
+function link(href, label, color){
+  return `<a href="${href}" style="color:${color};text-decoration:none;"><span style="color:${color};text-decoration:none;">${label}</span></a>`;
+}
+/* Outlook-safe 2px color chip — no empty expanding rows */
+function chip(color, w){
+  return `<td width="${w}" height="2" bgcolor="${color}" style="width:${w}px;max-width:${w}px;height:2px;background-color:${color};font-size:0;line-height:0;mso-line-height-rule:exactly;border:0;padding:0;">&nbsp;</td>`;
+}
 
 function buildSig(){
   const name=esc(get('f-name')), role=esc(get('f-role')), phone=esc(get('f-phone')),
@@ -130,64 +138,67 @@ function buildSig(){
         showMobile=document.getElementById('f-showmobile').checked, mobile=esc(get('f-mobile'));
   const webUrl = web.replace(/^https?:\/\//,'');
   const mobileRow = showMobile ? `
-              <tr><td style="height:5px;line-height:5px;font-size:5px;">&nbsp;</td></tr>
-              <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#383838;">
-                <span style="color:#31793b;font-weight:bold;">M:</span> ${mobile}
-              </td></tr>` : '';
+            <tr>
+              <td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#383838;padding-top:5px;">
+                <span style="color:#31793b;font-weight:bold;">M:</span> ${link(telHref(get('f-mobile')), mobile, '#383838')}
+              </td>
+            </tr>` : '';
   const showSignoff=document.getElementById('f-showsignoff').checked;
   const showDisclaimer=document.getElementById('f-showdisclaimer').checked;
 
-  const signoff = showSignoff ? `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin-bottom:16px;">
-  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#231f20;line-height:1.5;">
+  const signoff = showSignoff ? `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#231f20;">
     Should you have any queries, please do not hesitate to contact me.
   </td></tr>
-  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#231f20;line-height:1.5;padding-top:12px;">
+  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#231f20;padding-top:12px;padding-bottom:16px;">
     Kind regards,
   </td></tr>
 </table>
 ` : '';
 
+  /* border-top instead of bgcolor empty row — Outlook turns those into fat beige slabs */
   const disclaimer = showDisclaimer ? `
-<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin-top:18px;max-width:520px;">
-  <tr><td style="height:1px;line-height:1px;font-size:1px;background:#e3e0d6;">&nbsp;</td></tr>
-  <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:9px;color:#a0a0a0;line-height:1.5;padding-top:10px;">
-    <strong style="color:#868686;">Disclaimer:</strong> The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.
-  </td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="520" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:520px;max-width:520px;">
+  <tr>
+    <td style="font-family:Arial,Helvetica,sans-serif;font-size:9px;line-height:14px;color:#a0a0a0;padding-top:12px;border-top:1px solid #e3e0d6;">
+      <strong style="color:#868686;">Disclaimer:</strong> The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.
+    </td>
+  </tr>
 </table>` : '';
 
-  return `${signoff}<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+  return `${signoff}<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;font-family:Arial,Helvetica,sans-serif;">
   <tr>
-    <td style="vertical-align:middle;padding-right:26px;">${LOGO}</td>
-    <td style="vertical-align:middle;">
-      <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-        <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:bold;color:#231f20;line-height:1.2;">${name}</td></tr>
-        <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#231f20;padding-top:2px;">${role}</td></tr>
+    <td valign="top" style="vertical-align:top;padding-right:26px;">${LOGO}</td>
+    <td valign="top" style="vertical-align:top;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+        <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:bold;color:#231f20;line-height:22px;">${name}</td></tr>
+        <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#231f20;padding-top:2px;">${role}</td></tr>
         <tr><td style="padding-top:14px;">
-          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
-              <td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#383838;padding-right:22px;white-space:nowrap;">
-                <span style="color:#31793b;font-weight:bold;">T:</span> ${phone}
+              <td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#383838;padding-right:22px;white-space:nowrap;">
+                <span style="color:#31793b;font-weight:bold;">T:</span> ${link(telHref(get('f-phone')), phone, '#383838')}
               </td>
-              <td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#383838;white-space:nowrap;">
-                <span style="color:#31793b;font-weight:bold;">E:</span> <a href="mailto:${email}" style="color:#383838;text-decoration:none;">${email}</a>
+              <td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#383838;white-space:nowrap;">
+                <span style="color:#31793b;font-weight:bold;">E:</span> ${link('mailto:'+email, email, '#383838')}
               </td>
             </tr>${mobileRow}
           </table>
         </td></tr>
-        <tr><td style="padding-top:11px;">
-          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;width:100%;"><tr>
-            <td style="height:1px;line-height:1px;font-size:1px;background:#31793b;width:60px;">&nbsp;</td>
-            <td style="height:1px;line-height:1px;font-size:1px;background:#8fb99a;width:60px;">&nbsp;</td>
-            <td style="height:1px;line-height:1px;font-size:1px;background:#cfe0d2;width:40px;">&nbsp;</td>
-            <td style="height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
-          </tr></table>
+        <tr><td style="padding-top:11px;padding-bottom:0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="160" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:160px;">
+            <tr>${chip('#31793b',60)}${chip('#8fb99a',60)}${chip('#cfe0d2',40)}</tr>
+          </table>
         </td></tr>
-        <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#868686;padding-top:8px;">
-          <a href="https://${webUrl}" style="color:#868686;text-decoration:none;">${web}</a>
+        <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#868686;padding-top:8px;">
+          ${link('https://'+webUrl, web, '#868686')}
         </td></tr>
       </table>
     </td>
   </tr>
+</table>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+  <tr><td style="font-size:0;line-height:0;height:18px;mso-line-height-rule:exactly;">&nbsp;</td></tr>
 </table>${disclaimer}`;
 }
 
