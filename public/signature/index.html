@@ -127,10 +127,8 @@ function telHref(v){return 'tel:'+v.replace(/[^\d+]/g,'')}
 function link(href, label, color){
   return `<a href="${href}" style="color:${color};text-decoration:none;"><span style="color:${color};text-decoration:none;">${label}</span></a>`;
 }
-/* Outlook-safe 2px color chip — no empty expanding rows */
-function chip(color, w){
-  return `<td width="${w}" height="2" bgcolor="${color}" style="width:${w}px;max-width:${w}px;height:2px;background-color:${color};font-size:0;line-height:0;mso-line-height-rule:exactly;border:0;padding:0;">&nbsp;</td>`;
-}
+const LINE_URL = 'https://www.globtek.co.za/signature/envara-gradient-line.png';
+const GRADIENT_LINE = `<img src="${LINE_URL}" width="160" height="2" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:160px;height:2px;" />`;
 
 function buildSig(){
   const name=esc(get('f-name')), role=esc(get('f-role')), phone=esc(get('f-phone')),
@@ -186,9 +184,7 @@ function buildSig(){
           </table>
         </td></tr>
         <tr><td style="padding-top:11px;padding-bottom:0;">
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="160" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:160px;">
-            <tr>${chip('#31793b',60)}${chip('#8fb99a',60)}${chip('#cfe0d2',40)}</tr>
-          </table>
+          ${GRADIENT_LINE}
         </td></tr>
         <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;color:#868686;padding-top:8px;">
           ${link('https://'+webUrl, web, '#868686')}
