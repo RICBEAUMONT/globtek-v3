@@ -26,7 +26,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Source Sans 3',sans-serif;background:#eef0ec;color:#231f20;padding:38px 20px;line-height:1.5}
 .wrap{max-width:920px;margin:0 auto}
-.head-lockup{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.top-nav{display:flex;justify-content:flex-end;align-items:center;margin-bottom:28px}
+.top-nav img{display:block;height:36px;width:auto}
 h1{font-family:'Canva Sans Display',sans-serif;font-weight:700;color:var(--navy);font-size:27px;letter-spacing:.01em}
 .sub{color:var(--muted);font-size:13px;margin:6px 0 26px}
 .layout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
@@ -71,9 +72,9 @@ button{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pad
 </head>
 <body>
 <div class="wrap">
-  <div class="head-lockup">
-    <img src="envara-logo.png" alt="ENVARA" width="92" height="60" style="display:block">
-  </div>
+  <nav class="top-nav" aria-label="ENVARA">
+    <img src="envara-logo-horizontal.png" alt="ENVARA" width="121" height="36">
+  </nav>
   <h1>Email Signature Creator</h1>
   <p class="sub">Enter details, preview the approved ENVARA signature live, then copy it straight into Gmail or Outlook.</p>
 
