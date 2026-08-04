@@ -4,15 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ENVARA — Email Signature Creator</title>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+@font-face{
+  font-family:'Canva Sans Display';
+  src:url('fonts/CanvaSansDisplay-Regular.otf') format('opentype');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Canva Sans Display';
+  src:url('fonts/CanvaSansDisplay-Medium.otf') format('opentype');
+  font-weight:500;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Canva Sans Display';
+  src:url('fonts/CanvaSansDisplay-Bold.otf') format('opentype');
+  font-weight:700;font-style:normal;font-display:swap;
+}
 :root{--navy:#052f49;--green:#31793b;--ink:#231f20;--grey:#868686;--dark:#383838;
   --paper:#FBFAF6;--hair:#E3E0D6;--muted:#5A6B6F;--leaf:#e5efe6}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Source Sans 3',sans-serif;background:#eef0ec;color:#231f20;padding:38px 20px;line-height:1.5}
 .wrap{max-width:920px;margin:0 auto}
 .head-lockup{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-h1{font-family:'Newsreader',serif;font-weight:600;color:var(--navy);font-size:27px;letter-spacing:.01em}
+h1{font-family:'Canva Sans Display',sans-serif;font-weight:700;color:var(--navy);font-size:27px;letter-spacing:.01em}
 .sub{color:var(--muted);font-size:13px;margin:6px 0 26px}
 .layout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
 .panel{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:22px}
@@ -32,7 +47,7 @@ input:focus{outline:none;border-color:var(--green);background:#fff}
 .preview-frame{background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
 .pf-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;
   border-bottom:1px solid var(--hair);background:var(--paper)}
-.pf-bar .t{font-family:'Newsreader',serif;font-weight:600;color:var(--navy);font-size:14px}
+.pf-bar .t{font-family:'Canva Sans Display',sans-serif;font-weight:700;color:var(--navy);font-size:14px}
 .pf-bar .badge{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--green);background:var(--leaf);padding:3px 9px;border-radius:20px}
 .pf-body{padding:34px 30px;background:#fff}
@@ -111,7 +126,7 @@ button{font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pad
 
       <div class="note">
         <b>Gmail:</b> Settings → See all settings → Signature → paste. &nbsp; <b>Outlook (desktop):</b> File → Options → Mail → Signatures → paste. &nbsp; <b>Outlook web:</b> Settings → Mail → Compose and reply → paste.<br><br>
-        The ENVARA vertical colour logo is hosted as a PNG with this tool so Gmail and Outlook can load it reliably. Paste as HTML (not plain text). If Outlook still auto-colours phone numbers purple, that is a client setting — re-copy from this tool after updating.
+        The ENVARA vertical colour logo and green gradient line are hosted as PNGs with this tool so Gmail and Outlook can load them reliably. Paste as HTML (not plain text). If Outlook still auto-colours phone numbers purple, that is a client setting — re-copy from this tool after updating.
       </div>
     </div>
   </div>
