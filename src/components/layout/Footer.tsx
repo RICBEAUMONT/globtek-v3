@@ -221,9 +221,22 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-[var(--color-bg-white-transparent)]">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-sm text-gray-500">
-                © {new Date().getFullYear()} Globtek. All rights reserved.
-              </p>
+              <div className="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
+                <p className="text-sm text-gray-500">
+                  © {new Date().getFullYear()} Globtek. All rights reserved.
+                </p>
+                <p className="text-sm text-gray-500">
+                  Design by{' '}
+                  <a
+                    href="https://bransol.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                  >
+                    BRANSOL
+                  </a>
+                </p>
+              </div>
               <ul className="flex space-x-6">
                 {footerNavigation.legal.map((item) => (
                   <li key={item.name}>
