@@ -1,0 +1,92 @@
+.strike,
+.strikeLight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 42%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(228, 61, 48, 0.62), transparent);
+  animation: card-strike 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.strikeLight {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+}
+
+.nudge {
+  animation: card-nudge 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu {
+  animation: card-menu 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.check {
+  animation: card-check 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes card-strike {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(320%);
+    opacity: 0;
+  }
+}
+
+@keyframes card-nudge {
+  40% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes card-menu {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes card-check {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strike,
+  .strikeLight {
+    width: 100%;
+    transform: none;
+    animation: card-strike-fade 180ms ease-out forwards;
+  }
+
+  .nudge,
+  .check,
+  .menu {
+    animation: none;
+  }
+}
+
+@keyframes card-strike-fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0;
+  }
+}

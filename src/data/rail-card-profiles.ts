@@ -71,6 +71,7 @@ export function buildVCard(profile: RailCardProfile, cardUrl: string) {
   const note = profile.expertise
     ? `${profile.expertise} | Globtek Rail — infrastructure design, inspection & lifecycle engineering`
     : 'Globtek Rail — infrastructure design, inspection & lifecycle engineering';
+  const phoneType = profile.isCompany ? 'WORK,VOICE' : 'CELL,VOICE';
 
   return {
     content: `BEGIN:VCARD
@@ -79,7 +80,7 @@ FN:${profile.name}
 ORG:Globtek Rail;Globtek
 TITLE:${profile.title}
 URL:${cardUrl}
-TEL;TYPE=CELL,VOICE:${profile.phoneE164}
+TEL;TYPE=${phoneType}:${profile.phoneE164}
 EMAIL:${profile.email}
 ADR;TYPE=WORK:;;62 Smiso Nkwanyana Road;Durban;;4001;South Africa
 NOTE:${note}
