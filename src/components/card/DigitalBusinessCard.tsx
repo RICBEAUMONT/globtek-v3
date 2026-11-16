@@ -14,25 +14,13 @@ import {
   ChevronRight,
   Download,
   Globe,
-  Layers,
   Mail,
-  Menu,
   Phone,
-  Search,
-  Settings,
-  TrainTrack,
   X,
 } from 'lucide-react';
 
 const RAIL_LOGO = '/images/rails/globtek-rail-logo-transparent.png';
 const BANNER = '/images/rails/globtek-rail-header.jpg';
-
-const railLinks = [
-  { title: 'Rail Design & Engineering', href: '/services/rail-design', icon: TrainTrack },
-  { title: 'Infrastructure Inspection', href: '/services/rail-infrastructure', icon: Search },
-  { title: 'Operational Support', href: '/services/rail-operational-support', icon: Layers },
-  { title: 'Maintenance & Lifecycle', href: '/services/rail-maintenance', icon: Settings },
-] as const;
 
 type DigitalBusinessCardProps = {
   profile: RailCardProfile;
@@ -49,13 +37,10 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
   const hasPortrait = Boolean(profile.heroImage);
 
   const [showQr, setShowQr] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [savedContact, setSavedContact] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [strikes, setStrikes] = useState<Record<string, number>>({});
   const [qrSize, setQrSize] = useState(240);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const closeMenuRef = useRef<HTMLButtonElement>(null);
+  const qrButtonRef = useRef<HTMLButtonElement>(null);
   const closeQrRef = useRef<HTMLButtonElement>(null);
 
   const strike = useCallback((id: string) => {
@@ -101,24 +86,9 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', onKey);
-      menuButtonRef.current?.focus();
+      qrButtonRef.current?.focus();
     };
   }, [showQr]);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-    document.body.style.overflow = 'hidden';
-    closeMenuRef.current?.focus();
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', onKey);
-      menuButtonRef.current?.focus();
-    };
-  }, [menuOpen]);
 
   useEffect(() => {
     if (!showQr) return;
@@ -146,43 +116,6 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
     window.setTimeout(() => setSavedContact(false), 2500);
   }, [vcard]);
 
-  const shareContact = useCallback(async () => {
-    const shareLines = [
-      profile.name,
-      ...(profile.expertise ? [profile.expertise] : []),
-      profile.title,
-      profile.phone,
-      profile.email,
-    ];
-
-    const shareData = {
-      title: `${profile.name} — Globtek Rail`,
-      text: shareLines.join('\n'),
-      url: cardUrl,
-    };
-
-    if (typeof navigator !== 'undefined' && navigator.share) {
-      try {
-        await navigator.share(shareData);
-      } catch {
-        /* dismissed */
-      }
-      return false;
-    }
-
-    try {
-      await navigator.clipboard.writeText(`${shareData.text}\n${cardUrl}`);
-      setCopied(true);
-      window.setTimeout(() => {
-        setCopied(false);
-        setMenuOpen(false);
-      }, 1100);
-      return true;
-    } catch {
-      return false;
-    }
-  }, [profile, cardUrl]);
-
   return (
     <>
       <div className="min-h-dvh bg-[#050505] sm:flex sm:items-center sm:justify-center sm:p-6">
@@ -201,7 +134,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                 className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-[#0c0c0c]"
                 aria-hidden
               />
-              <div className="absolute inset-x-0 top-0 z-[2] flex items-start justify-between gap-3 px-5 pt-[max(0.9rem,env(safe-area-inset-top))]">
+              <div className="absolute inset-x-0 top-0 z-[2] px-5 pt-[max(0.9rem,env(safe-area-inset-top))]">
                 <Image
                   src={RAIL_LOGO}
                   alt="Globtek Rail"
@@ -210,20 +143,6 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                   priority
                   className="h-auto w-[158px]"
                 />
-                <button
-                  ref={menuButtonRef}
-                  type="button"
-                  aria-expanded={menuOpen}
-                  aria-label="Menu"
-                  onClick={() => {
-                    strike('menu');
-                    setMenuOpen((open) => !open);
-                  }}
-                  className="relative mt-1 flex h-11 w-11 items-center justify-center overflow-hidden rounded-full text-white transition-transform duration-150 ease-out active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                >
-                  <Strike tick={strikes.menu} light />
-                  <Menu className="h-6 w-6" aria-hidden />
-                </button>
               </div>
             </div>
 
@@ -235,62 +154,6 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
             >
               <polygon points="0,214 0,244 358,274" fill="var(--color-accent)" />
             </svg>
-
-            {menuOpen && (
-              <div
-                className={`${styles.menu} fixed inset-0 z-50 flex flex-col bg-[#0c0c0c] text-white`}
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="card-menu-title"
-              >
-                <div className="flex items-center justify-between gap-4 px-5 pt-[max(1.1rem,env(safe-area-inset-top))]">
-                  <h2 id="card-menu-title" className="text-[1.65rem] font-bold leading-tight tracking-tight">
-                    {profile.name}
-                  </h2>
-                  <button
-                    ref={closeMenuRef}
-                    type="button"
-                    onClick={() => setMenuOpen(false)}
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white transition-colors hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                    aria-label="Close menu"
-                  >
-                    <X className="h-6 w-6" aria-hidden />
-                  </button>
-                </div>
-
-                <nav className="mt-8 border-t border-white/10 px-5">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      strike('qr');
-                      setMenuOpen(false);
-                      setShowQr(true);
-                    }}
-                    className="relative block w-full overflow-hidden border-b border-white/10 py-6 text-left focus:outline-none focus-visible:text-[var(--color-accent)]"
-                  >
-                    <Strike tick={strikes.qr} />
-                    <span className="block text-[2rem] font-semibold leading-none tracking-tight">QR code</span>
-                    <span className="mt-2 block text-[15px] text-white/60">Show this card</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      strike('share');
-                      void shareContact().then((copiedLink) => {
-                        if (!copiedLink) setMenuOpen(false);
-                      });
-                    }}
-                    className="relative block w-full overflow-hidden border-b border-white/10 py-6 text-left focus:outline-none focus-visible:text-[var(--color-accent)]"
-                  >
-                    <Strike tick={strikes.share} />
-                    <span className="block text-[2rem] font-semibold leading-none tracking-tight">
-                      {copied ? 'Link copied' : 'Share'}
-                    </span>
-                    <span className="mt-2 block text-[15px] text-white/60">Send the contact</span>
-                  </button>
-                </nav>
-              </div>
-            )}
 
             {hasPortrait && profile.heroImage && (
               <div className="absolute bottom-[-12px] left-5 z-[3] h-[108px] w-[108px] overflow-hidden rounded-full bg-[#1a1a1a] shadow-[0_12px_24px_rgba(0,0,0,0.5)]">
@@ -330,7 +193,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               </>
             )}
 
-            <div className="mt-5 divide-y divide-white/15">
+            <div className="mt-6 divide-y divide-white/12">
               {contactLinks.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -338,7 +201,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                     key={item.id}
                     href={item.href}
                     onClick={() => strike(item.id)}
-                    className="group relative flex items-center gap-3 overflow-hidden px-1 py-3 transition-transform duration-150 ease-out active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                    className="group relative flex items-center gap-3 overflow-hidden py-3.5 transition-transform duration-150 ease-out active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
                   >
@@ -349,7 +212,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                     <span className="min-w-0 flex-1 text-[15px] font-medium tabular-nums text-white/92">
                       {item.title}
                     </span>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-white/45" aria-hidden />
+                    <ChevronRight className="h-4 w-4 shrink-0 text-white/70" aria-hidden />
                   </a>
                 );
               })}
@@ -361,7 +224,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                 strike('save');
                 downloadVCard();
               }}
-              className="relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-accent)] px-5 py-3.5 text-[16px] font-semibold text-white transition-[transform,background-color] duration-150 ease-out hover:bg-[var(--color-accent-dark)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+              className="relative mt-6 flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-accent)] px-5 py-3.5 text-[16px] font-semibold text-white transition-[transform,background-color] duration-150 ease-out hover:bg-[var(--color-accent-dark)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               <Strike tick={strikes.save} light />
               {savedContact ? (
@@ -377,34 +240,31 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               )}
             </button>
             <p className="sr-only" aria-live="polite">
-              {copied ? 'Link copied' : savedContact ? 'Saved to contacts' : ''}
+              {savedContact ? 'Saved to contacts' : ''}
             </p>
 
-            <section className="mt-8" aria-label="Rail services">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="h-5 w-1 rounded-full bg-[var(--color-accent)]" aria-hidden />
-                <h2 className="text-[1.15rem] font-semibold tracking-tight text-white">Our Capabilities</h2>
-              </div>
-              <ul className="space-y-2.5">
-                {railLinks.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        onClick={() => strike(item.href)}
-                        className="relative flex items-center gap-3.5 overflow-hidden rounded-2xl bg-[#1a1a1a] px-4 py-3.5 transition-[transform,background-color] duration-150 ease-out hover:bg-[#222] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                      >
-                        <Strike tick={strikes[item.href]} />
-                        <Icon className="h-[18px] w-[18px] shrink-0 text-white/80" aria-hidden />
-                        <span className="min-w-0 flex-1 text-[14px] font-medium text-white/90">{item.title}</span>
-                        <ChevronRight className="h-4 w-4 shrink-0 text-white/45" aria-hidden />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
+            <div className="mt-3 grid grid-cols-2 border-t border-white/12">
+              <button
+                ref={qrButtonRef}
+                type="button"
+                onClick={() => {
+                  strike('qr');
+                  setShowQr(true);
+                }}
+                className="relative min-h-12 overflow-hidden border-r border-white/12 py-3.5 text-[15px] font-medium tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              >
+                <Strike tick={strikes.qr} />
+                Show QR
+              </button>
+              <a
+                href="/about"
+                onClick={() => strike('profile')}
+                className="relative flex min-h-12 items-center justify-center overflow-hidden px-3 py-3.5 text-center text-[15px] font-medium leading-snug tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              >
+                <Strike tick={strikes.profile} />
+                Read business profile
+              </a>
+            </div>
           </div>
         </main>
       </div>
