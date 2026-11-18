@@ -328,7 +328,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                 className="relative min-h-12 overflow-hidden px-3 py-3.5 text-[15px] font-medium leading-snug tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
               >
                 <Strike tick={strikes.profile} />
-                Read business profile
+                Business Profile
               </button>
             </div>
           </div>
