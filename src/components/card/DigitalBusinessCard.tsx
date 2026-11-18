@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 
 const RAIL_LOGO = '/images/rails/globtek-rail-logo-transparent.png';
+const GGH_SEAL_CORE = '/images/rails/ggh-seal-core.png';
+const GGH_SEAL_RING = '/images/rails/ggh-seal-ring.png';
 const BANNER = '/images/rails/globtek-rail-header.jpg';
 const RAIL_PROFILE_PDF = '/documents/GLOBTEK_Rail_Profile_Q426.pdf';
 
@@ -46,6 +48,8 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
   const closeQrRef = useRef<HTMLButtonElement>(null);
   const profileButtonRef = useRef<HTMLButtonElement>(null);
   const closeProfileRef = useRef<HTMLButtonElement>(null);
+  const sealRef = useRef<HTMLDivElement>(null);
+  const [sealSpinning, setSealSpinning] = useState(true);
 
   const strike = useCallback((id: string) => {
     setStrikes((current) => ({ ...current, [id]: (current[id] ?? 0) + 1 }));
@@ -74,6 +78,17 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
       external: true,
     },
   ] as const;
+
+  useEffect(() => {
+    const node = sealRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setSealSpinning(entry.isIntersecting);
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = showQr || showProfile ? 'hidden' : '';
@@ -156,15 +171,40 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                 className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-[#0c0c0c]"
                 aria-hidden
               />
-              <div className="absolute inset-x-0 top-0 z-[2] px-5 pt-[max(0.9rem,env(safe-area-inset-top))]">
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/[0.04] to-transparent"
+                aria-hidden
+              />
+              <div className="absolute inset-x-0 top-0 z-[2] flex items-center justify-between gap-3 px-5 pt-[max(1rem,env(safe-area-inset-top))]">
                 <Image
                   src={RAIL_LOGO}
                   alt="Globtek Rail"
                   width={180}
                   height={76}
                   priority
-                  className="h-auto w-[158px]"
+                  className="h-auto w-[142px]"
                 />
+                <div ref={sealRef} className="relative h-[80px] w-[80px] shrink-0">
+                  <Image
+                    src={GGH_SEAL_CORE}
+                    alt="Globtek Holdings"
+                    width={150}
+                    height={150}
+                    priority
+                    unoptimized
+                    className="absolute inset-0 h-full w-full"
+                  />
+                  <Image
+                    src={GGH_SEAL_RING}
+                    alt=""
+                    width={150}
+                    height={150}
+                    priority
+                    unoptimized
+                    aria-hidden
+                    className={`absolute inset-0 h-full w-full ${styles.sealRing} ${sealSpinning ? '' : styles.sealPaused}`}
+                  />
+                </div>
               </div>
             </div>
 

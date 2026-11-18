@@ -26,6 +26,14 @@
   animation: card-check 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.sealRing {
+  animation: seal-orbit 8s linear infinite;
+}
+
+.sealPaused {
+  animation-play-state: paused;
+}
+
 @keyframes card-strike {
   from {
     transform: translateX(-120%);
@@ -67,6 +75,12 @@
   }
 }
 
+@keyframes seal-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .strike,
   .strikeLight {
@@ -77,7 +91,8 @@
 
   .nudge,
   .check,
-  .menu {
+  .menu,
+  .sealRing {
     animation: none;
   }
 }
