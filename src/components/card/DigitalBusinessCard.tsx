@@ -21,6 +21,7 @@ import {
 
 const RAIL_LOGO = '/images/rails/globtek-rail-logo-transparent.png';
 const BANNER = '/images/rails/globtek-rail-header.jpg';
+const RAIL_PROFILE_PDF = '/documents/GLOBTEK_Rail_Profile_Q426.pdf';
 
 type DigitalBusinessCardProps = {
   profile: RailCardProfile;
@@ -37,11 +38,14 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
   const hasPortrait = Boolean(profile.heroImage);
 
   const [showQr, setShowQr] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const [savedContact, setSavedContact] = useState(false);
   const [strikes, setStrikes] = useState<Record<string, number>>({});
   const [qrSize, setQrSize] = useState(240);
   const qrButtonRef = useRef<HTMLButtonElement>(null);
   const closeQrRef = useRef<HTMLButtonElement>(null);
+  const profileButtonRef = useRef<HTMLButtonElement>(null);
+  const closeProfileRef = useRef<HTMLButtonElement>(null);
 
   const strike = useCallback((id: string) => {
     setStrikes((current) => ({ ...current, [id]: (current[id] ?? 0) + 1 }));
@@ -72,10 +76,14 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
   ] as const;
 
   useEffect(() => {
-    document.body.style.overflow = showQr ? 'hidden' : '';
-    if (!showQr) return () => {
+    document.body.style.overflow = showQr || showProfile ? 'hidden' : '';
+    return () => {
       document.body.style.overflow = '';
     };
+  }, [showQr, showProfile]);
+
+  useEffect(() => {
+    if (!showQr) return;
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setShowQr(false);
@@ -84,11 +92,25 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
     closeQrRef.current?.focus();
     window.addEventListener('keydown', onKey);
     return () => {
-      document.body.style.overflow = '';
       window.removeEventListener('keydown', onKey);
       qrButtonRef.current?.focus();
     };
   }, [showQr]);
+
+  useEffect(() => {
+    if (!showProfile) return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setShowProfile(false);
+    };
+
+    closeProfileRef.current?.focus();
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      profileButtonRef.current?.focus();
+    };
+  }, [showProfile]);
 
   useEffect(() => {
     if (!showQr) return;
@@ -256,14 +278,18 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                 <Strike tick={strikes.qr} />
                 Show QR
               </button>
-              <a
-                href="/services/rail-infrastructure"
-                onClick={() => strike('profile')}
-                className="relative flex min-h-12 items-center justify-center overflow-hidden px-3 py-3.5 text-center text-[15px] font-medium leading-snug tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              <button
+                ref={profileButtonRef}
+                type="button"
+                onClick={() => {
+                  strike('profile');
+                  setShowProfile(true);
+                }}
+                className="relative min-h-12 overflow-hidden px-3 py-3.5 text-[15px] font-medium leading-snug tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
               >
                 <Strike tick={strikes.profile} />
                 Read business profile
-              </a>
+              </button>
             </div>
           </div>
         </main>
@@ -307,6 +333,35 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
             </div>
             <p className="mt-4 break-all text-center text-[12px] leading-snug text-white/70">{cardUrl}</p>
           </div>
+        </div>
+      )}
+
+      {showProfile && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col bg-[#0c0c0c] text-white"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="profile-dialog-title"
+        >
+          <div className="flex items-center justify-between gap-3 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-3">
+            <h2 id="profile-dialog-title" className="text-[1.05rem] font-semibold tracking-tight">
+              Globtek Rail profile
+            </h2>
+            <button
+              ref={closeProfileRef}
+              type="button"
+              onClick={() => setShowProfile(false)}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white transition-colors hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              aria-label="Close profile"
+            >
+              <X className="h-5 w-5" aria-hidden />
+            </button>
+          </div>
+          <iframe
+            src={RAIL_PROFILE_PDF}
+            title="Globtek Rail business profile"
+            className="min-h-0 w-full flex-1 bg-white"
+          />
         </div>
       )}
     </>
