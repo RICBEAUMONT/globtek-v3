@@ -94,7 +94,7 @@ export const marineCardProfile: RailCardProfile = {
   banner: '/images/marine/globtek-marine-header.jpg',
   bannerPosition: 'object-[center_58%]',
   bannerShade: 'from-black/70',
-  profilePdf: null,
+  profilePdf: '/documents/GLOBTEK_Marine_Profile_Q326.pdf',
 };
 
 export function buildVCard(profile: RailCardProfile, cardUrl: string) {

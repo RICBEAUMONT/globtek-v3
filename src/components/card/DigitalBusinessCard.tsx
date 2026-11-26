@@ -391,7 +391,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
         >
           <div className="flex items-center justify-between gap-3 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-3">
             <h2 id="profile-dialog-title" className="text-[1.05rem] font-semibold tracking-tight">
-              Globtek Rail profile
+              {profile.org ?? 'Globtek Rail'} profile
             </h2>
             <button
               ref={closeProfileRef}
@@ -405,7 +405,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
           </div>
           <iframe
             src={profilePdf}
-            title="Globtek Rail business profile"
+            title={`${profile.org ?? 'Globtek Rail'} business profile`}
             className="min-h-0 w-full flex-1 bg-white"
           />
         </div>
