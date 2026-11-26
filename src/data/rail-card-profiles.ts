@@ -94,7 +94,6 @@ export const marineCardProfile: RailCardProfile = {
   banner: '/images/marine/globtek-marine-header.jpg',
   bannerPosition: 'object-[center_58%]',
   bannerShade: 'from-black/70',
-  qrUrl: 'https://www.globtek.co.za',
   profilePdf: null,
 };
 
