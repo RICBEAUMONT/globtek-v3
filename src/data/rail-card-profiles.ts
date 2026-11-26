@@ -8,6 +8,17 @@ export type RailCardProfile = {
   expertise?: string;
   isCompany?: boolean;
   heroImage?: string;
+  tagline?: string;
+  org?: string;
+  logo?: string;
+  logoWidth?: string;
+  logoIntrinsicWidth?: number;
+  logoIntrinsicHeight?: number;
+  banner?: string;
+  bannerPosition?: string;
+  bannerShade?: string;
+  qrUrl?: string;
+  profilePdf?: string | null;
 };
 
 const SITE_ORIGIN = 'https://www.globtek.co.za';
@@ -66,20 +77,42 @@ export function getCardProfileBySlug(slug: string): RailCardProfile | undefined 
   return allCardProfiles.find((profile) => profile.slug === slug);
 }
 
+export const marineCardProfile: RailCardProfile = {
+  slug: 'marine',
+  name: 'Lungisa Douse',
+  phone: '071 606 9539',
+  phoneE164: '+27716069539',
+  email: 'lungisa@globtek.co.za',
+  expertise: 'CEng & MRINA | MSc Naval Architect',
+  title: 'Group COO',
+  org: 'Globtek Marine',
+  heroImage: '/images/rails/profiles/lungisa-douse.png',
+  logo: '/images/marine/globtek-marine-logo.png',
+  logoWidth: 'w-[136px]',
+  logoIntrinsicWidth: 388,
+  logoIntrinsicHeight: 159,
+  banner: '/images/marine/globtek-marine-header.jpg',
+  bannerPosition: 'object-[center_58%]',
+  bannerShade: 'from-black/70',
+  qrUrl: 'https://www.globtek.co.za',
+  profilePdf: null,
+};
+
 export function buildVCard(profile: RailCardProfile, cardUrl: string) {
   const fileName = profile.name.toLowerCase().replace(/\s+/g, '-');
-  const note = profile.expertise
-    ? `${profile.expertise} | Globtek Rail — infrastructure design, inspection & lifecycle engineering`
-    : 'Globtek Rail — infrastructure design, inspection & lifecycle engineering';
+  const org = profile.org ?? 'Globtek Rail';
+  const url = profile.qrUrl ?? cardUrl;
+  const line = profile.tagline ?? 'infrastructure design, inspection & lifecycle engineering';
+  const note = profile.expertise ? `${profile.expertise} | ${org} — ${line}` : `${org} — ${line}`;
   const phoneType = profile.isCompany ? 'WORK,VOICE' : 'CELL,VOICE';
 
   return {
     content: `BEGIN:VCARD
 VERSION:3.0
 FN:${profile.name}
-ORG:Globtek Rail;Globtek
+ORG:${org};Globtek
 TITLE:${profile.title}
-URL:${cardUrl}
+URL:${url}
 TEL;TYPE=${phoneType}:${profile.phoneE164}
 EMAIL:${profile.email}
 ADR;TYPE=WORK:;;62 Smiso Nkwanyana Road;Durban;;4001;South Africa

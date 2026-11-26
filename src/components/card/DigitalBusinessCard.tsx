@@ -36,8 +36,12 @@ function Strike({ tick, light = false }: { tick?: number; light?: boolean }) {
 
 export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProps) {
   const cardUrl = getCardUrl(profile.slug);
+  const shareUrl = profile.qrUrl ?? cardUrl;
   const vcard = buildVCard(profile, cardUrl);
   const hasPortrait = Boolean(profile.heroImage);
+  const logo = profile.logo ?? RAIL_LOGO;
+  const banner = profile.banner ?? BANNER;
+  const profilePdf = profile.profilePdf === undefined ? RAIL_PROFILE_PDF : profile.profilePdf;
 
   const [showQr, setShowQr] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
@@ -160,15 +164,15 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
           <header className="relative">
             <div className="relative h-[268px] overflow-hidden sm:rounded-t-[28px]">
               <Image
-                src={BANNER}
+                src={banner}
                 alt=""
                 fill
                 priority
                 sizes="(max-width: 640px) 100vw, 420px"
-                className="object-cover object-[center_84%]"
+                className={`object-cover ${profile.bannerPosition ?? 'object-[center_84%]'}`}
               />
               <div
-                className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-[#0c0c0c]"
+                className={`absolute inset-0 bg-gradient-to-b ${profile.bannerShade ?? 'from-black/55'} via-black/10 to-[#0c0c0c]`}
                 aria-hidden
               />
               <div
@@ -177,12 +181,12 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               />
               <div className="absolute inset-x-0 top-0 z-[2] flex items-center justify-between gap-3 px-5 pt-[max(1rem,env(safe-area-inset-top))]">
                 <Image
-                  src={RAIL_LOGO}
-                  alt="Globtek Rail"
-                  width={180}
-                  height={76}
+                  src={logo}
+                  alt={profile.org ?? 'Globtek Rail'}
+                  width={profile.logoIntrinsicWidth ?? 180}
+                  height={profile.logoIntrinsicHeight ?? 76}
                   priority
-                  className="h-auto w-[142px]"
+                  className={`h-auto ${profile.logoWidth ?? 'w-[142px]'}`}
                 />
                 <div ref={sealRef} className="relative h-[80px] w-[80px] shrink-0">
                   <Image
@@ -240,7 +244,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               <>
                 <h1 className="sr-only">{profile.name}</h1>
                 <p className="max-w-[28ch] text-[17px] leading-snug text-white/80">
-                  Infrastructure design, inspection &amp; lifecycle engineering
+                  {profile.tagline ?? 'Infrastructure design, inspection & lifecycle engineering'}
                 </p>
               </>
             ) : (
@@ -305,7 +309,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
               {savedContact ? 'Saved to contacts' : ''}
             </p>
 
-            <div className="mt-3 grid grid-cols-2 border-t border-white/12">
+            <div className={`mt-3 border-t border-white/12 ${profilePdf ? 'grid grid-cols-2' : ''}`}>
               <button
                 ref={qrButtonRef}
                 type="button"
@@ -313,23 +317,25 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
                   strike('qr');
                   setShowQr(true);
                 }}
-                className="relative min-h-12 overflow-hidden border-r border-white/12 py-3.5 text-[15px] font-medium tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                className={`relative min-h-12 w-full overflow-hidden py-3.5 text-center text-[15px] font-medium tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${profilePdf ? 'border-r border-white/12' : ''}`}
               >
                 <Strike tick={strikes.qr} />
                 Show QR
               </button>
-              <button
-                ref={profileButtonRef}
-                type="button"
-                onClick={() => {
-                  strike('profile');
-                  setShowProfile(true);
-                }}
-                className="relative min-h-12 overflow-hidden px-3 py-3.5 text-[15px] font-medium leading-snug tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-              >
-                <Strike tick={strikes.profile} />
-                Business Profile
-              </button>
+              {profilePdf && (
+                <button
+                  ref={profileButtonRef}
+                  type="button"
+                  onClick={() => {
+                    strike('profile');
+                    setShowProfile(true);
+                  }}
+                  className="relative min-h-12 overflow-hidden px-3 py-3.5 text-[15px] font-medium leading-snug tracking-tight text-white transition-transform duration-150 ease-out hover:text-[var(--color-accent-light)] active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+                >
+                  <Strike tick={strikes.profile} />
+                  Business Profile
+                </button>
+              )}
             </div>
           </div>
         </main>
@@ -368,15 +374,15 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
 
             <div className="flex justify-center">
               <div className="rounded-2xl bg-white p-4">
-                <QRCode value={cardUrl} size={qrSize} level="M" />
+                <QRCode value={shareUrl} size={qrSize} level="M" />
               </div>
             </div>
-            <p className="mt-4 break-all text-center text-[12px] leading-snug text-white/70">{cardUrl}</p>
+            <p className="mt-4 break-all text-center text-[12px] leading-snug text-white/70">{shareUrl}</p>
           </div>
         </div>
       )}
 
-      {showProfile && (
+      {showProfile && profilePdf && (
         <div
           className="fixed inset-0 z-50 flex flex-col bg-[#0c0c0c] text-white"
           role="dialog"
@@ -398,7 +404,7 @@ export default function DigitalBusinessCard({ profile }: DigitalBusinessCardProp
             </button>
           </div>
           <iframe
-            src={RAIL_PROFILE_PDF}
+            src={profilePdf}
             title="Globtek Rail business profile"
             className="min-h-0 w-full flex-1 bg-white"
           />
